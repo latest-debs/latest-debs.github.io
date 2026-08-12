@@ -36,13 +36,40 @@
     }
 
     // --- Join state -----------------------------------------------------
-    // The packages table and the Debian-version lookup arrive from two
-    // independent async fetches that can complete in either order. Each
-    // renders with whatever it has; whichever finishes second fills in
-    // the other's gaps rather than re-fetching or blocking on the other.
-    let latestPackages = null; // [{name, version, description}]
+    // The tools registry, the packages table, and the Debian-version
+    // lookup arrive from three independent async fetches that can complete
+    // in any order. Each renders with whatever it has; whichever finishes
+    // last fills in the others' gaps rather than re-fetching or blocking.
+    //
+    // trackedTools (from apt-repo's tools.yaml) is the source of truth for
+    // "what does latest-debs track" - it's the same registry the build
+    // itself reads, so a tool shows up here the moment it's added, not
+    // just once it has a published release. latestPackages (from the live
+    // Packages control file) only covers tools with a published .deb; a
+    // tracked tool with no match there is still mid-build.
+    let trackedTools = null; // [{name, source, homepage}] - every tool latest-debs tracks
+    let latestPackages = null; // [{name, version, description}] - only tools with a published .deb
     let debianVersions = null; // {generated_at, suite, packages: {name: version|null}}
     let packagesFilter = ''; // lowercased substring typed into #packages-filter
+
+    // tools.yaml is a flat "name:\n  source: ...\n  homepage: ...\n" list,
+    // not full YAML - regex lines are enough and avoid pulling in a parser
+    // for one small file.
+    function parseToolsYaml(text) {
+      const tools = [];
+      let current = null;
+      for (const line of text.split('\n')) {
+        const key = line.match(/^(\S+):\s*$/);
+        if (key) {
+          current = { name: key[1], source: '', homepage: '' };
+          tools.push(current);
+          continue;
+        }
+        const field = line.match(/^\s+(source|homepage):\s*(.+)$/);
+        if (field && current) current[field[1]] = field[2].trim();
+      }
+      return tools.sort((a, b) => a.name.localeCompare(b.name));
+    }
 
     function debianCell(pkgName) {
       if (!debianVersions) return '<span class="pending">…</span>';
@@ -52,34 +79,54 @@
         : '<span class="not-packaged">not packaged</span>';
     }
 
+    function packagesMeta() {
+      if (!trackedTools) return 'Loading the tool registry…';
+      if (!latestPackages) return `${trackedTools.length} tools tracked. Loading published versions…`;
+      const live = trackedTools.filter((t) => latestPackages.some((p) => p.name === t.name)).length;
+      return `${trackedTools.length} tools tracked, ${live} live from the Trixie suite. Refreshes automatically.`;
+    }
+
+    function renderPackagesMeta() {
+      const meta = document.getElementById('packages-meta');
+      if (meta) meta.textContent = packagesMeta();
+    }
+
     function renderPackagesTable() {
       const body = document.getElementById('packages-body');
-      if (!latestPackages || !body) return;
+      if (!trackedTools || !body) return;
 
-      const visible = latestPackages.filter(
-        (pkg) =>
-          !packagesFilter ||
-          pkg.name.toLowerCase().includes(packagesFilter) ||
-          pkg.description.toLowerCase().includes(packagesFilter)
-      );
+      const visible = trackedTools.filter((tool) => {
+        const pkg = latestPackages && latestPackages.find((p) => p.name === tool.name);
+        const haystack = tool.name + ' ' + (pkg ? pkg.description : '');
+        return !packagesFilter || haystack.toLowerCase().includes(packagesFilter);
+      });
 
       body.innerHTML = visible.length
         ? visible
-            .map(
-              (pkg) => `
-        <tr data-pkg="${pkg.name}">
-          <td><a href="https://github.com/latest-debs/${pkg.name}-debian">${pkg.name}</a></td>
-          <td>${escapeHtml(pkg.description)}</td>
-          <td>${escapeHtml(cleanOwnVersion(pkg.version))}</td>
-          <td class="debian-col">${debianCell(pkg.name)}</td>
-        </tr>`
-            )
+            .map((tool) => {
+              const pkg = latestPackages && latestPackages.find((p) => p.name === tool.name);
+              const versionCell = pkg
+                ? escapeHtml(cleanOwnVersion(pkg.version))
+                : latestPackages
+                ? '<span class="not-packaged">building…</span>'
+                : '<span class="pending">…</span>';
+              const href = tool.source || `https://github.com/latest-debs/${tool.name}-debian`;
+              return `
+        <tr data-pkg="${tool.name}">
+          <td><a href="${escapeHtml(href)}">${escapeHtml(tool.name)}</a></td>
+          <td>${pkg ? escapeHtml(pkg.description) : ''}</td>
+          <td>${versionCell}</td>
+          <td class="debian-col">${debianCell(tool.name)}</td>
+        </tr>`;
+            })
             .join('')
         : '<tr><td colspan="4">No packages match your filter.</td></tr>';
+
+      renderPackagesMeta();
     }
 
-    // Re-filters the already-fetched package list client-side; no
-    // re-fetch, since the full list is already in memory.
+    // Re-filters the already-fetched tool list client-side; no re-fetch,
+    // since the full list is already in memory.
     function filterPackagesTable(value) {
       packagesFilter = value.trim().toLowerCase();
       renderPackagesTable();
@@ -97,6 +144,35 @@
       });
     }
 
+    // tools.yaml lives in a different repo, so this is a genuine
+    // cross-origin fetch (unlike the apt-repo control files below, which
+    // are same-origin under latest-debs.github.io/apt-repo/). htmx blocks
+    // cross-origin hx-get by default (htmx:invalidPath) regardless of the
+    // target's CORS headers, so this one goes through plain fetch()
+    // instead rather than disabling that guard page-wide.
+    function loadToolsRegistry() {
+      fetch('https://raw.githubusercontent.com/latest-debs/apt-repo/main/tools.yaml')
+        .then((r) => {
+          if (!r.ok) throw new Error('HTTP ' + r.status);
+          return r.text();
+        })
+        .then((text) => {
+          trackedTools = parseToolsYaml(text);
+          renderPackagesTable();
+        })
+        .catch(() => {
+          if (trackedTools) return; // already have a good copy, ignore a failed refresh
+          const body = document.getElementById('packages-body');
+          if (body) {
+            body.innerHTML =
+              '<tr><td colspan="4">Could not load the tool registry — see ' +
+              '<a href="https://github.com/latest-debs/apt-repo/blob/main/tools.yaml">tools.yaml</a> directly.</td></tr>';
+          }
+          const meta = document.getElementById('packages-meta');
+          if (meta) meta.textContent = 'Tool registry unavailable right now.';
+        });
+    }
+
     htmx.defineExtension('debctrl-packages', {
       transformResponse: function (text) {
         latestPackages = text
@@ -112,21 +188,15 @@
               description: desc ? desc[1].trim() : '',
             };
           })
-          .filter((pkg) => pkg.name)
-          .sort((a, b) => a.name.localeCompare(b.name));
+          .filter((pkg) => pkg.name);
 
         renderPackagesTable();
-
-        // Out-of-band swap: htmx spots hx-swap-oob anywhere in the
-        // returned content and swaps it into its own matching-id target,
-        // independently of the main #packages-body swap below.
-        const meta = latestPackages.length
-          ? `${latestPackages.length} tools, live from the Trixie suite. Refreshes automatically.`
-          : 'No packages found.';
-        return `<span id="packages-meta" hx-swap-oob="true">${meta}</span>`;
-        // #packages-body itself is populated by renderPackagesTable()
-        // above rather than through this return value, since it also
-        // needs to be re-render-able from the Debian-side fetch alone.
+        return '';
+        // #packages-body and #packages-meta are both populated by
+        // renderPackagesTable()/renderPackagesMeta() above rather than
+        // through this return value, since they also need to be
+        // re-render-able from the tools-registry and Debian-side fetches
+        // alone.
       },
     });
 
@@ -137,7 +207,7 @@
         } catch (e) {
           debianVersions = { packages: {} };
         }
-        if (latestPackages) {
+        if (trackedTools) {
           patchDebianColumn();
         }
         return ''; // this element has nothing of its own to display
@@ -249,12 +319,12 @@
     document.addEventListener('htmx:sendError', handleLoadFailure);
 
     function handleLoadFailure(evt) {
-      if (evt.target.id === 'packages-body' && !latestPackages) {
-        evt.target.innerHTML =
-          '<tr><td colspan="4">Could not load the live package list — see the ' +
-          '<a href="https://latest-debs.github.io/apt-repo/dists/trixie/main/binary-amd64/Packages">Packages file</a> directly.</td></tr>';
-        const meta = document.getElementById('packages-meta');
-        if (meta) meta.textContent = 'Live list unavailable right now.';
+      if (evt.target.id === 'packages-body' && trackedTools && !latestPackages) {
+        // Registry loaded fine, only the version/description fetch
+        // failed - render the table anyway with every tool showing as
+        // "building…" rather than blocking on this secondary source.
+        latestPackages = [];
+        renderPackagesTable();
       }
       if (evt.target.dataset && evt.target.dataset.suite) {
         // A failed suite fetch just leaves that suite out of the union/
@@ -269,7 +339,11 @@
 
     function manualRefresh() {
       htmx.trigger(document.body, 'refresh-click');
+      loadToolsRegistry();
     }
+
+    document.addEventListener('DOMContentLoaded', loadToolsRegistry);
+    setInterval(loadToolsRegistry, 5 * 60 * 1000);
   </script>
   <style>
     :root {
@@ -376,7 +450,7 @@ sudo apt update</code></pre>
       Packages
       <button class="refresh-btn" onclick="manualRefresh()" type="button">↻ Refresh now</button>
     </h2>
-    <p class="tag" id="packages-meta">Loading the live package list from the apt repository…</p>
+    <p class="tag" id="packages-meta">Loading the tool registry…</p>
     <input type="text" id="packages-filter" class="filter-input" placeholder="Filter packages by name or description…" oninput="filterPackagesTable(this.value)" autocomplete="off">
     <table>
       <thead><tr><th>Tool</th><th>Description</th><th>latest-debs</th><th>Debian (Trixie, stable)</th></tr></thead>
