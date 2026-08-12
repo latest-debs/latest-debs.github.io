@@ -5,6 +5,83 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>latest-debs — Latest dev tools, packaged for Debian</title>
   <meta name="description" content="Latest stable releases of developer tools as Debian packages, served over apt. uv, eza, lazygit and more.">
+  <script src="vendor/htmx.min.js"></script>
+  <script>
+    // Packages and architectures are pulled live from the apt repository's
+    // own Debian control files (dists/bookworm/{Release,main/binary-amd64/Packages})
+    // rather than hardcoded here, so this page can never drift out of sync
+    // with what's actually published - the same class of "stale claim" bug
+    // that kept creeping into every README in this org until each one got
+    // audited by hand.
+    //
+    // htmx's core swap expects the response body to already be HTML; ours is
+    // Debian's plain-text control-file format, so these two extensions use
+    // transformResponse to turn that text into HTML/plain text before the
+    // normal hx-swap takes over. Everything else (fetch, trigger, swap,
+    // error handling) is plain declarative htmx.
+    function escapeHtml(s) {
+      return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    }
+
+    htmx.defineExtension('debctrl-packages', {
+      transformResponse: function (text) {
+        const packages = text
+          .split(/\n\n+/)
+          .filter((stanza) => stanza.trim())
+          .map((stanza) => {
+            const name = stanza.match(/^Package:\s*(.+)$/m);
+            const desc = stanza.match(/^Description:\s*(.+)$/m);
+            return {
+              name: name ? name[1].trim() : null,
+              description: desc ? desc[1].trim() : '',
+            };
+          })
+          .filter((pkg) => pkg.name)
+          .sort((a, b) => a.name.localeCompare(b.name));
+
+        const meta = document.getElementById('packages-meta');
+        if (meta) {
+          meta.textContent = packages.length
+            ? `${packages.length} tools, live from the Bookworm suite.`
+            : 'No packages found.';
+        }
+
+        return packages
+          .map(
+            (pkg) => `
+        <tr>
+          <td><a href="https://github.com/latest-debs/${pkg.name}-debian">${pkg.name}</a></td>
+          <td>${escapeHtml(pkg.description)}</td>
+          <td><code>sudo apt install ${pkg.name}</code></td>
+        </tr>`
+          )
+          .join('');
+      },
+    });
+
+    htmx.defineExtension('debctrl-arch', {
+      transformResponse: function (text) {
+        const match = text.match(/^Architectures:\s*(.+)$/m);
+        return match ? match[1].trim().split(/\s+/).join(', ') : 'unknown';
+      },
+    });
+
+    document.addEventListener('htmx:responseError', handleLoadFailure);
+    document.addEventListener('htmx:sendError', handleLoadFailure);
+
+    function handleLoadFailure(evt) {
+      if (evt.target.id === 'packages-body') {
+        evt.target.innerHTML =
+          '<tr><td colspan="3">Could not load the live package list — see the ' +
+          '<a href="https://latest-debs.github.io/apt-repo/dists/bookworm/main/binary-amd64/Packages">Packages file</a> directly.</td></tr>';
+        const meta = document.getElementById('packages-meta');
+        if (meta) meta.textContent = 'Live list unavailable right now.';
+      }
+      if (evt.target.id === 'architectures') {
+        evt.target.textContent = 'see the apt repository for the current list';
+      }
+    }
+  </script>
   <style>
     :root { color-scheme: dark light; }
     * { box-sizing: border-box; }
@@ -81,7 +158,11 @@ sudo apt update</code></pre>
     <p class="tag" id="packages-meta">Loading the live package list from the apt repository…</p>
     <table>
       <thead><tr><th>Tool</th><th>Description</th><th>Install</th></tr></thead>
-      <tbody id="packages-body">
+      <tbody id="packages-body"
+             hx-ext="debctrl-packages"
+             hx-get="https://latest-debs.github.io/apt-repo/dists/bookworm/main/binary-amd64/Packages"
+             hx-trigger="load"
+             hx-swap="innerHTML">
         <tr><td colspan="3">Loading…</td></tr>
       </tbody>
     </table>
@@ -90,7 +171,14 @@ sudo apt update</code></pre>
   <section>
     <h2>Supported</h2>
     <p><strong>Debian:</strong> Bookworm (12), Trixie (13), Forky (14/testing), Sid (unstable)</p>
-    <p><strong>Architectures:</strong> <span id="architectures">loading…</span> — whichever each upstream actually publishes a Linux build for. Pulled live from Bookworm's <code>Release</code> file; Forky and Sid currently match this minus <code>i386</code>.</p>
+    <p><strong>Architectures:</strong>
+      <span id="architectures"
+            hx-ext="debctrl-arch"
+            hx-get="https://latest-debs.github.io/apt-repo/dists/bookworm/Release"
+            hx-trigger="load"
+            hx-swap="innerHTML">loading…</span>
+      — whichever each upstream actually publishes a Linux build for. Pulled live from Bookworm's <code>Release</code> file; Forky and Sid currently match this minus <code>i386</code>.
+    </p>
   </section>
 
   <footer>
@@ -99,81 +187,5 @@ sudo apt update</code></pre>
     <p><a href="https://github.com/latest-debs/apt-repo">apt-repo</a> · <a href="https://github.com/orgs/latest-debs/discussions">Discussions</a></p>
   </footer>
 </div>
-<script>
-  // Packages and architectures are pulled live from the apt repository's own
-  // Debian control files (dists/bookworm/{Release,main/binary-amd64/Packages})
-  // rather than hardcoded here, so this page can never drift out of sync
-  // with what's actually published - the same class of "stale claim" bug
-  // that kept creeping into every README in this org until each one got
-  // audited by hand.
-  const REPO_BASE = 'https://latest-debs.github.io/apt-repo/dists/bookworm';
-
-  function escapeHtml(s) {
-    return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-  }
-
-  function parseArchitectures(releaseText) {
-    const match = releaseText.match(/^Architectures:\s*(.+)$/m);
-    return match ? match[1].trim().split(/\s+/) : [];
-  }
-
-  function parsePackages(packagesText) {
-    return packagesText
-      .split(/\n\n+/)
-      .filter((stanza) => stanza.trim())
-      .map((stanza) => {
-        const name = stanza.match(/^Package:\s*(.+)$/m);
-        const desc = stanza.match(/^Description:\s*(.+)$/m);
-        return {
-          name: name ? name[1].trim() : null,
-          description: desc ? desc[1].trim() : '',
-        };
-      })
-      .filter((pkg) => pkg.name)
-      .sort((a, b) => a.name.localeCompare(b.name));
-  }
-
-  async function loadRepoData() {
-    const archEl = document.getElementById('architectures');
-    const packagesBody = document.getElementById('packages-body');
-    const packagesMeta = document.getElementById('packages-meta');
-
-    try {
-      const [releaseText, packagesText] = await Promise.all([
-        fetch(`${REPO_BASE}/Release`).then((r) => r.text()),
-        fetch(`${REPO_BASE}/main/binary-amd64/Packages`).then((r) => r.text()),
-      ]);
-
-      const architectures = parseArchitectures(releaseText);
-      if (architectures.length) {
-        archEl.textContent = architectures.join(', ');
-      }
-
-      const packages = parsePackages(packagesText);
-      if (packages.length) {
-        packagesBody.innerHTML = packages
-          .map(
-            (pkg) => `
-        <tr>
-          <td><a href="https://github.com/latest-debs/${pkg.name}-debian">${pkg.name}</a></td>
-          <td>${escapeHtml(pkg.description)}</td>
-          <td><code>sudo apt install ${pkg.name}</code></td>
-        </tr>`
-          )
-          .join('');
-        packagesMeta.textContent = `${packages.length} tools, live from the Bookworm suite.`;
-      }
-    } catch (err) {
-      archEl.textContent = 'see the apt repository for the current list';
-      packagesBody.innerHTML =
-        '<tr><td colspan="3">Could not load the live package list — see the <a href="' +
-        REPO_BASE +
-        '/main/binary-amd64/Packages">Packages file</a> directly.</td></tr>';
-      packagesMeta.textContent = 'Live list unavailable right now.';
-    }
-  }
-
-  loadRepoData();
-</script>
 </body>
 </html>
