@@ -127,10 +127,104 @@
       },
     });
 
-    htmx.defineExtension('debctrl-arch', {
-      transformResponse: function (text) {
+    // --- Architectures table ---------------------------------------------
+    // "What it is" / device-role context is static (there's no live API for
+    // it, and fabricating precise device-count numbers would be exactly the
+    // kind of unverifiable claim this whole page got rebuilt to stop
+    // making); "Available suites" is still live, built from all 4 suites'
+    // Release files rather than just Trixie's, so it can't go stale either.
+    const ARCH_INFO = {
+      amd64: {
+        name: '64-bit x86 (Intel/AMD)',
+        devices: 'Billions — dominant for PCs, laptops, servers',
+        popular: 'Most Windows/Linux PCs and laptops; virtually all standard cloud server instances (AWS, GCP, Azure)',
+      },
+      arm64: {
+        name: '64-bit ARM (aarch64)',
+        devices: 'Billions — dominant in mobile, fast-growing in servers',
+        popular: 'Raspberry Pi 3/4/5, Apple Silicon Macs (via Linux VMs), AWS Graviton instances, most modern Android devices, ARM SBCs',
+      },
+      armhf: {
+        name: '32-bit ARM, hard-float',
+        devices: 'Hundreds of millions — legacy embedded/SBC',
+        popular: 'Raspberry Pi 1/2/Zero, older ARM single-board computers, embedded/IoT devices',
+      },
+      i386: {
+        name: '32-bit x86',
+        devices: 'Declining — legacy hardware only',
+        popular: 'Pre-2010s PCs; increasingly rare outside old embedded systems',
+      },
+      ppc64el: {
+        name: '64-bit PowerPC, little-endian',
+        devices: 'Niche — enterprise/HPC',
+        popular: 'IBM POWER servers, some HPC clusters',
+      },
+      riscv64: {
+        name: '64-bit RISC-V',
+        devices: 'Emerging — growing fast',
+        popular: 'RISC-V dev boards (VisionFive, Milk-V, StarFive), newer SBCs',
+      },
+      s390x: {
+        name: 'IBM Z mainframe architecture',
+        devices: 'Niche — mainframe/enterprise',
+        popular: 'IBM Z mainframes (banking, finance, large enterprise workloads)',
+      },
+      loong64: {
+        name: '64-bit LoongArch',
+        devices: 'Emerging — primarily China-market',
+        popular: 'Loongson 3A5000/3A6000-based desktops, laptops, and servers',
+      },
+      armel: {
+        name: '32-bit ARM, soft-float',
+        devices: 'Legacy — Debian itself is phasing this out (upgrades only, no new installs as of Trixie)',
+        popular: 'Older ARM devices predating hardware floating-point (largely obsolete)',
+      },
+    };
+
+    const SUITES = ['bookworm', 'trixie', 'forky', 'sid'];
+    let suiteArchitectures = {}; // { bookworm: [...], trixie: [...], ... } - filled in as each resolves
+
+    function suiteLabel(s) {
+      return s.charAt(0).toUpperCase() + s.slice(1);
+    }
+
+    function renderArchTable() {
+      const body = document.getElementById('architectures-body');
+      if (!body) return;
+
+      const allArchs = new Set();
+      Object.values(suiteArchitectures).forEach((archs) => archs.forEach((a) => allArchs.add(a)));
+      if (allArchs.size === 0) return; // nothing resolved yet, leave the loading row
+
+      body.innerHTML = Array.from(allArchs)
+        .sort()
+        .map((arch) => {
+          const info = ARCH_INFO[arch] || { name: '—', devices: '—', popular: '—' };
+          const resolvedSuites = SUITES.filter((s) => suiteArchitectures[s]);
+          const presentIn = SUITES.filter((s) => (suiteArchitectures[s] || []).includes(arch));
+          const suitesText =
+            resolvedSuites.length < SUITES.length && presentIn.length === 0
+              ? '<span class="pending">…</span>'
+              : presentIn.map(suiteLabel).join(', ') || '<span class="pending">…</span>';
+          return `
+        <tr>
+          <td><code>${arch}</code></td>
+          <td>${info.name}</td>
+          <td>${info.devices}</td>
+          <td>${info.popular}</td>
+          <td>${suitesText}</td>
+        </tr>`;
+        })
+        .join('');
+    }
+
+    htmx.defineExtension('debctrl-arch-suite', {
+      transformResponse: function (text, xhr, elt) {
+        const suite = elt.dataset.suite;
         const match = text.match(/^Architectures:\s*(.+)$/m);
-        return match ? match[1].trim().split(/\s+/).join(', ') : 'unknown';
+        suiteArchitectures[suite] = match ? match[1].trim().split(/\s+/) : [];
+        renderArchTable();
+        return '';
       },
     });
 
@@ -145,8 +239,12 @@
         const meta = document.getElementById('packages-meta');
         if (meta) meta.textContent = 'Live list unavailable right now.';
       }
-      if (evt.target.id === 'architectures') {
-        evt.target.textContent = 'see the apt repository for the current list';
+      if (evt.target.dataset && evt.target.dataset.suite) {
+        // A failed suite fetch just leaves that suite out of the union/
+        // "Available suites" columns rather than blocking the table -
+        // the other 3 suites still render correctly.
+        suiteArchitectures[evt.target.dataset.suite] = suiteArchitectures[evt.target.dataset.suite] || [];
+        renderArchTable();
       }
       // A failed debian-versions fetch just leaves the column showing "…"
       // rather than blocking the rest of the page.
@@ -291,14 +389,27 @@ sudo apt update</code></pre>
       </tbody>
     </table>
     <p class="tag" style="margin-top:.75rem">Dates per <a href="https://www.debian.org/releases/">debian.org/releases</a>. Bookworm's regular security support window has closed; it's now community-maintained under LTS until mid-2028.</p>
-    <p style="margin-top:1.25rem"><strong>Architectures:</strong>
-      <span id="architectures"
-            hx-ext="debctrl-arch"
-            hx-get="https://latest-debs.github.io/apt-repo/dists/trixie/Release"
-            hx-trigger="load, every 5m, refresh-click from:body"
-            hx-swap="innerHTML">loading…</span>
-      — whichever each upstream actually publishes a Linux build for. Pulled live from Trixie's <code>Release</code> file; Forky and Sid currently match this minus <code>i386</code>.
-    </p>
+
+    <h3 style="margin-top:1.75rem; font-size:1.1rem; color:#c9d1d9;">Architectures</h3>
+    <table>
+      <thead><tr><th>Architecture</th><th>What it is</th><th>Estimated device count</th><th>Popular devices</th><th>Available suites</th></tr></thead>
+      <tbody id="architectures-body">
+        <tr><td colspan="5">Loading…</td></tr>
+      </tbody>
+    </table>
+    <p class="tag" style="margin-top:.5rem">Only architectures at least one tracked tool actually publishes a Linux build for are listed. Device-count/popularity are qualitative context, not precise figures — there's no live metric for that; "Available suites" is live, pulled from each suite's own <code>Release</code> file.</p>
+    <div hx-ext="debctrl-arch-suite" data-suite="bookworm"
+         hx-get="https://latest-debs.github.io/apt-repo/dists/bookworm/Release"
+         hx-trigger="load, every 5m, refresh-click from:body" hx-swap="none" style="display:none"></div>
+    <div hx-ext="debctrl-arch-suite" data-suite="trixie"
+         hx-get="https://latest-debs.github.io/apt-repo/dists/trixie/Release"
+         hx-trigger="load, every 5m, refresh-click from:body" hx-swap="none" style="display:none"></div>
+    <div hx-ext="debctrl-arch-suite" data-suite="forky"
+         hx-get="https://latest-debs.github.io/apt-repo/dists/forky/Release"
+         hx-trigger="load, every 5m, refresh-click from:body" hx-swap="none" style="display:none"></div>
+    <div hx-ext="debctrl-arch-suite" data-suite="sid"
+         hx-get="https://latest-debs.github.io/apt-repo/dists/sid/Release"
+         hx-trigger="load, every 5m, refresh-click from:body" hx-swap="none" style="display:none"></div>
   </section>
 
   <footer>
