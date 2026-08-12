@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1c1f26"/>
+      <stop offset="100%" stop-color="#0f1115"/>
+    </linearGradient>
+    <linearGradient id="top" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f3b562"/>
+      <stop offset="100%" stop-color="#e0862f"/>
+    </linearGradient>
+    <linearGradient id="left" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#d97a2a"/>
+      <stop offset="100%" stop-color="#b85a1a"/>
+    </linearGradient>
+    <linearGradient id="right" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#c96a22"/>
+      <stop offset="100%" stop-color="#9c4a14"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="512" height="512" rx="104" fill="url(#bg)"/>
+
+  <!-- isometric package glyph, centered -->
+  <g transform="translate(256,266)">
+    <!-- top facet -->
+    <path d="M 0,-108 L 93,-54 L 0,0 L -93,-54 Z" fill="url(#top)"/>
+    <!-- left facet -->
+    <path d="M -93,-54 L 0,0 L 0,108 L -93,54 Z" fill="url(#left)"/>
+    <!-- right facet -->
+    <path d="M 93,-54 L 0,0 L 0,108 L 93,54 Z" fill="url(#right)"/>
+    <!-- seam lines for a crafted, non-flat feel -->
+    <path d="M 0,-108 L 0,0 M -93,-54 L 0,0 M 93,-54 L 0,0" stroke="#0f1115" stroke-width="3" stroke-opacity="0.35" fill="none"/>
+  </g>
+</svg>
