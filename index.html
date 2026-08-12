@@ -44,7 +44,7 @@
 <div class="wrap">
   <header>
     <img src="https://raw.githubusercontent.com/latest-debs/.github/main/assets/latest-debs-logo.svg" alt="latest-debs">
-    <h1>deb<code>latest</code></h1>
+    <h1>latest-debs</h1>
     <p class="tag">Latest dev tools, packaged for Debian — automatically.</p>
     <p>
       <a class="btn btn-primary" href="#install">Install</a>
@@ -68,7 +68,7 @@
     <p>On Debian, via <a href="https://salsa.debian.org/extrepo-team/extrepo">extrepo</a>:</p>
     <pre><code>sudo extrepo enable latest-debs
 sudo apt update
-sudo apt install uv eza lazygit</code></pre>
+sudo apt install uv eza lazygit ruff bun deno duckdb lazydocker</code></pre>
     <p>Or manually:</p>
     <pre><code>sudo install -d -m 0755 /etc/apt/keyrings
 curl -fsSL https://raw.githubusercontent.com/latest-debs/apt-repo/main/latest-debs.asc | sudo gpg --dearmor --yes -o /etc/apt/keyrings/latest-debs.gpg
@@ -78,12 +78,11 @@ sudo apt update</code></pre>
 
   <section>
     <h2>Packages</h2>
+    <p class="tag" id="packages-meta">Loading the live package list from the apt repository…</p>
     <table>
       <thead><tr><th>Tool</th><th>Description</th><th>Install</th></tr></thead>
-      <tbody>
-        <tr><td><a href="https://github.com/latest-debs/uv-debian">uv</a></td><td>Fast Python package &amp; project manager</td><td><code>sudo apt install uv</code></td></tr>
-        <tr><td><a href="https://github.com/latest-debs/eza-debian">eza</a></td><td>Modern <code>ls</code> replacement</td><td><code>sudo apt install eza</code></td></tr>
-        <tr><td><a href="https://github.com/latest-debs/lazygit-debian">lazygit</a></td><td>Simple terminal UI for git</td><td><code>sudo apt install lazygit</code></td></tr>
+      <tbody id="packages-body">
+        <tr><td colspan="3">Loading…</td></tr>
       </tbody>
     </table>
   </section>
@@ -91,8 +90,7 @@ sudo apt update</code></pre>
   <section>
     <h2>Supported</h2>
     <p><strong>Debian:</strong> Bookworm (12), Trixie (13), Forky (14/testing), Sid (unstable)</p>
-    <p><strong>Architectures:</strong> amd64, arm64, armel, armhf, i386, ppc64el, s390x, riscv64</p>
-    <p>Source packages (<code>.dsc</code>) are available for all supported suites.</p>
+    <p><strong>Architectures:</strong> <span id="architectures">loading…</span> — whichever each upstream actually publishes a Linux build for. Pulled live from Bookworm's <code>Release</code> file; Forky and Sid currently match this minus <code>i386</code>.</p>
   </section>
 
   <footer>
@@ -101,5 +99,81 @@ sudo apt update</code></pre>
     <p><a href="https://github.com/latest-debs/apt-repo">apt-repo</a> · <a href="https://github.com/orgs/latest-debs/discussions">Discussions</a></p>
   </footer>
 </div>
+<script>
+  // Packages and architectures are pulled live from the apt repository's own
+  // Debian control files (dists/bookworm/{Release,main/binary-amd64/Packages})
+  // rather than hardcoded here, so this page can never drift out of sync
+  // with what's actually published - the same class of "stale claim" bug
+  // that kept creeping into every README in this org until each one got
+  // audited by hand.
+  const REPO_BASE = 'https://latest-debs.github.io/apt-repo/dists/bookworm';
+
+  function escapeHtml(s) {
+    return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  }
+
+  function parseArchitectures(releaseText) {
+    const match = releaseText.match(/^Architectures:\s*(.+)$/m);
+    return match ? match[1].trim().split(/\s+/) : [];
+  }
+
+  function parsePackages(packagesText) {
+    return packagesText
+      .split(/\n\n+/)
+      .filter((stanza) => stanza.trim())
+      .map((stanza) => {
+        const name = stanza.match(/^Package:\s*(.+)$/m);
+        const desc = stanza.match(/^Description:\s*(.+)$/m);
+        return {
+          name: name ? name[1].trim() : null,
+          description: desc ? desc[1].trim() : '',
+        };
+      })
+      .filter((pkg) => pkg.name)
+      .sort((a, b) => a.name.localeCompare(b.name));
+  }
+
+  async function loadRepoData() {
+    const archEl = document.getElementById('architectures');
+    const packagesBody = document.getElementById('packages-body');
+    const packagesMeta = document.getElementById('packages-meta');
+
+    try {
+      const [releaseText, packagesText] = await Promise.all([
+        fetch(`${REPO_BASE}/Release`).then((r) => r.text()),
+        fetch(`${REPO_BASE}/main/binary-amd64/Packages`).then((r) => r.text()),
+      ]);
+
+      const architectures = parseArchitectures(releaseText);
+      if (architectures.length) {
+        archEl.textContent = architectures.join(', ');
+      }
+
+      const packages = parsePackages(packagesText);
+      if (packages.length) {
+        packagesBody.innerHTML = packages
+          .map(
+            (pkg) => `
+        <tr>
+          <td><a href="https://github.com/latest-debs/${pkg.name}-debian">${pkg.name}</a></td>
+          <td>${escapeHtml(pkg.description)}</td>
+          <td><code>sudo apt install ${pkg.name}</code></td>
+        </tr>`
+          )
+          .join('');
+        packagesMeta.textContent = `${packages.length} tools, live from the Bookworm suite.`;
+      }
+    } catch (err) {
+      archEl.textContent = 'see the apt repository for the current list';
+      packagesBody.innerHTML =
+        '<tr><td colspan="3">Could not load the live package list — see the <a href="' +
+        REPO_BASE +
+        '/main/binary-amd64/Packages">Packages file</a> directly.</td></tr>';
+      packagesMeta.textContent = 'Live list unavailable right now.';
+    }
+  }
+
+  loadRepoData();
+</script>
 </body>
 </html>
