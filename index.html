@@ -11,8 +11,11 @@
     // all pulled live rather than hardcoded, so this page can't drift out
     // of sync with reality - the same class of "stale claim" bug that kept
     // creeping into every README in this org until each one got audited by
-    // hand. The apt repo's own control files (dists/bookworm/{Release,
-    // main/binary-amd64/Packages}) are same-origin and fetched directly;
+    // hand. The apt repo's own control files (dists/trixie/{Release,
+    // main/binary-amd64/Packages}) are same-origin and fetched directly -
+    // trixie, not bookworm: trixie became Debian's current stable release
+    // in August 2025 (bookworm is now oldstable), so it's the correct
+    // "stable" comparison point going forward until Debian 15 ships;
     // Debian's archive versions are snapshotted at apt-repo's own rebuild
     // time into debian-versions.json (also same-origin) because Debian's
     // madison/sources services send no CORS headers, so this page could
@@ -26,7 +29,7 @@
       return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
     }
 
-    // latest-debs versions look like "15.2.0-1+bookworm" - strip our own
+    // latest-debs versions look like "15.2.0-1+trixie" - strip our own
     // build-revision/suite suffix so the comparison column reads cleanly.
     function cleanOwnVersion(v) {
       return v.replace(/-\d+\+\w+$/, '');
@@ -60,7 +63,6 @@
           <td>${escapeHtml(pkg.description)}</td>
           <td>${escapeHtml(cleanOwnVersion(pkg.version))}</td>
           <td class="debian-col">${debianCell(pkg.name)}</td>
-          <td><code>sudo apt install ${pkg.name}</code></td>
         </tr>`
         )
         .join('');
@@ -102,7 +104,7 @@
         // returned content and swaps it into its own matching-id target,
         // independently of the main #packages-body swap below.
         const meta = latestPackages.length
-          ? `${latestPackages.length} tools, live from the Bookworm suite. Refreshes automatically.`
+          ? `${latestPackages.length} tools, live from the Trixie suite. Refreshes automatically.`
           : 'No packages found.';
         return `<span id="packages-meta" hx-swap-oob="true">${meta}</span>`;
         // #packages-body itself is populated by renderPackagesTable()
@@ -138,8 +140,8 @@
     function handleLoadFailure(evt) {
       if (evt.target.id === 'packages-body' && !latestPackages) {
         evt.target.innerHTML =
-          '<tr><td colspan="5">Could not load the live package list — see the ' +
-          '<a href="https://latest-debs.github.io/apt-repo/dists/bookworm/main/binary-amd64/Packages">Packages file</a> directly.</td></tr>';
+          '<tr><td colspan="4">Could not load the live package list — see the ' +
+          '<a href="https://latest-debs.github.io/apt-repo/dists/trixie/main/binary-amd64/Packages">Packages file</a> directly.</td></tr>';
         const meta = document.getElementById('packages-meta');
         if (meta) meta.textContent = 'Live list unavailable right now.';
       }
@@ -239,13 +241,13 @@ sudo apt update</code></pre>
     </h2>
     <p class="tag" id="packages-meta">Loading the live package list from the apt repository…</p>
     <table>
-      <thead><tr><th>Tool</th><th>Description</th><th>latest-debs</th><th>Debian (stable)</th><th>Install</th></tr></thead>
+      <thead><tr><th>Tool</th><th>Description</th><th>latest-debs</th><th>Debian (Trixie, stable)</th></tr></thead>
       <tbody id="packages-body"
              hx-ext="debctrl-packages"
-             hx-get="https://latest-debs.github.io/apt-repo/dists/bookworm/main/binary-amd64/Packages"
+             hx-get="https://latest-debs.github.io/apt-repo/dists/trixie/main/binary-amd64/Packages"
              hx-trigger="load, every 5m, refresh-click from:body"
              hx-swap="none">
-        <tr><td colspan="5">Loading…</td></tr>
+        <tr><td colspan="4">Loading…</td></tr>
       </tbody>
     </table>
     <div hx-ext="debctrl-debian-versions"
@@ -257,14 +259,45 @@ sudo apt update</code></pre>
 
   <section>
     <h2>Supported</h2>
-    <p><strong>Debian:</strong> Bookworm (12), Trixie (13), Forky (14/testing), Sid (unstable)</p>
-    <p><strong>Architectures:</strong>
+    <table>
+      <thead><tr><th>Suite</th><th>Status</th><th>Released</th><th>End of security support</th><th>End of LTS</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Bookworm (12)</td>
+          <td>oldstable</td>
+          <td>2023-06-10</td>
+          <td>2026-07-11</td>
+          <td>2028-06-30</td>
+        </tr>
+        <tr>
+          <td>Trixie (13)</td>
+          <td>stable</td>
+          <td>2025-08-09</td>
+          <td>not yet determined</td>
+          <td>not yet determined</td>
+        </tr>
+        <tr>
+          <td>Forky (14)</td>
+          <td>testing</td>
+          <td>no release date set</td>
+          <td>—</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td>Sid</td>
+          <td>unstable</td>
+          <td colspan="3">rolling; never formally released or end-of-lifed</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="tag" style="margin-top:.75rem">Dates per <a href="https://www.debian.org/releases/">debian.org/releases</a>. Bookworm's regular security support window has closed; it's now community-maintained under LTS until mid-2028.</p>
+    <p style="margin-top:1.25rem"><strong>Architectures:</strong>
       <span id="architectures"
             hx-ext="debctrl-arch"
-            hx-get="https://latest-debs.github.io/apt-repo/dists/bookworm/Release"
+            hx-get="https://latest-debs.github.io/apt-repo/dists/trixie/Release"
             hx-trigger="load, every 5m, refresh-click from:body"
             hx-swap="innerHTML">loading…</span>
-      — whichever each upstream actually publishes a Linux build for. Pulled live from Bookworm's <code>Release</code> file; Forky and Sid currently match this minus <code>i386</code>.
+      — whichever each upstream actually publishes a Linux build for. Pulled live from Trixie's <code>Release</code> file; Forky and Sid currently match this minus <code>i386</code>.
     </p>
   </section>
 
