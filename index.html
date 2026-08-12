@@ -443,29 +443,6 @@
     </p>
   </section>
 
-  <section>
-    <h2>How it works</h2>
-    <p>
-      Every package in latest-debs is built by
-      <a href="https://github.com/ranjithrajv/debian-multiarch-builder"><strong>debian-multiarch-builder</strong></a>,
-      a reusable GitHub Action that turns an upstream GitHub release into a
-      proper multi-architecture <code>.deb</code> — no manual packaging step,
-      no per-tool build scripts to maintain. Each <code>&lt;tool&gt;-debian</code>
-      repo in this org is just a thin <code>package.yaml</code> pointing the
-      action at an upstream project; the action handles architecture
-      detection, cross-building, and Debian control-file generation from
-      there.
-    </p>
-    <p>
-      That's also why a new tool can go from "requested" to "packaged" in a
-      single PR: adding latest-debs support for something new is mostly
-      writing a <code>package.yaml</code>, not writing a build. See the
-      <a href="https://github.com/ranjithrajv/debian-multiarch-builder">project itself</a>
-      if you want to package your own tool for Debian, upstream release or
-      not.
-    </p>
-  </section>
-
   <section id="install">
     <h2>Install</h2>
     <p>On Debian, via <a href="https://salsa.debian.org/extrepo-team/extrepo">extrepo</a>:</p>
@@ -504,6 +481,29 @@ sudo apt update</code></pre>
          hx-trigger="load, every 5m, refresh-click from:body"
          hx-swap="none"
          style="display:none"></div>
+  </section>
+
+  <section>
+    <h2>How it works</h2>
+    <p>
+      Every package in latest-debs is built by
+      <a href="https://github.com/ranjithrajv/debian-multiarch-builder"><strong>debian-multiarch-builder</strong></a>,
+      a reusable GitHub Action that turns an upstream GitHub release into a
+      proper multi-architecture <code>.deb</code> — no manual packaging step,
+      no per-tool build scripts to maintain. Each <code>&lt;tool&gt;-debian</code>
+      repo in this org is just a thin <code>package.yaml</code> pointing the
+      action at an upstream project; the action handles architecture
+      detection, cross-building, and Debian control-file generation from
+      there.
+    </p>
+    <p>
+      That's also why a new tool can go from "requested" to "packaged" in a
+      single PR: adding latest-debs support for something new is mostly
+      writing a <code>package.yaml</code>, not writing a build. See the
+      <a href="https://github.com/ranjithrajv/debian-multiarch-builder">project itself</a>
+      if you want to package your own tool for Debian, upstream release or
+      not.
+    </p>
   </section>
 
   <section>
