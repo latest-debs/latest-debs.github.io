@@ -5,6 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>latest-debs — Latest dev tools, packaged for Debian</title>
   <meta name="description" content="Latest stable releases of developer tools as Debian packages, served over apt. uv, eza, lazygit and more.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/png" sizes="512x512" href="og-image.png">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://latest-debs.github.io/">
+  <meta property="og:title" content="latest-debs — Latest dev tools, packaged for Debian">
+  <meta property="og:description" content="Latest stable releases of developer tools as Debian packages, served over apt. uv, eza, lazygit and more.">
+  <meta property="og:image" content="https://latest-debs.github.io/og-image.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="latest-debs — Latest dev tools, packaged for Debian">
+  <meta name="twitter:description" content="Latest stable releases of developer tools as Debian packages, served over apt. uv, eza, lazygit and more.">
+  <meta name="twitter:image" content="https://latest-debs.github.io/og-image.png">
   <script src="vendor/htmx.min.js"></script>
   <script>
     // Packages, architectures, and the Debian-stable comparison column are
@@ -391,7 +402,8 @@
     }
     code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
     pre code { color: var(--code-fg); }
-    table { width: 100%; border-collapse: collapse; margin-top: .5rem; }
+    .table-wrap { overflow-x: auto; margin-top: .5rem; }
+    table { width: 100%; border-collapse: collapse; }
     th, td { text-align: left; padding: .5rem .6rem; border-bottom: 1px solid var(--border); font-size: .92rem; }
     th { color: var(--fg-muted); font-weight: 600; }
     a { color: var(--link); }
@@ -452,6 +464,7 @@ sudo apt update</code></pre>
     </h2>
     <p class="tag" id="packages-meta">Loading the tool registry…</p>
     <input type="text" id="packages-filter" class="filter-input" placeholder="Filter packages by name or description…" oninput="filterPackagesTable(this.value)" autocomplete="off">
+    <div class="table-wrap">
     <table>
       <thead><tr><th>Tool</th><th>Description</th><th>latest-debs</th><th>Debian (Trixie, stable)</th></tr></thead>
       <tbody id="packages-body"
@@ -462,6 +475,7 @@ sudo apt update</code></pre>
         <tr><td colspan="4">Loading…</td></tr>
       </tbody>
     </table>
+    </div>
     <div hx-ext="debctrl-debian-versions"
          hx-get="https://latest-debs.github.io/apt-repo/debian-versions.json"
          hx-trigger="load, every 5m, refresh-click from:body"
@@ -471,6 +485,7 @@ sudo apt update</code></pre>
 
   <section>
     <h2>Supported</h2>
+    <div class="table-wrap">
     <table>
       <thead><tr><th>Suite</th><th>Status</th><th>Released</th><th>End of security support</th><th>End of LTS</th></tr></thead>
       <tbody>
@@ -502,15 +517,18 @@ sudo apt update</code></pre>
         </tr>
       </tbody>
     </table>
+    </div>
     <p class="tag" style="margin-top:.75rem">Dates per <a href="https://www.debian.org/releases/">debian.org/releases</a>. Bookworm's regular security support window has closed; it's now community-maintained under LTS until mid-2028. Trixie's end dates aren't officially set yet — the "projected" values follow Debian's typical ~3-year security / ~5-year LTS cadence (per <a href="https://endoflife.date/debian">endoflife.date/debian</a>) and will move once Debian publishes the real ones.</p>
 
     <h3 style="margin-top:1.75rem; font-size:1.1rem; color:#c9d1d9;">Architectures</h3>
+    <div class="table-wrap">
     <table>
       <thead><tr><th>Architecture</th><th>What it is</th><th>Estimated device count</th><th>Popular devices</th><th>Available suites</th></tr></thead>
       <tbody id="architectures-body">
         <tr><td colspan="5">Loading…</td></tr>
       </tbody>
     </table>
+    </div>
     <p class="tag" style="margin-top:.5rem">Only architectures at least one tracked tool actually publishes a Linux build for are listed. Device-count/popularity are qualitative context, not precise figures — there's no live metric for that; "Available suites" is live, pulled from each suite's own <code>Release</code> file.</p>
     <div hx-ext="debctrl-arch-suite" data-suite="bookworm"
          hx-get="https://latest-debs.github.io/apt-repo/dists/bookworm/Release"
