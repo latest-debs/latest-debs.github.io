@@ -279,8 +279,35 @@
       },
     };
 
-    const SUITES = ['bookworm', 'trixie', 'forky', 'sid'];
+    // Single source of truth for the tracked suite list is apt-repo's
+    // suites.json (same file scripts/check-suite-parity.sh and
+    // scripts/fetch-debian-versions.sh read locally) - fetched same-origin
+    // here rather than duplicated, so this page can't drift from it the way
+    // a hand-copied array previously could.
+    let SUITES = [];
     let suiteArchitectures = {}; // { bookworm: [...], trixie: [...], ... } - filled in as each resolves
+
+    function renderSuiteFetchers() {
+      const container = document.getElementById('suite-fetchers');
+      if (!container || !SUITES.length) return;
+      container.innerHTML = SUITES.map((s) => `
+        <div hx-ext="debctrl-arch-suite" data-suite="${s}"
+             hx-get="https://latest-debs.github.io/apt-repo/dists/${s}/Release"
+             hx-trigger="load, every 5m, refresh-click from:body" hx-swap="none" style="display:none"></div>`
+      ).join('');
+      htmx.process(container);
+    }
+
+    fetch('https://latest-debs.github.io/apt-repo/suites.json')
+      .then((r) => r.json())
+      .then((data) => {
+        SUITES = data.suites || [];
+        renderSuiteFetchers();
+      })
+      .catch(() => {
+        // Leave SUITES empty; the architectures table keeps its "Loading…"
+        // row rather than rendering with a stale/guessed suite list.
+      });
 
     function suiteLabel(s) {
       return s.charAt(0).toUpperCase() + s.slice(1);
@@ -553,18 +580,7 @@ sudo apt update</code></pre>
     </table>
     </div>
     <p class="tag" style="margin-top:.5rem">Only architectures at least one tracked tool actually publishes a Linux build for are listed. Device-count/popularity are qualitative context, not precise figures — there's no live metric for that; "Available suites" is live, pulled from each suite's own <code>Release</code> file.</p>
-    <div hx-ext="debctrl-arch-suite" data-suite="bookworm"
-         hx-get="https://latest-debs.github.io/apt-repo/dists/bookworm/Release"
-         hx-trigger="load, every 5m, refresh-click from:body" hx-swap="none" style="display:none"></div>
-    <div hx-ext="debctrl-arch-suite" data-suite="trixie"
-         hx-get="https://latest-debs.github.io/apt-repo/dists/trixie/Release"
-         hx-trigger="load, every 5m, refresh-click from:body" hx-swap="none" style="display:none"></div>
-    <div hx-ext="debctrl-arch-suite" data-suite="forky"
-         hx-get="https://latest-debs.github.io/apt-repo/dists/forky/Release"
-         hx-trigger="load, every 5m, refresh-click from:body" hx-swap="none" style="display:none"></div>
-    <div hx-ext="debctrl-arch-suite" data-suite="sid"
-         hx-get="https://latest-debs.github.io/apt-repo/dists/sid/Release"
-         hx-trigger="load, every 5m, refresh-click from:body" hx-swap="none" style="display:none"></div>
+    <div id="suite-fetchers"></div>
   </section>
 
   <footer>
