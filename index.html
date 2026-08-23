@@ -63,6 +63,7 @@
     let debianVersions = null; // {generated_at, suite, packages: {name: version|null}}
     let ubuntuVersions = null; // {generated_at, suite, packages: {name: version|null}} — Noble
     let packagesFilter = ''; // lowercased substring typed into #packages-filter
+    let sortCol = 'name'; let sortDir = 'asc'; // sortable header state
 
     // tools.yaml is a flat "name:\n  source: ...\n  homepage: ...\n" list,
     // not full YAML - regex lines are enough and avoid pulling in a parser
@@ -111,15 +112,31 @@
       if (meta) meta.textContent = packagesMeta();
     }
 
+    function getSortValue(tool, col) {
+      const pkg = latestPackages && latestPackages.find((p) => p.name === tool.name);
+      if (col === 'name') return tool.name.toLowerCase();
+      if (col === 'version') return pkg ? cleanOwnVersion(pkg.version).toLowerCase() : '';
+      if (col === 'debian') return debianVersions ? (debianVersions.packages[tool.name] || '') : '';
+      if (col === 'ubuntu') return ubuntuVersions ? (ubuntuVersions.packages[tool.name] || '') : '';
+      return '';
+    }
+    function sortVisible(list) {
+      return list.slice().sort((a,b) => {
+        const av = getSortValue(a, sortCol), bv = getSortValue(b, sortCol);
+        const cmp = av.localeCompare(bv, undefined, {numeric:true});
+        return sortDir === 'asc' ? cmp : -cmp;
+      });
+    }
     function renderPackagesTable() {
       const body = document.getElementById('packages-body');
       if (!trackedTools || !body) return;
 
-      const visible = trackedTools.filter((tool) => {
+      let visible = trackedTools.filter((tool) => {
         const pkg = latestPackages && latestPackages.find((p) => p.name === tool.name);
         const haystack = tool.name + ' ' + (pkg ? pkg.description : '');
         return !packagesFilter || haystack.toLowerCase().includes(packagesFilter);
       });
+      visible = sortVisible(visible);
 
       body.innerHTML = visible.length
         ? visible
@@ -131,19 +148,48 @@
                 ? '<span class="not-packaged">building…</span>'
                 : '<span class="pending">…</span>';
               const href = tool.source || `https://github.com/latest-debs/${tool.name}-debian`;
+              const aptCmd = `sudo apt install ${tool.name}`;
+              const drawerId = `drawer-${tool.name}`;
               return `
-        <tr data-pkg="${tool.name}">
-          <td><a href="${escapeHtml(href)}">${escapeHtml(tool.name)}</a></td>
+        <tr data-pkg="${tool.name}" class="pkg-row" style="cursor:pointer;" onclick="toggleDrawer('${tool.name}')" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ') {event.preventDefault(); toggleDrawer('${tool.name}');}" aria-expanded="false" aria-controls="${drawerId}">
+          <td><a href="${escapeHtml(href)}" onclick="event.stopPropagation()">${escapeHtml(tool.name)}</a></td>
           <td>${pkg ? escapeHtml(pkg.description) : ''}</td>
           <td>${versionCell}</td>
           <td class="debian-col">${debianCell(tool.name)}</td>
           <td class="ubuntu-col">${ubuntuCell(tool.name)}</td>
-        </tr>`;
+        </tr>
+        <tr id="${drawerId}" class="drawer" style="display:none;"><td colspan="5" style="background:var(--code-bg); padding:.75rem 1rem;">
+          <div style="display:flex; flex-wrap:wrap; gap:1rem; font-size:.9rem;">
+            <div><strong>Install:</strong> <code>${aptCmd}</code> <button onclick="event.stopPropagation(); navigator.clipboard.writeText('${aptCmd}'); this.textContent='copied!'; setTimeout(()=>this.textContent='copy',1500)" style="margin-left:.5rem; font-size:.8rem; padding:.2rem .5rem; border:1px solid var(--border-strong); background:var(--bg); color:var(--fg); border-radius:4px; cursor:pointer;">copy</button></div>
+            <div><a href="${escapeHtml(href)}">GitHub</a>${tool.homepage ? ` · <a href="${escapeHtml(tool.homepage)}">homepage</a>` : ''}</div>
+            <div style="color:var(--fg-muted);">${pkg ? escapeHtml(pkg.description) : 'No published .deb yet — building…'}</div>
+          </div>
+        </td></tr>`;
             })
             .join('')
         : '<tr><td colspan="5">No packages match your filter.</td></tr>';
 
+      // update sort indicators
+      document.querySelectorAll('#packages-table th[data-col]').forEach(th => {
+        const c = th.dataset.col;
+        th.setAttribute('aria-sort', c===sortCol ? (sortDir==='asc'?'ascending':'descending') : 'none');
+        const ind = th.querySelector('.sort-ind');
+        if (ind) ind.textContent = c===sortCol ? (sortDir==='asc'?' ▲':' ▼') : '';
+      });
       renderPackagesMeta();
+    }
+    function toggleDrawer(pkg) {
+      const row = document.getElementById(`drawer-${pkg}`);
+      const trigger = document.querySelector(`tr[data-pkg="${pkg}"].pkg-row`);
+      if (!row) return;
+      const open = row.style.display !== 'none';
+      row.style.display = open ? 'none' : 'table-row';
+      if (trigger) trigger.setAttribute('aria-expanded', open ? 'false' : 'true');
+    }
+    function sortBy(col) {
+      if (sortCol === col) sortDir = sortDir === 'asc' ? 'desc' : 'asc';
+      else { sortCol = col; sortDir = 'asc'; }
+      renderPackagesTable();
     }
 
     // Re-filters the already-fetched tool list client-side; no re-fetch,
@@ -538,7 +584,7 @@ sudo apt update</code></pre>
       Packages
       <button class="refresh-btn" onclick="manualRefresh()" type="button">↻ Refresh now</button>
     </h2>
-    <p class="tag" id="packages-meta">Loading the tool registry…</p>
+    <p class="tag" id="packages-meta" aria-live="polite" aria-atomic="true">Loading the tool registry…</p>
     <div style="display:flex; gap:.5rem; flex-wrap:wrap;">
       <input type="text" id="packages-filter" class="filter-input" style="flex:1; min-width:200px;" placeholder="Filter packages by name or description…" oninput="filterPackagesTable(this.value)" autocomplete="off" aria-label="Filter packages by name or description">
       <label for="suite-filter" class="sr-only">Suite</label>
@@ -552,10 +598,10 @@ sudo apt update</code></pre>
         <option value="jammy">Ubuntu Jammy (22.04 LTS, alias)</option>
       </select>
     </div>
-    <div class="table-wrap">
-    <table aria-label="Packages">
+    <div class="table-wrap" style="max-height:60vh; overflow:auto;">
+    <table aria-label="Packages" id="packages-table">
       <caption class="sr-only">Packages: tool, description, latest-debs version, Debian Trixie version, Ubuntu Noble version</caption>
-      <thead><tr><th scope="col">Tool</th><th scope="col">Description</th><th scope="col">latest-debs</th><th scope="col">Debian (Trixie, stable)</th><th scope="col">Ubuntu (Noble, LTS)</th></tr></thead>
+      <thead style="position:sticky; top:0; background:var(--bg); z-index:1;"><tr><th scope="col" data-col="name" onclick="sortBy('name')" style="cursor:pointer;" aria-sort="ascending" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ') {event.preventDefault(); sortBy('name');}">Tool<span class="sort-ind"> ▲</span></th><th scope="col">Description</th><th scope="col" data-col="version" onclick="sortBy('version')" style="cursor:pointer;" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ') {event.preventDefault(); sortBy('version');}">latest-debs<span class="sort-ind"></span></th><th scope="col" data-col="debian" onclick="sortBy('debian')" style="cursor:pointer;" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ') {event.preventDefault(); sortBy('debian');}">Debian (Trixie, stable)<span class="sort-ind"></span></th><th scope="col" data-col="ubuntu" onclick="sortBy('ubuntu')" style="cursor:pointer;" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ') {event.preventDefault(); sortBy('ubuntu');}">Ubuntu (Noble, LTS)<span class="sort-ind"></span></th></tr></thead>
       <tbody id="packages-body"
              hx-ext="debctrl-packages"
              hx-get="https://latest-debs.github.io/apt-repo/dists/trixie/main/binary-amd64/Packages"
