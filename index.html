@@ -61,6 +61,7 @@
     let trackedTools = null; // [{name, source, homepage}] - every tool latest-debs tracks
     let latestPackages = null; // [{name, version, description}] - only tools with a published .deb
     let debianVersions = null; // {generated_at, suite, packages: {name: version|null}}
+    let ubuntuVersions = null; // {generated_at, suite, packages: {name: version|null}} — Noble
     let packagesFilter = ''; // lowercased substring typed into #packages-filter
 
     // tools.yaml is a flat "name:\n  source: ...\n  homepage: ...\n" list,
@@ -85,6 +86,14 @@
     function debianCell(pkgName) {
       if (!debianVersions) return '<span class="pending">…</span>';
       const v = debianVersions.packages[pkgName];
+      return v
+        ? escapeHtml(v)
+        : '<span class="not-packaged">not packaged</span>';
+    }
+
+    function ubuntuCell(pkgName) {
+      if (!ubuntuVersions) return '<span class="pending">…</span>';
+      const v = ubuntuVersions.packages[pkgName];
       return v
         ? escapeHtml(v)
         : '<span class="not-packaged">not packaged</span>';
@@ -128,10 +137,11 @@
           <td>${pkg ? escapeHtml(pkg.description) : ''}</td>
           <td>${versionCell}</td>
           <td class="debian-col">${debianCell(tool.name)}</td>
+          <td class="ubuntu-col">${ubuntuCell(tool.name)}</td>
         </tr>`;
             })
             .join('')
-        : '<tr><td colspan="4">No packages match your filter.</td></tr>';
+        : '<tr><td colspan="5">No packages match your filter.</td></tr>';
 
       renderPackagesMeta();
     }
@@ -152,6 +162,15 @@
       body.querySelectorAll('tr[data-pkg]').forEach((row) => {
         const cell = row.querySelector('.debian-col');
         if (cell) cell.innerHTML = debianCell(row.dataset.pkg);
+      });
+    }
+
+    function patchUbuntuColumn() {
+      const body = document.getElementById('packages-body');
+      if (!body || !ubuntuVersions) return;
+      body.querySelectorAll('tr[data-pkg]').forEach((row) => {
+        const cell = row.querySelector('.ubuntu-col');
+        if (cell) cell.innerHTML = ubuntuCell(row.dataset.pkg);
       });
     }
 
@@ -176,7 +195,7 @@
           const body = document.getElementById('packages-body');
           if (body) {
             body.innerHTML =
-              '<tr><td colspan="4">Could not load the tool registry — see ' +
+              '<tr><td colspan="5">Could not load the tool registry — see ' +
               '<a href="https://github.com/latest-debs/apt-repo/blob/main/tools.yaml">tools.yaml</a> directly.</td></tr>';
           }
           const meta = document.getElementById('packages-meta');
@@ -220,6 +239,20 @@
         }
         if (trackedTools) {
           patchDebianColumn();
+        }
+        return ''; // this element has nothing of its own to display
+      },
+    });
+
+    htmx.defineExtension('debctrl-ubuntu-versions', {
+      transformResponse: function (text) {
+        try {
+          ubuntuVersions = JSON.parse(text);
+        } catch (e) {
+          ubuntuVersions = { packages: {} };
+        }
+        if (trackedTools) {
+          patchUbuntuColumn();
         }
         return ''; // this element has nothing of its own to display
       },
@@ -493,18 +526,23 @@ sudo apt update</code></pre>
     <input type="text" id="packages-filter" class="filter-input" placeholder="Filter packages by name or description…" oninput="filterPackagesTable(this.value)" autocomplete="off">
     <div class="table-wrap">
     <table>
-      <thead><tr><th>Tool</th><th>Description</th><th>latest-debs</th><th>Debian (Trixie, stable)</th></tr></thead>
+      <thead><tr><th>Tool</th><th>Description</th><th>latest-debs</th><th>Debian (Trixie, stable)</th><th>Ubuntu (Noble, LTS)</th></tr></thead>
       <tbody id="packages-body"
              hx-ext="debctrl-packages"
              hx-get="https://latest-debs.github.io/apt-repo/dists/trixie/main/binary-amd64/Packages"
              hx-trigger="load, every 5m, refresh-click from:body"
              hx-swap="none">
-        <tr><td colspan="4">Loading…</td></tr>
+        <tr><td colspan="5">Loading…</td></tr>
       </tbody>
     </table>
     </div>
     <div hx-ext="debctrl-debian-versions"
          hx-get="https://latest-debs.github.io/apt-repo/debian-versions.json"
+         hx-trigger="load, every 5m, refresh-click from:body"
+         hx-swap="none"
+         style="display:none"></div>
+    <div hx-ext="debctrl-ubuntu-versions"
+         hx-get="https://latest-debs.github.io/apt-repo/ubuntu-versions.json"
          hx-trigger="load, every 5m, refresh-click from:body"
          hx-swap="none"
          style="display:none"></div>
