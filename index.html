@@ -408,6 +408,19 @@
       // rather than blocking the rest of the page.
     }
 
+    function switchSuite(suite) {
+      const body = document.getElementById('packages-body');
+      if (!body) return;
+      body.setAttribute('hx-get', `https://latest-debs.github.io/apt-repo/dists/${suite}/main/binary-amd64/Packages`);
+      latestPackages = null;
+      body.innerHTML = '<tr><td colspan="5">Loading…</td></tr>';
+      htmx.process(body);
+      htmx.trigger(body, 'load');
+      // Update meta to reflect suite
+      const meta = document.getElementById('packages-meta');
+      if (meta && trackedTools) meta.textContent = `${trackedTools.length} tools tracked, live from ${suite}.`;
+    }
+
     function manualRefresh() {
       htmx.trigger(document.body, 'refresh-click');
       loadToolsRegistry();
@@ -477,7 +490,10 @@
       border-radius: 8px; color: var(--fg); font-size: .92rem; font-family: inherit;
     }
     .filter-input:focus { outline: none; border-color: var(--link); }
+    .filter-input:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
     .filter-input::placeholder { color: var(--fg-dim); }
+    .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+    .pending { color: var(--fg-muted); }
   </style>
 </head>
 <body>
@@ -523,10 +539,23 @@ sudo apt update</code></pre>
       <button class="refresh-btn" onclick="manualRefresh()" type="button">↻ Refresh now</button>
     </h2>
     <p class="tag" id="packages-meta">Loading the tool registry…</p>
-    <input type="text" id="packages-filter" class="filter-input" placeholder="Filter packages by name or description…" oninput="filterPackagesTable(this.value)" autocomplete="off">
+    <div style="display:flex; gap:.5rem; flex-wrap:wrap;">
+      <input type="text" id="packages-filter" class="filter-input" style="flex:1; min-width:200px;" placeholder="Filter packages by name or description…" oninput="filterPackagesTable(this.value)" autocomplete="off" aria-label="Filter packages by name or description">
+      <label for="suite-filter" class="sr-only">Suite</label>
+      <select id="suite-filter" class="filter-input" style="flex:0 0 180px;" onchange="switchSuite(this.value)" aria-label="Select suite to view">
+        <option value="trixie">Debian Trixie (stable)</option>
+        <option value="noble">Ubuntu Noble (24.04 LTS)</option>
+        <option value="bookworm">Debian Bookworm (oldstable)</option>
+        <option value="forky">Debian Forky (testing)</option>
+        <option value="sid">Debian Sid (unstable)</option>
+        <option value="bullseye">Debian Bullseye (oldoldstable)</option>
+        <option value="jammy">Ubuntu Jammy (22.04 LTS, alias)</option>
+      </select>
+    </div>
     <div class="table-wrap">
-    <table>
-      <thead><tr><th>Tool</th><th>Description</th><th>latest-debs</th><th>Debian (Trixie, stable)</th><th>Ubuntu (Noble, LTS)</th></tr></thead>
+    <table aria-label="Packages">
+      <caption class="sr-only">Packages: tool, description, latest-debs version, Debian Trixie version, Ubuntu Noble version</caption>
+      <thead><tr><th scope="col">Tool</th><th scope="col">Description</th><th scope="col">latest-debs</th><th scope="col">Debian (Trixie, stable)</th><th scope="col">Ubuntu (Noble, LTS)</th></tr></thead>
       <tbody id="packages-body"
              hx-ext="debctrl-packages"
              hx-get="https://latest-debs.github.io/apt-repo/dists/trixie/main/binary-amd64/Packages"
@@ -574,8 +603,9 @@ sudo apt update</code></pre>
   <section>
     <h2>Supported</h2>
     <div class="table-wrap">
-    <table>
-      <thead><tr><th>Distro</th><th>Suite</th><th>Status</th><th>Released</th><th>End of security support</th><th>End of LTS</th></tr></thead>
+    <table aria-label="Supported suites">
+      <caption class="sr-only">Supported Debian and Ubuntu suites with release and support dates</caption>
+      <thead><tr><th scope="col">Distro</th><th scope="col">Suite</th><th scope="col">Status</th><th scope="col">Released</th><th scope="col">End of security support</th><th scope="col">End of LTS</th></tr></thead>
       <tbody>
         <tr>
           <td>Debian</td>
@@ -638,8 +668,9 @@ sudo apt update</code></pre>
 
     <h3 style="margin-top:1.75rem; font-size:1.1rem; color:#c9d1d9;">Architectures</h3>
     <div class="table-wrap">
-    <table>
-      <thead><tr><th>Architecture</th><th>What it is</th><th>Estimated device count</th><th>Popular devices</th><th>Available suites</th></tr></thead>
+    <table aria-label="Architectures">
+      <caption class="sr-only">Architectures with description and available suites</caption>
+      <thead><tr><th scope="col">Architecture</th><th scope="col">What it is</th><th scope="col">Estimated device count</th><th scope="col">Popular devices</th><th scope="col">Available suites</th></tr></thead>
       <tbody id="architectures-body">
         <tr><td colspan="5">Loading…</td></tr>
       </tbody>
