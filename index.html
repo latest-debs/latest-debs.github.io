@@ -537,9 +537,18 @@ sudo apt update</code></pre>
     <h2>Supported</h2>
     <div class="table-wrap">
     <table>
-      <thead><tr><th>Suite</th><th>Status</th><th>Released</th><th>End of security support</th><th>End of LTS</th></tr></thead>
+      <thead><tr><th>Distro</th><th>Suite</th><th>Status</th><th>Released</th><th>End of security support</th><th>End of LTS</th></tr></thead>
       <tbody>
         <tr>
+          <td>Debian</td>
+          <td>Bullseye (11)</td>
+          <td>oldoldstable</td>
+          <td>2021-08-14</td>
+          <td>2024-07-14</td>
+          <td>2026-08-31</td>
+        </tr>
+        <tr>
+          <td>Debian</td>
           <td>Bookworm (12)</td>
           <td>oldstable</td>
           <td>2023-06-10</td>
@@ -547,6 +556,7 @@ sudo apt update</code></pre>
           <td>2028-06-30</td>
         </tr>
         <tr>
+          <td>Debian</td>
           <td>Trixie (13)</td>
           <td>stable</td>
           <td>2025-08-09</td>
@@ -554,6 +564,7 @@ sudo apt update</code></pre>
           <td>~2030-06-30 (projected)</td>
         </tr>
         <tr>
+          <td>Debian</td>
           <td>Forky (14)</td>
           <td>testing</td>
           <td>no release date set</td>
@@ -561,14 +572,31 @@ sudo apt update</code></pre>
           <td>—</td>
         </tr>
         <tr>
+          <td>Debian</td>
           <td>Sid</td>
           <td>unstable</td>
-          <td colspan="3">rolling; never formally released or end-of-lifed</td>
+          <td colspan="4">rolling; never formally released or end-of-lifed</td>
+        </tr>
+        <tr>
+          <td>Ubuntu</td>
+          <td>Jammy (22.04 LTS)</td>
+          <td>LTS</td>
+          <td>2022-04-21</td>
+          <td>2027-04-21</td>
+          <td>2032-04-21 (ESM)</td>
+        </tr>
+        <tr>
+          <td>Ubuntu</td>
+          <td>Noble (24.04 LTS)</td>
+          <td>LTS</td>
+          <td>2024-04-25</td>
+          <td>2029-04-25</td>
+          <td>2034-04-25 (ESM)</td>
         </tr>
       </tbody>
     </table>
     </div>
-    <p class="tag" style="margin-top:.75rem">Dates per <a href="https://www.debian.org/releases/">debian.org/releases</a>. Bookworm's regular security support window has closed; it's now community-maintained under LTS until mid-2028. Trixie's end dates aren't officially set yet — the "projected" values follow Debian's typical ~3-year security / ~5-year LTS cadence (per <a href="https://endoflife.date/debian">endoflife.date/debian</a>) and will move once Debian publishes the real ones.</p>
+    <p class="tag" style="margin-top:.75rem">Debian dates per <a href="https://www.debian.org/releases/">debian.org/releases</a>; Ubuntu per <a href="https://endoflife.date/ubuntu">endoflife.date/ubuntu</a>. <code>jammy</code> is an alias of <code>bullseye</code> for <code>+jammy</code> substring UX (no extra build, `pool/bullseye` → `pool/jammy` copy). `noble` is a real build (`glibc 2.39`). Bullseye LTS ends `2026-08-31` per policy.</p>
 
     <h3 style="margin-top:1.75rem; font-size:1.1rem; color:#c9d1d9;">Architectures</h3>
     <div class="table-wrap">
