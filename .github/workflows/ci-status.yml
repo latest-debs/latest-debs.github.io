@@ -2,7 +2,10 @@ name: CI status
 
 on:
   schedule:
-    - cron: '*/30 * * * *'   # every 30 minutes
+    # Fallback generator for the static ci-status.json; the dashboard now
+    # loads live data from the latest-debs-ci-status Worker, so this only
+    # keeps the fallback file from going completely stale.
+    - cron: '0 * * * *'   # hourly
   workflow_dispatch:
 
 permissions:

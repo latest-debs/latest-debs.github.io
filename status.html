@@ -87,8 +87,8 @@
     <h2>CI status</h2>
     <p class="status-line" id="ci-status"><span class="dot dot-ok"></span> Loading…</p>
     <p class="tag">
-      Latest GitHub Actions workflow run per repository, refreshed every 30&nbsp;minutes from the
-      <a href="https://github.com/latest-debs">latest-debs</a> org. A red row is a failing run —
+      Latest GitHub Actions workflow run per repository, loaded live on every page view from the
+      <a href="https://github.com/latest-debs">latest-debs</a> org (cached ~15 minutes at the edge). A red row is a failing run —
       click it to open the run log.
     </p>
     <div class="table-wrap">
@@ -275,47 +275,60 @@
     queued: 'queued', pending: 'pending', null: 'no runs',
   };
 
+  // Live data comes from the CI-status worker (fresh within ~15 minutes);
+  // the committed ci-status.json is the fallback if the worker is down.
+  const CI_WORKER_URL = 'https://latest-debs-ci-status.ranjithraj.workers.dev/ci-status';
+
+  function renderCIStatus(data, stale) {
+    const body = document.getElementById('ci-body');
+    const status = document.getElementById('ci-status');
+    const repos = data.repos || [];
+    const failing = repos.filter((r) => r.conclusion === 'failure');
+    const running = repos.filter((r) => r.status === 'in_progress' || r.status === 'queued');
+    if (failing.length > 0) {
+      status.innerHTML = `<span class="dot dot-fail"></span> ${failing.length} repo(s) failing` +
+        (running.length > 0 ? `, ${running.length} running` : '') + '.';
+    } else if (running.length > 0) {
+      status.innerHTML = `<span class="dot dot-warn"></span> All green — ${running.length} run(s) in progress.`;
+    } else {
+      status.innerHTML = `<span class="dot dot-ok"></span> All ${repos.length} repo(s) passing.`;
+    }
+    // Failing first, then in-progress, then the rest
+    const order = { failure: 0, in_progress: 1, queued: 2, pending: 3, success: 4, null: 5 };
+    repos.sort((a, b) => (order[a.conclusion || 'null'] ?? 5) - (order[b.conclusion || 'null'] ?? 5));
+    body.innerHTML = repos.map((r) => {
+      const icon = CI_ICONS[r.conclusion || 'null'] || CI_ICONS.null;
+      const label = CI_LABELS[r.conclusion || 'null'] || CI_LABELS.null;
+      const created = r.created_at ? relativeAge(r.created_at) : '—';
+      const href = r.run_url || r.url || '#'
+      return `
+        <tr>
+          <td><a href="${escapeHtml(r.url)}"><code>${escapeHtml(r.name)}</code></a></td>
+          <td class="mono">${escapeHtml(r.workflow || '—')}</td>
+          <td><a href="${escapeHtml(href)}" class="status-line">${icon} ${label}</a></td>
+          <td class="mono">${escapeHtml(r.branch || '—')}</td>
+          <td>${created}</td>
+        </tr>`;
+    }).join('');
+    document.getElementById('ci-meta').textContent =
+      `${repos.length} repositories tracked · generated ${relativeAge(data.generated_at)}` +
+      (stale ? ' · refreshing…' : '') + '.';
+  }
+
   function loadCIStatus() {
-    fetch('ci-status.json')
-      .then((r) => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
-      .then((data) => {
-        const body = document.getElementById('ci-body');
-        const status = document.getElementById('ci-status');
-        const repos = data.repos || [];
-        const failing = repos.filter((r) => r.conclusion === 'failure');
-        const running = repos.filter((r) => r.status === 'in_progress' || r.status === 'queued');
-        if (failing.length > 0) {
-          status.innerHTML = `<span class="dot dot-fail"></span> ${failing.length} repo(s) failing` +
-            (running.length > 0 ? `, ${running.length} running` : '') + '.';
-        } else if (running.length > 0) {
-          status.innerHTML = `<span class="dot dot-warn"></span> All green — ${running.length} run(s) in progress.`;
-        } else {
-          status.innerHTML = `<span class="dot dot-ok"></span> All ${repos.length} repo(s) passing.`;
-        }
-        // Failing first, then in-progress, then the rest
-        const order = { failure: 0, in_progress: 1, queued: 2, pending: 3, success: 4, null: 5 };
-        repos.sort((a, b) => (order[a.conclusion || 'null'] ?? 5) - (order[b.conclusion || 'null'] ?? 5));
-        body.innerHTML = repos.map((r) => {
-          const icon = CI_ICONS[r.conclusion || 'null'] || CI_ICONS.null;
-          const label = CI_LABELS[r.conclusion || 'null'] || CI_LABELS.null;
-          const created = r.created_at ? relativeAge(r.created_at) : '—';
-          const href = r.run_url || r.url || '#'
-          return `
-            <tr>
-              <td><a href="${escapeHtml(r.url)}"><code>${escapeHtml(r.name)}</code></a></td>
-              <td class="mono">${escapeHtml(r.workflow || '—')}</td>
-              <td><a href="${escapeHtml(href)}" class="status-line">${icon} ${label}</a></td>
-              <td class="mono">${escapeHtml(r.branch || '—')}</td>
-              <td>${created}</td>
-            </tr>`;
-        }).join('');
-        document.getElementById('ci-meta').textContent =
-          `${repos.length} repositories tracked · generated ${relativeAge(data.generated_at)}.`;
-      })
-      .catch(() => {
-        document.getElementById('ci-status').innerHTML = '<span class="dot dot-warn"></span> Could not load CI status.';
-        document.getElementById('ci-body').innerHTML = '<tr><td colspan="5" class="empty">Unavailable right now.</td></tr>';
-      });
+    const fromWorker = fetch(CI_WORKER_URL)
+      .then((r) => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); });
+    const fromStatic = () => fetch('ci-status.json')
+      .then((r) => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); });
+
+    fromWorker
+      .then((data) => renderCIStatus(data, data.stale === true))
+      .catch(() => fromStatic()
+        .then((data) => renderCIStatus(data, false))
+        .catch(() => {
+          document.getElementById('ci-status').innerHTML = '<span class="dot dot-warn"></span> Could not load CI status.';
+          document.getElementById('ci-body').innerHTML = '<tr><td colspan="5" class="empty">Unavailable right now.</td></tr>';
+        }));
   }
 
   loadStaleness();

@@ -1,0 +1,16 @@
+{
+  "$schema": "https://unpkg.com/wrangler/config-schema.json",
+  "name": "latest-debs-ci-status",
+  "main": "src/worker.js",
+  "compatibility_date": "2026-08-20",
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 1
+  },
+  "kv_namespaces": [
+    { "binding": "CI_STATUS", "id": "fe12037b57064d149461c1c026bf8185" }
+  ],
+  "services": [
+    { "binding": "SELF", "service": "latest-debs-ci-status" }
+  ]
+}
