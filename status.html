@@ -82,20 +82,39 @@
   </section>
 
   <section id="parity">
-    <h2>Debian-parity retirement candidates</h2>
+    <h2>Handed back to Debian</h2>
     <p class="status-line" id="parity-status"><span class="dot dot-ok"></span> Loading…</p>
     <p class="tag">
-      Per the <a href="https://github.com/latest-debs/apt-repo#debian-parity-when-we-step-aside">Debian-parity policy</a>,
-      a package already at its latest upstream version in a live Debian suite is a candidate for retirement here —
-      that suite already offers current + Debian's own QA. Flagged, not auto-removed; a maintainer reviews each one.
+      Where Debian itself already ships a tool at its latest upstream version, we stop publishing
+      <em>that suite</em> and hand it back — Debian's copy is current and carries full Debian QA.
+      Every other suite keeps shipping and the package is not retired, so nobody loses a route to
+      the current version. These are wins: each one is a suite this channel no longer has to cover.
+      See the <a href="https://github.com/latest-debs/apt-repo#debian-parity--when-we-step-aside">parity policy</a>.
     </p>
     <div class="table-wrap">
-      <table id="parity-table" aria-label="Parity candidates">
-        <thead><tr><th>Tool</th><th>Upstream</th><th>At parity in</th></tr></thead>
-        <tbody id="parity-body"><tr><td colspan="3">Loading…</td></tr></tbody>
+      <table id="parity-table" aria-label="Suites handed back to Debian">
+        <thead><tr><th>Tool</th><th>Upstream</th><th>Handed back</th><th>Still shipped by us</th></tr></thead>
+        <tbody id="parity-body"><tr><td colspan="4">Loading…</td></tr></tbody>
       </table>
     </div>
     <p class="meta" id="parity-meta"></p>
+  </section>
+
+  <section id="graduated">
+    <h2>Graduated</h2>
+    <p class="status-line" id="graduated-status"><span class="dot dot-ok"></span> Loading…</p>
+    <p class="tag">
+      Tools that have left this channel — because upstream shipped its own signed apt repo, or because
+      Debian caught up. This channel exists to fill a gap, so a tool leaving means the gap closed:
+      these are wins, not attrition. See the
+      <a href="https://github.com/latest-debs/apt-repo/blob/main/SERVICE.md#were-complementary-to-upstream-not-competing-with-it">hand-off policy</a>.
+    </p>
+    <div class="table-wrap">
+      <table id="graduated-table" aria-label="Graduated tools">
+        <thead><tr><th>Tool</th><th>Left</th><th>Why</th><th>Where it lives now</th></tr></thead>
+        <tbody id="graduated-body"><tr><td colspan="4">Loading…</td></tr></tbody>
+      </table>
+    </div>
   </section>
 
   <footer>
@@ -149,30 +168,77 @@
       .then((data) => {
         const body = document.getElementById('parity-body');
         const status = document.getElementById('parity-status');
-        const flagged = (data.packages || []).filter((p) => (p.parity_suites || []).length > 0);
-        if (flagged.length === 0) {
-          status.innerHTML = '<span class="dot dot-ok"></span> No tracked packages are at parity anywhere.';
-          body.innerHTML = '<tr><td colspan="3" class="empty">Nothing to retire.</td></tr>';
+        const checked = data.suites_checked || [];
+        // Any suite at parity is handed back, released (parity_suites) or
+        // rolling (advisory_suites) — the build drops exactly those.
+        const handed = (data.packages || [])
+          .map((p) => ({ ...p, back: [...(p.parity_suites || []), ...(p.advisory_suites || [])] }))
+          .filter((p) => p.back.length > 0);
+        const pairs = handed.reduce((n, p) => n + p.back.length, 0);
+        if (handed.length === 0) {
+          status.innerHTML = '<span class="dot dot-ok"></span> Nothing handed back yet — Debian hasn\'t caught up on any tracked tool.';
+          body.innerHTML = '<tr><td colspan="4" class="empty">No suites handed back.</td></tr>';
         } else {
-          status.innerHTML = `<span class="dot dot-warn"></span> ${flagged.length} package(s) flagged for review.`;
-          body.innerHTML = flagged.map((p) => `
+          status.innerHTML = `<span class="dot dot-ok"></span> ${pairs} suite(s) handed back to Debian across ${handed.length} tool(s).`;
+          body.innerHTML = handed.map((p) => {
+            const kept = checked.filter((s) => !p.back.includes(s));
+            return `
             <tr>
               <td><code>${escapeHtml(p.package)}</code></td>
               <td>${escapeHtml(p.upstream_version)}</td>
-              <td>${p.parity_suites.map(escapeHtml).join(', ')}</td>
-            </tr>`).join('');
+              <td>${p.back.map(escapeHtml).join(', ')}</td>
+              <td>${kept.length ? kept.map(escapeHtml).join(', ') : '<span class="empty">— none left</span>'}</td>
+            </tr>`;
+          }).join('');
         }
         document.getElementById('parity-meta').textContent =
-          `${data.packages ? data.packages.length : 0} tool(s) checked across ${(data.suites_checked || []).join(', ')} · generated ${relativeAge(data.generated_at)}.`;
+          `${data.packages ? data.packages.length : 0} tool(s) checked across ${checked.join(', ')} · generated ${relativeAge(data.generated_at)}.`;
       })
       .catch(() => {
         document.getElementById('parity-status').innerHTML = '<span class="dot dot-warn"></span> Could not load the report.';
-        document.getElementById('parity-body').innerHTML = '<tr><td colspan="3" class="empty">Unavailable right now.</td></tr>';
+        document.getElementById('parity-body').innerHTML = '<tr><td colspan="4" class="empty">Unavailable right now.</td></tr>';
+      });
+  }
+
+  const REASONS = { 'own-repo': 'Upstream ships its own repo', 'debian-parity': 'Debian caught up' };
+
+  function loadGraduated() {
+    fetch('https://latest-debs.github.io/apt-repo/graduated.json')
+      .then((r) => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+      .then((data) => {
+        const body = document.getElementById('graduated-body');
+        const status = document.getElementById('graduated-status');
+        const rows = data.graduated || [];
+        if (rows.length === 0) {
+          status.innerHTML = '<span class="dot dot-ok"></span> None yet — the first hand-off will land here.';
+          body.innerHTML = '<tr><td colspan="4" class="empty">No tools have graduated yet.</td></tr>';
+          return;
+        }
+        status.innerHTML = `<span class="dot dot-ok"></span> ${rows.length} tool(s) graduated.`;
+        body.innerHTML = rows.map((g) => {
+          const dest = g.destination
+            ? (/^https?:\/\//.test(g.destination)
+                ? `<a href="${escapeHtml(g.destination)}">${escapeHtml(g.destination)}</a>`
+                : escapeHtml(g.destination))
+            : '—';
+          return `
+            <tr>
+              <td><code>${escapeHtml(g.package)}</code></td>
+              <td>${escapeHtml(g.date || '—')}</td>
+              <td>${escapeHtml(REASONS[g.reason] || g.reason || '—')}</td>
+              <td>${dest}</td>
+            </tr>`;
+        }).join('');
+      })
+      .catch(() => {
+        document.getElementById('graduated-status').innerHTML = '<span class="dot dot-warn"></span> Could not load the ledger.';
+        document.getElementById('graduated-body').innerHTML = '<tr><td colspan="4" class="empty">Unavailable right now.</td></tr>';
       });
   }
 
   loadStaleness();
   loadParity();
+  loadGraduated();
 </script>
 </body>
 </html>
