@@ -16,7 +16,7 @@
 
 set -euo pipefail
 
-REPO_URL="https://latest-debs.github.io/apt-repo/"
+REPO_URL="https://latest-debs.ranjithraj.workers.dev/"
 KEY_URL="https://latest-debs.github.io/apt-repo/latest-debs.asc"
 KEYRING="/etc/apt/keyrings/latest-debs.gpg"
 SOURCES="/etc/apt/sources.list.d/latest-debs.sources"
