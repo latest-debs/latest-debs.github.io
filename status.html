@@ -204,7 +204,14 @@
 
   function loadGraduated() {
     fetch('https://latest-debs.github.io/apt-repo/graduated.json')
-      .then((r) => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+      .then((r) => {
+        // 404 = the ledger hasn't been published to gh-pages yet (it rides
+        // along on the next rebuild). That's "nothing has graduated", not a
+        // failure - only a real transport/parse problem is an error.
+        if (r.status === 404) return { graduated: [] };
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        return r.json();
+      })
       .then((data) => {
         const body = document.getElementById('graduated-body');
         const status = document.getElementById('graduated-status');
