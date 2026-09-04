@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>latest-debs — Pipeline status</title>
+  <meta name="description" content="Live upstream-staleness and Debian-parity reports for the latest-debs apt channel.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <style>
+    :root {
+      color-scheme: dark light;
+      --bg: #0d1117; --fg: #e6edf3; --fg-muted: #8b949e; --fg-dim: #6e7681;
+      --border: #21262d; --border-strong: #30363d;
+      --accent: #ff7b72; --link: #58a6ff;
+      --code-bg: #161b22; --code-fg: #c9d1d9;
+      --ok: #3fb950; --warn: #d29922;
+    }
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg: #ffffff; --fg: #1f2328; --fg-muted: #57606a; --fg-dim: #6e7781;
+        --border: #d0d7de; --border-strong: #d0d7de;
+        --accent: #cf222e; --link: #0969da;
+        --code-bg: #f6f8fa; --code-fg: #24292f;
+        --ok: #1a7f37; --warn: #9a6700;
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background: var(--bg); color: var(--fg); line-height: 1.6;
+    }
+    .wrap { max-width: 900px; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
+    header { padding: 1.5rem 0; }
+    h1 { font-size: 1.8rem; margin: 0 0 .3rem; }
+    .tag { color: var(--fg-muted); margin: 0; }
+    a { color: var(--link); }
+    section { margin-top: 2.5rem; }
+    h2 { font-size: 1.3rem; border-bottom: 1px solid var(--border); padding-bottom: .4rem; }
+    .table-wrap { overflow-x: auto; margin-top: .75rem; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { text-align: left; padding: .5rem .6rem; border-bottom: 1px solid var(--border); font-size: .92rem; }
+    th { color: var(--fg-muted); font-weight: 600; }
+    code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; background: var(--code-bg); padding: .1em .35em; border-radius: 4px; }
+    .status-line { display: flex; align-items: center; gap: .5rem; font-weight: 600; }
+    .dot { width: .6rem; height: .6rem; border-radius: 50%; display: inline-block; }
+    .dot-ok { background: var(--ok); }
+    .dot-warn { background: var(--warn); }
+    .meta { color: var(--fg-muted); font-size: .85rem; margin-top: .5rem; }
+    .empty { color: var(--fg-dim); font-style: italic; padding: .5rem .6rem; }
+    footer { text-align: center; color: var(--fg-muted); margin-top: 3rem; font-size: .9rem; }
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <p class="tag"><a href="index.html">← latest-debs</a></p>
+    <h1>Pipeline status</h1>
+    <p class="tag">
+      Live from the same data the
+      <a href="https://github.com/latest-debs/apt-repo/blob/main/scripts/check-upstream-staleness.sh">upstream staleness watchdog</a>
+      and
+      <a href="https://github.com/latest-debs/apt-repo/blob/main/scripts/check-suite-parity.sh">Debian-parity check</a>
+      compute daily — no summarizing, no hand-curated claims.
+    </p>
+  </header>
+
+  <section id="staleness">
+    <h2>Upstream staleness</h2>
+    <p class="status-line" id="staleness-status"><span class="dot dot-ok"></span> Loading…</p>
+    <p class="tag">
+      A tool is flagged only once its upstream release has outlived the grace window
+      (normal rebuild + draft-promotion lag, not a broken pipeline) — see
+      <a href="https://github.com/latest-debs/apt-repo#support--expectations-best-effort-no-sla">support &amp; expectations</a>.
+    </p>
+    <div class="table-wrap">
+      <table id="staleness-table" aria-label="Stale packages">
+        <thead><tr><th>Tool</th><th>latest-debs</th><th>Upstream</th><th>Release age</th></tr></thead>
+        <tbody id="staleness-body"><tr><td colspan="4">Loading…</td></tr></tbody>
+      </table>
+    </div>
+    <p class="meta" id="staleness-meta"></p>
+  </section>
+
+  <section id="parity">
+    <h2>Debian-parity retirement candidates</h2>
+    <p class="status-line" id="parity-status"><span class="dot dot-ok"></span> Loading…</p>
+    <p class="tag">
+      Per the <a href="https://github.com/latest-debs/apt-repo#debian-parity-when-we-step-aside">Debian-parity policy</a>,
+      a package already at its latest upstream version in a live Debian suite is a candidate for retirement here —
+      that suite already offers current + Debian's own QA. Flagged, not auto-removed; a maintainer reviews each one.
+    </p>
+    <div class="table-wrap">
+      <table id="parity-table" aria-label="Parity candidates">
+        <thead><tr><th>Tool</th><th>Upstream</th><th>At parity in</th></tr></thead>
+        <tbody id="parity-body"><tr><td colspan="3">Loading…</td></tr></tbody>
+      </table>
+    </div>
+    <p class="meta" id="parity-meta"></p>
+  </section>
+
+  <footer>
+    <p>Best-effort, no SLA — see the <a href="https://github.com/latest-debs/apt-repo">apt-repo</a> README.</p>
+  </footer>
+</div>
+<script>
+  function escapeHtml(s) {
+    return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  }
+
+  function relativeAge(iso) {
+    const ms = Date.now() - new Date(iso).getTime();
+    const hours = Math.round(ms / 36e5);
+    if (hours < 48) return `${hours}h ago`;
+    return `${Math.round(hours / 24)}d ago`;
+  }
+
+  function loadStaleness() {
+    fetch('https://latest-debs.github.io/apt-repo/dists/staleness.json')
+      .then((r) => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+      .then((data) => {
+        const body = document.getElementById('staleness-body');
+        const status = document.getElementById('staleness-status');
+        const stale = data.stale || [];
+        if (stale.length === 0) {
+          status.innerHTML = '<span class="dot dot-ok"></span> All tracked tools are current.';
+          body.innerHTML = '<tr><td colspan="4" class="empty">Nothing stale.</td></tr>';
+        } else {
+          status.innerHTML = `<span class="dot dot-warn"></span> ${stale.length} tool(s) behind upstream.`;
+          body.innerHTML = stale.map((s) => `
+            <tr>
+              <td><code>${escapeHtml(s.package)}</code></td>
+              <td>${escapeHtml(s.ours)}</td>
+              <td>${escapeHtml(s.upstream)}</td>
+              <td>${s.age_hours >= 48 ? Math.round(s.age_hours / 24) + 'd' : s.age_hours + 'h'}</td>
+            </tr>`).join('');
+        }
+        document.getElementById('staleness-meta').textContent =
+          `Checked ${data.checked} tool(s), ${data.skipped} skipped · grace window ${data.grace_hours}h · generated ${relativeAge(data.generated_at)}.`;
+      })
+      .catch(() => {
+        document.getElementById('staleness-status').innerHTML = '<span class="dot dot-warn"></span> Could not load the report.';
+        document.getElementById('staleness-body').innerHTML = '<tr><td colspan="4" class="empty">Unavailable right now.</td></tr>';
+      });
+  }
+
+  function loadParity() {
+    fetch('https://latest-debs.github.io/apt-repo/dists/parity.json')
+      .then((r) => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+      .then((data) => {
+        const body = document.getElementById('parity-body');
+        const status = document.getElementById('parity-status');
+        const flagged = (data.packages || []).filter((p) => (p.parity_suites || []).length > 0);
+        if (flagged.length === 0) {
+          status.innerHTML = '<span class="dot dot-ok"></span> No tracked packages are at parity anywhere.';
+          body.innerHTML = '<tr><td colspan="3" class="empty">Nothing to retire.</td></tr>';
+        } else {
+          status.innerHTML = `<span class="dot dot-warn"></span> ${flagged.length} package(s) flagged for review.`;
+          body.innerHTML = flagged.map((p) => `
+            <tr>
+              <td><code>${escapeHtml(p.package)}</code></td>
+              <td>${escapeHtml(p.upstream_version)}</td>
+              <td>${p.parity_suites.map(escapeHtml).join(', ')}</td>
+            </tr>`).join('');
+        }
+        document.getElementById('parity-meta').textContent =
+          `${data.packages ? data.packages.length : 0} tool(s) checked across ${(data.suites_checked || []).join(', ')} · generated ${relativeAge(data.generated_at)}.`;
+      })
+      .catch(() => {
+        document.getElementById('parity-status').innerHTML = '<span class="dot dot-warn"></span> Could not load the report.';
+        document.getElementById('parity-body').innerHTML = '<tr><td colspan="3" class="empty">Unavailable right now.</td></tr>';
+      });
+  }
+
+  loadStaleness();
+  loadParity();
+</script>
+</body>
+</html>
