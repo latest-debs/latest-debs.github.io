@@ -1,25 +1,65 @@
 {
-  "generated_at": "2026-09-04T14:04:37Z",
+  "generated_at": "2026-09-04T15:13:05Z",
   "repos": [
-    {
-      "name": "latest-debs.github.io",
-      "url": "https://github.com/latest-debs/latest-debs.github.io",
-      "workflow": "CI status",
-      "conclusion": null,
-      "status": "in_progress",
-      "branch": "main",
-      "run_url": "https://github.com/latest-debs/latest-debs.github.io/actions/runs/33881620929",
-      "created_at": "2026-09-04T14:04:26Z"
-    },
     {
       "name": "apt-repo",
       "url": "https://github.com/latest-debs/apt-repo",
       "workflow": "CI",
-      "conclusion": "failure",
+      "conclusion": "success",
       "status": "completed",
       "branch": "main",
-      "run_url": "https://github.com/latest-debs/apt-repo/actions/runs/33881268890",
-      "created_at": "2026-09-04T14:00:49Z"
+      "run_url": "https://github.com/latest-debs/apt-repo/actions/runs/33887855487",
+      "created_at": "2026-09-04T15:09:23Z"
+    },
+    {
+      "name": "dasel-debian",
+      "url": "https://github.com/latest-debs/dasel-debian",
+      "workflow": "Build dasel for Debian",
+      "conclusion": "failure",
+      "status": "completed",
+      "branch": "master",
+      "run_url": "https://github.com/latest-debs/dasel-debian/actions/runs/33887386657",
+      "created_at": "2026-09-04T15:04:31Z"
+    },
+    {
+      "name": "watchexec-debian",
+      "url": "https://github.com/latest-debs/watchexec-debian",
+      "workflow": "Build watchexec for Debian",
+      "conclusion": "success",
+      "status": "completed",
+      "branch": "master",
+      "run_url": "https://github.com/latest-debs/watchexec-debian/actions/runs/33886066086",
+      "created_at": "2026-09-04T14:50:38Z"
+    },
+    {
+      "name": "hexyl-debian",
+      "url": "https://github.com/latest-debs/hexyl-debian",
+      "workflow": "Build hexyl for Debian",
+      "conclusion": "success",
+      "status": "completed",
+      "branch": "master",
+      "run_url": "https://github.com/latest-debs/hexyl-debian/actions/runs/33884783091",
+      "created_at": "2026-09-04T14:37:12Z"
+    },
+    {
+      "name": "joshuto-debian",
+      "url": "https://github.com/latest-debs/joshuto-debian",
+      "workflow": "Build joshuto for Debian",
+      "conclusion": "success",
+      "status": "completed",
+      "branch": "master",
+      "run_url": "https://github.com/latest-debs/joshuto-debian/actions/runs/33884777629",
+      "created_at": "2026-09-04T14:37:09Z"
+    },
+    {
+      "name": "lf-debian",
+      "url": "https://github.com/latest-debs/lf-debian",
+      "workflow": "Build lf for Debian",
+      "conclusion": "success",
+      "status": "completed",
+      "branch": "master",
+      "run_url": "https://github.com/latest-debs/lf-debian/actions/runs/33884772788",
+      "created_at": "2026-09-04T14:37:06Z"
     },
     {
       "name": ".github",
@@ -32,6 +72,86 @@
       "created_at": null
     },
     {
+      "name": "tokei-debian",
+      "url": "https://github.com/latest-debs/tokei-debian",
+      "workflow": "Build tokei for Debian",
+      "conclusion": "failure",
+      "status": "completed",
+      "branch": "master",
+      "run_url": "https://github.com/latest-debs/tokei-debian/actions/runs/33884792624",
+      "created_at": "2026-09-04T14:37:18Z"
+    },
+    {
+      "name": "workmux-debian",
+      "url": "https://github.com/latest-debs/workmux-debian",
+      "workflow": null,
+      "conclusion": null,
+      "status": null,
+      "branch": null,
+      "run_url": null,
+      "created_at": null
+    },
+    {
+      "name": "unregistry-debian",
+      "url": "https://github.com/latest-debs/unregistry-debian",
+      "workflow": null,
+      "conclusion": null,
+      "status": null,
+      "branch": null,
+      "run_url": null,
+      "created_at": null
+    },
+    {
+      "name": "uncloud-debian",
+      "url": "https://github.com/latest-debs/uncloud-debian",
+      "workflow": null,
+      "conclusion": null,
+      "status": null,
+      "branch": null,
+      "run_url": null,
+      "created_at": null
+    },
+    {
+      "name": "oh-my-posh-debian",
+      "url": "https://github.com/latest-debs/oh-my-posh-debian",
+      "workflow": null,
+      "conclusion": null,
+      "status": null,
+      "branch": null,
+      "run_url": null,
+      "created_at": null
+    },
+    {
+      "name": "herdr-debian",
+      "url": "https://github.com/latest-debs/herdr-debian",
+      "workflow": null,
+      "conclusion": null,
+      "status": null,
+      "branch": null,
+      "run_url": null,
+      "created_at": null
+    },
+    {
+      "name": "fastfetch-debian",
+      "url": "https://github.com/latest-debs/fastfetch-debian",
+      "workflow": "Build fastfetch for Debian",
+      "conclusion": "success",
+      "status": "completed",
+      "branch": "main",
+      "run_url": "https://github.com/latest-debs/fastfetch-debian/actions/runs/33884202512",
+      "created_at": "2026-09-04T14:31:15Z"
+    },
+    {
+      "name": "latest-debs.github.io",
+      "url": "https://github.com/latest-debs/latest-debs.github.io",
+      "workflow": "CI status",
+      "conclusion": null,
+      "status": "in_progress",
+      "branch": "main",
+      "run_url": "https://github.com/latest-debs/latest-debs.github.io/actions/runs/33888181841",
+      "created_at": "2026-09-04T15:12:52Z"
+    },
+    {
       "name": "bun-debian",
       "url": "https://github.com/latest-debs/bun-debian",
       "workflow": "Build bun for Debian",
@@ -40,16 +160,6 @@
       "branch": "main",
       "run_url": "https://github.com/latest-debs/bun-debian/actions/runs/33868130918",
       "created_at": "2026-09-04T11:28:43Z"
-    },
-    {
-      "name": "fastfetch-debian",
-      "url": "https://github.com/latest-debs/fastfetch-debian",
-      "workflow": ".github/workflows/release.yml",
-      "conclusion": "failure",
-      "status": "completed",
-      "branch": "main",
-      "run_url": "https://github.com/latest-debs/fastfetch-debian/actions/runs/33861055186",
-      "created_at": "2026-09-04T09:59:44Z"
     },
     {
       "name": "ruff-debian",
