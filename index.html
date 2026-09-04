@@ -117,8 +117,13 @@
     }
 
     // Binary package name as published in the apt index: the tools.yaml key,
-    // unless a debian_name override exists (e.g. yq -> yq-go).
-    function pkgName(tool) { return tool.debian_name || tool.name; }
+    // unless a debian_name override exists (e.g. yq -> yq-go). The sentinel
+    // value "NONE" means the Debian name collides with an unrelated package
+    // (zed) - it suppresses parity matching, not the apt-index match.
+    function pkgName(tool) {
+      const dn = tool.debian_name;
+      return !dn || dn === 'NONE' ? tool.name : dn;
+    }
 
     function getSortValue(tool, col) {
       const pkg = latestPackages && latestPackages.find((p) => p.name === pkgName(tool));
