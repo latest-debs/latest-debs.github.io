@@ -67,18 +67,20 @@
 
     // tools.yaml is a flat "name:\n  source: ...\n  homepage: ...\n" list,
     // not full YAML - regex lines are enough and avoid pulling in a parser
-    // for one small file.
+    // for one small file. debian_name is the optional binary-package-name
+    // override (e.g. yq ships as yq-go) used for the live-count and the
+    // published-version columns.
     function parseToolsYaml(text) {
       const tools = [];
       let current = null;
       for (const line of text.split('\n')) {
         const key = line.match(/^(\S+):\s*$/);
         if (key) {
-          current = { name: key[1], source: '', homepage: '' };
+          current = { name: key[1], debian_name: '', source: '', homepage: '' };
           tools.push(current);
           continue;
         }
-        const field = line.match(/^\s+(source|homepage):\s*(.+)$/);
+        const field = line.match(/^\s+(debian_name|source|homepage):\s*(.+)$/);
         if (field && current) current[field[1]] = field[2].trim();
       }
       return tools.sort((a, b) => a.name.localeCompare(b.name));
@@ -103,7 +105,9 @@
     function packagesMeta() {
       if (!trackedTools) return 'Loading the tool registry…';
       if (!latestPackages) return `${trackedTools.length} tools tracked. Loading published versions…`;
-      const live = trackedTools.filter((t) => latestPackages.some((p) => p.name === t.name)).length;
+      // Match the published Trixie package name, which is the tool's
+      // debian_name when it overrides the tracking key.
+      const live = trackedTools.filter((t) => latestPackages.some((p) => p.name === (t.debian_name || t.name))).length;
       return `${trackedTools.length} tools tracked, ${live} live from the Trixie suite. Refreshes automatically.`;
     }
 
@@ -112,12 +116,16 @@
       if (meta) meta.textContent = packagesMeta();
     }
 
+    // Binary package name as published in the apt index: the tools.yaml key,
+    // unless a debian_name override exists (e.g. yq -> yq-go).
+    function pkgName(tool) { return tool.debian_name || tool.name; }
+
     function getSortValue(tool, col) {
-      const pkg = latestPackages && latestPackages.find((p) => p.name === tool.name);
+      const pkg = latestPackages && latestPackages.find((p) => p.name === pkgName(tool));
       if (col === 'name') return tool.name.toLowerCase();
       if (col === 'version') return pkg ? cleanOwnVersion(pkg.version).toLowerCase() : '';
-      if (col === 'debian') return debianVersions ? (debianVersions.packages[tool.name] || '') : '';
-      if (col === 'ubuntu') return ubuntuVersions ? (ubuntuVersions.packages[tool.name] || '') : '';
+      if (col === 'debian') return debianVersions ? (debianVersions.packages[pkgName(tool)] || '') : '';
+      if (col === 'ubuntu') return ubuntuVersions ? (ubuntuVersions.packages[pkgName(tool)] || '') : '';
       return '';
     }
     function sortVisible(list) {
@@ -132,7 +140,7 @@
       if (!trackedTools || !body) return;
 
       let visible = trackedTools.filter((tool) => {
-        const pkg = latestPackages && latestPackages.find((p) => p.name === tool.name);
+        const pkg = latestPackages && latestPackages.find((p) => p.name === pkgName(tool));
         const haystack = tool.name + ' ' + (pkg ? pkg.description : '');
         return !packagesFilter || haystack.toLowerCase().includes(packagesFilter);
       });
@@ -141,22 +149,22 @@
       body.innerHTML = visible.length
         ? visible
             .map((tool) => {
-              const pkg = latestPackages && latestPackages.find((p) => p.name === tool.name);
+              const pkg = latestPackages && latestPackages.find((p) => p.name === pkgName(tool));
               const versionCell = pkg
                 ? escapeHtml(cleanOwnVersion(pkg.version))
                 : latestPackages
                 ? '<span class="not-packaged">building…</span>'
                 : '<span class="pending">…</span>';
               const href = tool.source || `https://github.com/latest-debs/${tool.name}-debian`;
-              const aptCmd = `sudo apt install ${tool.name}`;
+              const aptCmd = `sudo apt install ${pkgName(tool)}`;
               const drawerId = `drawer-${tool.name}`;
               return `
         <tr data-pkg="${tool.name}" class="pkg-row" style="cursor:pointer;" onclick="toggleDrawer('${tool.name}')" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ') {event.preventDefault(); toggleDrawer('${tool.name}');}" aria-expanded="false" aria-controls="${drawerId}">
           <td><a href="${escapeHtml(href)}" onclick="event.stopPropagation()">${escapeHtml(tool.name)}</a></td>
           <td>${pkg ? escapeHtml(pkg.description) : ''}</td>
           <td>${versionCell}</td>
-          <td class="debian-col">${debianCell(tool.name)}</td>
-          <td class="ubuntu-col">${ubuntuCell(tool.name)}</td>
+          <td class="debian-col">${debianCell(pkgName(tool))}</td>
+          <td class="ubuntu-col">${ubuntuCell(pkgName(tool))}</td>
         </tr>
         <tr id="${drawerId}" class="drawer" style="display:none;"><td colspan="5" style="background:var(--code-bg); padding:.75rem 1rem;">
           <div style="display:flex; flex-wrap:wrap; gap:1rem; font-size:.9rem;">
