@@ -152,9 +152,40 @@
     return `${Math.round(hours / 24)}d ago`;
   }
 
+  // The operating record (staleness / parity / graduated) is the thing this
+  // channel asks to be judged on, so it must not live or die with one host.
+  // It is read from two independent origins: the redirector Worker - whose
+  // ORIGIN_BASE is a config value that can be repointed at any backing store
+  // without touching this page - and the GitHub Pages site it currently
+  // proxies. Either one alone is enough, so losing a platform does not take
+  // the record with it. Add a third origin here, not a code change per fetch.
+  const RECORD_ORIGINS = [
+    'https://latest-debs.ranjithraj.workers.dev',
+    'https://latest-debs.github.io/apt-repo',
+  ];
+
+  // fetchRecord(path[, notFoundValue]) - first origin that answers wins.
+  // A 404 from every origin resolves to notFoundValue when one is given (a
+  // record that legitimately may not be published yet), and is an error
+  // otherwise. A 404 from one origin never short-circuits the others.
+  function fetchRecord(path, notFoundValue) {
+    let sawNotFound = false;
+    return RECORD_ORIGINS.reduce(
+      (chain, origin) => chain.catch(() =>
+        fetch(`${origin}/${path}`).then((r) => {
+          if (r.status === 404) { sawNotFound = true; throw new Error('HTTP 404'); }
+          if (!r.ok) throw new Error('HTTP ' + r.status);
+          return r.json();
+        })),
+      Promise.reject(new Error('no origin tried'))
+    ).catch((err) => {
+      if (sawNotFound && notFoundValue !== undefined) return notFoundValue;
+      throw err;
+    });
+  }
+
   function loadStaleness() {
-    fetch('https://latest-debs.github.io/apt-repo/dists/staleness.json')
-      .then((r) => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+    fetchRecord('dists/staleness.json')
       .then((data) => {
         const body = document.getElementById('staleness-body');
         const status = document.getElementById('staleness-status');
@@ -182,8 +213,7 @@
   }
 
   function loadParity() {
-    fetch('https://latest-debs.github.io/apt-repo/dists/parity.json')
-      .then((r) => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+    fetchRecord('dists/parity.json')
       .then((data) => {
         const body = document.getElementById('parity-body');
         const status = document.getElementById('parity-status');
@@ -222,15 +252,10 @@
   const REASONS = { 'own-repo': 'Upstream ships its own repo', 'debian-parity': 'Debian caught up' };
 
   function loadGraduated() {
-    fetch('https://latest-debs.github.io/apt-repo/graduated.json')
-      .then((r) => {
-        // 404 = the ledger hasn't been published to gh-pages yet (it rides
-        // along on the next rebuild). That's "nothing has graduated", not a
-        // failure - only a real transport/parse problem is an error.
-        if (r.status === 404) return { graduated: [] };
-        if (!r.ok) throw new Error('HTTP ' + r.status);
-        return r.json();
-      })
+    // 404 from every origin = the ledger hasn't been published yet (it rides
+    // along on the next rebuild). That's "nothing has graduated", not a
+    // failure - only a real transport/parse problem is an error.
+    fetchRecord('graduated.json', { graduated: [] })
       .then((data) => {
         const body = document.getElementById('graduated-body');
         const status = document.getElementById('graduated-status');
