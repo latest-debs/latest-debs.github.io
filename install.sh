@@ -20,7 +20,16 @@ REPO_URL="https://latest-debs.ranjithraj.workers.dev/"
 KEY_URL="https://latest-debs.github.io/apt-repo/latest-debs.asc"
 KEYRING="/etc/apt/keyrings/latest-debs.gpg"
 SOURCES="/etc/apt/sources.list.d/latest-debs.sources"
-SUPPORTED="bookworm trixie forky sid jammy noble questing resolute"
+# The explicit snippet in the README used to write this older one-line format,
+# so anyone who added the repo by hand before that changed still has it. Left
+# in place alongside the deb822 file above, apt reads both and warns that the
+# same target is configured twice - so install and uninstall both clear it.
+LEGACY_SOURCES="/etc/apt/sources.list.d/latest-debs.list"
+# Every suite the repo serves - Debian's own, plus the Ubuntu codenames it
+# serves as aliases of one. Source of truth is apt-repo's suites.json; this
+# script is fetched standalone over curl, so the list is mirrored here rather
+# than fetched (one less network dependency in the install path).
+SUPPORTED="bullseye bookworm trixie forky sid jammy noble questing resolute"
 
 msg()  { printf '\033[1;32m==>\033[0m %s\n' "$*"; }
 warn() { printf '\033[1;33m==> WARNING:\033[0m %s\n' "$*" >&2; }
@@ -32,7 +41,7 @@ run() { if [ -n "$SUDO" ]; then "$SUDO" "$@"; else "$@"; fi; }
 
 case "${1:-}" in
   --uninstall)
-    run rm -f "$KEYRING" "$SOURCES"
+    run rm -f "$KEYRING" "$SOURCES" "$LEGACY_SOURCES"
     run apt-get update -qq || true
     msg "latest-debs repository removed."
     exit 0
@@ -84,6 +93,7 @@ rm -f "$tmpkey"
 run chmod 0644 "$KEYRING"
 
 msg "writing $SOURCES ($CODENAME)"
+[ -e "$LEGACY_SOURCES" ] && { warn "removing superseded $LEGACY_SOURCES"; run rm -f "$LEGACY_SOURCES"; }
 run tee "$SOURCES" > /dev/null <<EOF
 Types: deb
 URIs: $REPO_URL

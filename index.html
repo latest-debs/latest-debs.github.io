@@ -617,9 +617,31 @@
 
   <section id="install">
     <h2>Install</h2>
+
+    <h3 style="margin-top:1.75rem; font-size:1.1rem; color:#c9d1d9;">Ubuntu</h3>
+    <pre><code>curl -fsSL https://latest-debs.github.io/install.sh | sh
+sudo apt install &lt;package&gt;</code></pre>
+    <p class="tag">
+      Reads the codename from <code>/etc/os-release</code> and writes the
+      suite we actually serve for it — including 22.04, where
+      <code>extrepo</code> resolves a Debian suite whose glibc is newer than
+      jammy's. Its only privileged actions are the two a repository needs: the
+      GPG key into <code>/etc/apt/keyrings/</code>, and one deb822 file into
+      <code>/etc/apt/sources.list.d/</code>.
+      <a href="https://github.com/latest-debs/latest-debs.github.io/blob/main/install.sh">Read it first</a>
+      — then <code>--status</code> and <code>--uninstall</code> undo it.
+    </p>
+
+    <h3 style="margin-top:1.75rem; font-size:1.1rem; color:#c9d1d9;">Debian, or any distro explicitly</h3>
     <pre><code>sudo install -d -m 0755 /etc/apt/keyrings
 curl -fsSL https://raw.githubusercontent.com/latest-debs/apt-repo/main/latest-debs.asc | sudo gpg --dearmor --yes -o /etc/apt/keyrings/latest-debs.gpg
-echo "deb [signed-by=/etc/apt/keyrings/latest-debs.gpg] https://latest-debs.ranjithraj.workers.dev/ $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/latest-debs.list
+sudo tee /etc/apt/sources.list.d/latest-debs.sources &gt; /dev/null &lt;&lt;EOF
+Types: deb
+URIs: https://latest-debs.ranjithraj.workers.dev/
+Suites: $(lsb_release -sc)
+Components: main
+Signed-By: /etc/apt/keyrings/latest-debs.gpg
+EOF
 sudo apt update
 sudo apt install &lt;package&gt;</code></pre>
     <p class="tag">Swap <code>&lt;package&gt;</code> for any tool in the <a href="#packages">live package list</a> below — e.g. <code>sudo apt install uv eza lazygit</code>.</p>
