@@ -45,6 +45,8 @@
     .dot { width: .6rem; height: .6rem; border-radius: 50%; display: inline-block; }
     .dot-ok { background: var(--ok); }
     .dot-warn { background: var(--warn); }
+    .dot-fail { background: var(--accent); }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .85rem; }
     .meta { color: var(--fg-muted); font-size: .85rem; margin-top: .5rem; }
     .empty { color: var(--fg-dim); font-style: italic; padding: .5rem .6rem; }
     footer { text-align: center; color: var(--fg-muted); margin-top: 3rem; font-size: .9rem; }
@@ -79,6 +81,23 @@
       </table>
     </div>
     <p class="meta" id="staleness-meta"></p>
+  </section>
+
+  <section id="ci">
+    <h2>CI status</h2>
+    <p class="status-line" id="ci-status"><span class="dot dot-ok"></span> Loading…</p>
+    <p class="tag">
+      Latest GitHub Actions workflow run per repository, refreshed every 30&nbsp;minutes from the
+      <a href="https://github.com/latest-debs">latest-debs</a> org. A red row is a failing run —
+      click it to open the run log.
+    </p>
+    <div class="table-wrap">
+      <table id="ci-table" aria-label="CI status per repository">
+        <thead><tr><th>Repository</th><th>Workflow</th><th>Status</th><th>Branch</th><th>Last run</th></tr></thead>
+        <tbody id="ci-body"><tr><td colspan="5">Loading…</td></tr></tbody>
+      </table>
+    </div>
+    <p class="meta" id="ci-meta"></p>
   </section>
 
   <section id="parity">
@@ -243,9 +262,66 @@
       });
   }
 
+  const CI_ICONS = {
+    success: '<span class="dot dot-ok"></span>',
+    failure: '<span class="dot dot-fail"></span>',
+    in_progress: '<span class="dot dot-warn"></span>',
+    queued: '<span class="dot dot-warn"></span>',
+    pending: '<span class="dot dot-warn"></span>',
+    null: '<span class="dot dot-warn"></span>',
+  };
+  const CI_LABELS = {
+    success: 'passing', failure: 'failing', in_progress: 'running',
+    queued: 'queued', pending: 'pending', null: 'no runs',
+  };
+
+  function loadCIStatus() {
+    fetch('ci-status.json')
+      .then((r) => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+      .then((data) => {
+        const body = document.getElementById('ci-body');
+        const status = document.getElementById('ci-status');
+        const repos = data.repos || [];
+        const failing = repos.filter((r) => r.conclusion === 'failure');
+        const running = repos.filter((r) => r.status === 'in_progress' || r.status === 'queued');
+        if (failing.length > 0) {
+          status.innerHTML = `<span class="dot dot-fail"></span> ${failing.length} repo(s) failing` +
+            (running.length > 0 ? `, ${running.length} running` : '') + '.';
+        } else if (running.length > 0) {
+          status.innerHTML = `<span class="dot dot-warn"></span> All green — ${running.length} run(s) in progress.`;
+        } else {
+          status.innerHTML = `<span class="dot dot-ok"></span> All ${repos.length} repo(s) passing.`;
+        }
+        // Failing first, then in-progress, then the rest
+        const order = { failure: 0, in_progress: 1, queued: 2, pending: 3, success: 4, null: 5 };
+        repos.sort((a, b) => (order[a.conclusion || 'null'] ?? 5) - (order[b.conclusion || 'null'] ?? 5));
+        body.innerHTML = repos.map((r) => {
+          const icon = CI_ICONS[r.conclusion || 'null'] || CI_ICONS.null;
+          const label = CI_LABELS[r.conclusion || 'null'] || CI_LABELS.null;
+          const created = r.created_at ? relativeAge(r.created_at) : '—';
+          const href = r.run_url || r.url || '#'
+          return `
+            <tr>
+              <td><a href="${escapeHtml(r.url)}"><code>${escapeHtml(r.name)}</code></a></td>
+              <td class="mono">${escapeHtml(r.workflow || '—')}</td>
+              <td><a href="${escapeHtml(href)}" class="status-line">${icon} ${label}</a></td>
+              <td class="mono">${escapeHtml(r.branch || '—')}</td>
+              <td>${created}</td>
+            </tr>`;
+        }).join('');
+        document.getElementById('ci-meta').textContent =
+          `${repos.length} repositories tracked · generated ${relativeAge(data.generated_at)}.`;
+      })
+      .catch(() => {
+        document.getElementById('ci-status').innerHTML = '<span class="dot dot-warn"></span> Could not load CI status.';
+        document.getElementById('ci-body').innerHTML = '<tr><td colspan="5" class="empty">Unavailable right now.</td></tr>';
+      });
+  }
+
   loadStaleness();
   loadParity();
   loadGraduated();
+  loadCIStatus();
 </script>
 </body>
 </html>

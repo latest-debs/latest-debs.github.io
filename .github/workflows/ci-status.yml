@@ -1,0 +1,79 @@
+name: CI status
+
+on:
+  schedule:
+    - cron: '*/30 * * * *'   # every 30 minutes
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Generate CI status JSON
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          org="latest-debs"
+          repos_json="$(gh repo list "$org" --limit 200 --json name,defaultBranchRef -q '.[] | .name')"
+          now="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          tmpfile="$(mktemp)"
+          echo '[' > "$tmpfile"
+          first=true
+          for repo in $repos_json; do
+            [ "$first" = true ] || echo ',' >> "$tmpfile"
+            first=false
+            # Get the latest workflow run for the default branch (limit 1)
+            run="$(gh run list -R "$org/$repo" --limit 1 --json name,conclusion,status,headBranch,createdAt,url,workflowName 2>/dev/null || echo '[]')"
+            # If no runs, emit a null-entry repo placeholder
+            count="$(echo "$run" | python3 -c 'import json,sys; print(len(json.load(sys.stdin)))')"
+            if [ "$count" = "0" ]; then
+              printf '{"name":"%s","url":"https://github.com/%s/%s","workflow":null,"conclusion":null,"status":null,"branch":null,"run_url":null,"created_at":null}' "$repo" "$org" "$repo" >> "$tmpfile"
+            else
+              echo "$run" | python3 -c "
+          import json, sys
+          runs = json.load(sys.stdin)
+          r = runs[0]
+          obj = {
+            'name': '$repo',
+            'url': 'https://github.com/$org/$repo',
+            'workflow': r.get('workflowName') or r.get('name'),
+            'conclusion': r.get('conclusion') or None,
+            'status': r.get('status') or None,
+            'branch': r.get('headBranch') or None,
+            'run_url': r.get('url') or None,
+            'created_at': r.get('createdAt') or None,
+          }
+          print(json.dumps(obj))
+          " >> "$tmpfile"
+            fi
+          done
+          echo ']' >> "$tmpfile"
+          # Wrap with metadata
+          python3 -c "
+          import json
+          repos = json.load(open('$tmpfile'))
+          data = {'generated_at': '$now', 'repos': repos}
+          with open('ci-status.json', 'w') as f:
+            json.dump(data, f, indent=2)
+          "
+          rm -f "$tmpfile"
+          echo "Generated ci-status.json with $(python3 -c "import json; print(len(json.load(open('ci-status.json'))['repos']))") repos"
+
+      - name: Commit and push
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add ci-status.json
+          if git diff --cached --quiet; then
+            echo "No changes to ci-status.json"
+            exit 0
+          fi
+          git commit -m "chore: update ci-status.json ($(date -u +%Y-%m-%dT%H:%M:%SZ))"
+          git push
