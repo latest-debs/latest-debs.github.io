@@ -23,7 +23,7 @@ jobs:
         run: |
           set -euo pipefail
           org="latest-debs"
-          repos_json="$(gh repo list "$org" --limit 200 --json name,defaultBranchRef -q '.[] | .name')"
+          repos_json="$(gh repo list "$org" --limit 200 --no-archived --json name,defaultBranchRef -q '.[] | .name')"
           now="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
           tmpfile="$(mktemp)"
           echo '[' > "$tmpfile"
