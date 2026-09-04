@@ -502,6 +502,13 @@
     h1 { font-size: 2.2rem; margin: .5rem 0 0; }
     h1 code { color: var(--accent); font-size: 1.1em; }
     .tag { color: var(--fg-muted); font-size: 1.1rem; }
+    /* Interim callout for the extrepo base-URI breakage; remove with the
+       notice itself once the extrepo-data MR lands upstream. */
+    .notice {
+      border-left: 4px solid var(--accent); background: var(--code-bg);
+      padding: .75rem 1rem; margin: 1rem 0; border-radius: 0 8px 8px 0;
+    }
+    .notice strong { color: var(--accent); }
     .btn {
       display: inline-block; margin: .75rem .25rem 0; padding: .6rem 1.1rem;
       border-radius: 8px; text-decoration: none; font-weight: 600;
@@ -551,6 +558,7 @@
     <p>
       <a class="btn btn-primary" href="#install">Install</a>
       <a class="btn btn-ghost" href="https://github.com/latest-debs">GitHub</a>
+      <a class="btn btn-ghost" href="#parity">Our exit policy</a>
       <a class="btn btn-ghost" href="status.html">Pipeline status</a>
       <a class="btn btn-ghost" href="https://github.com/sponsors/latest-debs">Sponsor</a>
     </p>
@@ -566,18 +574,67 @@
     </p>
   </section>
 
+  <section id="parity">
+    <h2>We retire ourselves when Debian catches up</h2>
+    <p>
+      Most third-party repositories have a structural reason to keep you on
+      them. This one does not. The whole point is to fill a gap in Debian's
+      release cadence — so when Debian closes that gap, the right answer is
+      for us to get out of the way, and that is written into the pipeline
+      rather than left to good intentions:
+    </p>
+    <ul>
+      <li>
+        When a tool reaches its latest upstream version in a <strong>released</strong>
+        suite (bookworm, trixie), we <strong>retire our package</strong>. You
+        already have it; a second, lower-trust copy helps nobody.
+      </li>
+      <li>
+        When it reaches parity in a <strong>rolling</strong> suite (forky, sid),
+        we <strong>stop building for that suite only</strong> and keep shipping
+        to the rest — a stable-suite user cannot reach sid without pinning, so
+        dropping their copy too would strand them.
+      </li>
+      <li>
+        Every hand-off is recorded in a public
+        <a href="https://github.com/latest-debs/apt-repo/blob/main/graduated.json">ledger</a>
+        with where to go instead, so a package that leaves never becomes a
+        dead end.
+      </li>
+    </ul>
+    <p>
+      The build applies the per-suite drops automatically from a daily parity
+      report, and the dashboard counts them as <em>wins</em> rather than
+      to-do items. You can see which suites we have already handed back under
+      <a href="status.html#parity">Handed back to Debian</a> — and read the
+      <a href="https://github.com/latest-debs/apt-repo#debian-parity--when-we-step-aside">full policy</a>.
+    </p>
+    <p class="tag">
+      A vendor apt repo or a Homebrew tap has no equivalent: nothing in either
+      shrinks its own scope when the distribution catches up.
+    </p>
+  </section>
+
   <section id="install">
     <h2>Install</h2>
-    <p>On Debian, via <a href="https://salsa.debian.org/extrepo-team/extrepo">extrepo</a>:</p>
-    <pre><code>sudo extrepo enable latest-debs
-sudo apt update
-sudo apt install &lt;package&gt;</code></pre>
-    <p class="tag">Swap <code>&lt;package&gt;</code> for any tool in the <a href="#packages">live package list</a> below — e.g. <code>sudo apt install uv eza lazygit</code>.</p>
-    <p>Or manually:</p>
     <pre><code>sudo install -d -m 0755 /etc/apt/keyrings
 curl -fsSL https://raw.githubusercontent.com/latest-debs/apt-repo/main/latest-debs.asc | sudo gpg --dearmor --yes -o /etc/apt/keyrings/latest-debs.gpg
 echo "deb [signed-by=/etc/apt/keyrings/latest-debs.gpg] https://latest-debs.ranjithraj.workers.dev/ $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/latest-debs.list
-sudo apt update</code></pre>
+sudo apt update
+sudo apt install &lt;package&gt;</code></pre>
+    <p class="tag">Swap <code>&lt;package&gt;</code> for any tool in the <a href="#packages">live package list</a> below — e.g. <code>sudo apt install uv eza lazygit</code>.</p>
+
+    <div class="notice">
+      <p><strong>Don't use <code>extrepo enable latest-debs</code> yet.</strong>
+      The policy published in
+      <a href="https://salsa.debian.org/extrepo-team/extrepo-data/-/blob/master/repos/debian/latest-debs.yaml">extrepo-data</a>
+      still points at the old <code>latest-debs.github.io/apt-repo/</code> base
+      URI. That origin still serves the package indexes, so <code>apt
+      update</code> succeeds and the tools show up — but the package files
+      themselves are no longer published there, so every <code>apt
+      install</code> fails with a 404. Use the snippet above until the
+      extrepo-data update is merged upstream.</p>
+    </div>
   </section>
 
   <section id="packages">
