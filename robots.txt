@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://latest-debs.github.io/sitemap.xml

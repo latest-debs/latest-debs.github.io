@@ -5,8 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>latest-debs — Latest dev tools, packaged for Debian</title>
   <meta name="description" content="Latest stable releases of developer tools as Debian packages, served over apt. uv, eza, lazygit and more.">
+  <link rel="canonical" href="https://latest-debs.github.io/">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="icon" type="image/png" sizes="512x512" href="og-image.png">
+  <!-- #7: Atom feed of new packages and releases, regenerated hourly by
+       .github/workflows/feed.yml - see feed.xml and generate-feed.py. -->
+  <link rel="alternate" type="application/atom+xml" title="latest-debs — new packages and releases" href="feed.xml">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "latest-debs",
+    "url": "https://latest-debs.github.io/",
+    "description": "Latest stable releases of developer tools as Debian packages, served over apt. uv, eza, lazygit and more."
+  }
+  </script>
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://latest-debs.github.io/">
   <meta property="og:title" content="latest-debs — Latest dev tools, packaged for Debian">
@@ -158,7 +171,7 @@
               const versionCell = pkg
                 ? escapeHtml(cleanOwnVersion(pkg.version))
                 : latestPackages
-                ? '<span class="not-packaged">building…</span>'
+                ? '<a href="status.html#staleness" title="Why is it building? See the staleness report"><span class="not-packaged">building…</span></a>'
                 : '<span class="pending">…</span>';
               const href = tool.source || `https://github.com/latest-debs/${tool.name}-debian`;
               const aptCmd = `sudo apt install ${pkgName(tool)}`;
@@ -174,7 +187,7 @@
         <tr id="${drawerId}" class="drawer" style="display:none;"><td colspan="5" style="background:var(--code-bg); padding:.75rem 1rem;">
           <div style="display:flex; flex-wrap:wrap; gap:1rem; font-size:.9rem;">
             <div><strong>Install:</strong> <code>${aptCmd}</code> <button onclick="event.stopPropagation(); navigator.clipboard.writeText('${aptCmd}'); this.textContent='copied!'; setTimeout(()=>this.textContent='copy',1500)" style="margin-left:.5rem; font-size:.8rem; padding:.2rem .5rem; border:1px solid var(--border-strong); background:var(--bg); color:var(--fg); border-radius:4px; cursor:pointer;">copy</button></div>
-            <div><a href="${escapeHtml(href)}">GitHub</a>${tool.homepage ? ` · <a href="${escapeHtml(tool.homepage)}">homepage</a>` : ''}</div>
+            <div><a href="${escapeHtml(href)}">GitHub</a>${tool.homepage ? ` · <a href="${escapeHtml(tool.homepage)}">homepage</a>` : ''} · <a href="status.html#staleness">pipeline status</a></div>
             <div style="color:var(--fg-muted);">${pkg ? escapeHtml(pkg.description) : 'No published .deb yet — building…'}</div>
           </div>
         </td></tr>`;
@@ -467,7 +480,24 @@
       // rather than blocking the rest of the page.
     }
 
+    // #5: remember which suite the visitor selected so the table matches
+    // their system when they come back. There's no reliable way to read a
+    // machine's codename from a browser (userAgent hints carry no OS-suite
+    // info), so the install one-liner does runtime detection on the host;
+    // this only persists the visitor's own explicit choice.
+    const SUITE_KEY = 'latest-debs-suite';
+    function restoreSuite() {
+      const select = document.getElementById('suite-filter');
+      if (!select) return;
+      const saved = localStorage.getItem(SUITE_KEY);
+      if (saved && select.querySelector(`option[value="${saved}"]`)) {
+        select.value = saved;
+        switchSuite(saved);
+      }
+    }
+
     function switchSuite(suite) {
+      localStorage.setItem(SUITE_KEY, suite);
       const body = document.getElementById('packages-body');
       if (!body) return;
       body.setAttribute('hx-get', `https://latest-debs.github.io/apt-repo/dists/${suite}/main/binary-amd64/Packages`);
@@ -485,7 +515,10 @@
       loadToolsRegistry();
     }
 
-    document.addEventListener('DOMContentLoaded', loadToolsRegistry);
+    document.addEventListener('DOMContentLoaded', () => {
+      loadToolsRegistry();
+      restoreSuite();
+    });
     setInterval(loadToolsRegistry, 5 * 60 * 1000);
   </script>
   <style>
@@ -630,6 +663,9 @@
 
   <section id="install">
     <h2>Install</h2>
+    <p>The quick way — one script, ~20 readable lines, does exactly the three manual steps below (install the key, write the sources file, <code>apt update</code>), auto-detecting your Debian/Ubuntu suite. <a href="https://github.com/latest-debs/latest-debs.github.io/blob/main/install.sh">Read it first</a>, then:</p>
+    <pre><code>curl -fsSL https://latest-debs.github.io/install.sh | sh</code></pre>
+    <p style="margin-top:.5rem">It supports <code>--status</code> and <code>--uninstall</code>. Prefer the manual steps:</p>
     <pre><code>sudo install -d -m 0755 /etc/apt/keyrings
 curl -fsSL https://raw.githubusercontent.com/latest-debs/apt-repo/main/latest-debs.asc | sudo gpg --dearmor --yes -o /etc/apt/keyrings/latest-debs.gpg
 echo "deb [signed-by=/etc/apt/keyrings/latest-debs.gpg] https://latest-debs.ranjithraj.workers.dev/ $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/latest-debs.list
@@ -646,7 +682,9 @@ sudo apt install &lt;package&gt;</code></pre>
       update</code> succeeds and the tools show up — but the package files
       themselves are no longer published there, so every <code>apt
       install</code> fails with a 404. Use the snippet above until the
-      extrepo-data update is merged upstream.</p>
+      extrepo-data update —
+      <a href="https://salsa.debian.org/extrepo-team/extrepo-data/-/merge_requests/573">MR&nbsp;!573, currently under review</a>
+      — is merged upstream. This notice comes down the moment it lands.</p>
     </div>
   </section>
 
@@ -656,6 +694,19 @@ sudo apt install &lt;package&gt;</code></pre>
       <button class="refresh-btn" onclick="manualRefresh()" type="button">↻ Refresh now</button>
     </h2>
     <p class="tag" id="packages-meta" aria-live="polite" aria-atomic="true">Loading the tool registry…</p>
+    <p class="tag" style="margin-top:-.25rem">Get notified of new tools and releases: <a href="feed.xml" type="application/atom+xml">releases feed (Atom)</a> — any feed reader, or watch the <a href="https://github.com/latest-debs/apt-repo/issues.atom">weekly digest</a>.</p>
+    <!-- Static fallback for crawlers and JS-less clients: the package table
+         itself is client-rendered, which previously made the whole catalog
+         invisible to search engines. This list is the tools.yaml tracking
+         keys at generation time; the live table above remains the source of
+         truth and renders over it when JS is available. Regenerate with
+         generate-noscript.py when tools.yaml changes (see README). -->
+    <noscript>
+      <ul style="columns:2; -webkit-columns:2; gap:2rem; font-size:.92rem;">
+        <li>act</li><li>atuin</li><li>bat</li><li>bottom</li><li>buf</li><li>bun</li><li>dasel</li><li>deno</li><li>difftastic</li><li>dive</li><li>du-dust</li><li>duckdb</li><li>eza</li><li>fastfetch</li><li>fd</li><li>fish</li><li>fresh-editor</li><li>fzf</li><li>gh</li><li>git-delta</li><li>gitui</li><li>gum</li><li>helix</li><li>herdr</li><li>hexyl</li><li>hyperfine</li><li>jj</li><li>joshuto</li><li>just</li><li>k6</li><li>k9s</li><li>lazydocker</li><li>lazygit</li><li>lf</li><li>mise</li><li>neovim</li><li>nushell</li><li>oh-my-posh</li><li>pnpm</li><li>procs</li><li>rclone</li><li>ripgrep</li><li>ruff</li><li>scc</li><li>sd</li><li>starship</li><li>superfile</li><li>trivy</li><li>uncloud</li><li>uv</li><li>vhs</li><li>vicinae</li><li>vite-plus</li><li>watchexec</li><li>workmux</li><li>xh</li><li>yazi</li><li>yq</li><li>zed</li><li>zellij</li><li>zoxide</li>
+      </ul>
+      <p class="tag">Enable JavaScript to see per-package versions and the Debian comparison columns, or browse <a href="https://github.com/latest-debs/apt-repo/blob/main/tools.yaml">tools.yaml</a> directly.</p>
+    </noscript>
     <div style="display:flex; gap:.5rem; flex-wrap:wrap;">
       <input type="text" id="packages-filter" class="filter-input" style="flex:1; min-width:200px;" placeholder="Filter packages by name or description…" oninput="filterPackagesTable(this.value)" autocomplete="off" aria-label="Filter packages by name or description">
       <label for="suite-filter" class="sr-only">Suite</label>
