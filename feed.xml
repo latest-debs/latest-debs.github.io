@@ -4,9 +4,30 @@
   <link href="https://latest-debs.github.io/"/>
   <link rel="self" href="https://latest-debs.github.io/feed.xml"/>
   <id>https://latest-debs.github.io/feed.xml</id>
-  <updated>2026-09-05T08:37:00Z</updated>
+  <updated>2026-09-05T10:52:00Z</updated>
   <author><name>latest-debs</name></author>
   <subtitle>Latest dev tools, packaged for Debian — automatically. One entry per release published to the apt channel.</subtitle>
+  <entry>
+    <id>https://github.com/latest-debs/bun-debian/releases/tag/bun-v1.4.2%2B1</id>
+    <title>bun bun-v1.4.2+1</title>
+    <link href="https://github.com/latest-debs/bun-debian/releases/tag/bun-v1.4.2%2B1"/>
+    <updated>2026-09-05T10:52:00Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;bun&lt;/strong&gt; &lt;code&gt;bun-v1.4.2+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install bun&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>https://github.com/latest-debs/workmux-debian/releases/tag/v0.1.255%2B1</id>
+    <title>workmux v0.1.255+1</title>
+    <link href="https://github.com/latest-debs/workmux-debian/releases/tag/v0.1.255%2B1"/>
+    <updated>2026-09-05T10:49:06Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;workmux&lt;/strong&gt; &lt;code&gt;v0.1.255+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install workmux&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>https://github.com/latest-debs/oh-my-posh-debian/releases/tag/v31.1.3%2B1</id>
+    <title>oh-my-posh v31.1.3+1</title>
+    <link href="https://github.com/latest-debs/oh-my-posh-debian/releases/tag/v31.1.3%2B1"/>
+    <updated>2026-09-05T10:46:45Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;oh-my-posh&lt;/strong&gt; &lt;code&gt;v31.1.3+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install oh-my-posh&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
   <entry>
     <id>https://github.com/latest-debs/eza-debian/releases/tag/v0.23.5%2B3</id>
     <title>eza v0.23.5+3</title>
@@ -405,26 +426,5 @@
     <link href="https://github.com/latest-debs/nushell-debian/releases/tag/0.115.1%2B1"/>
     <updated>2026-08-25T20:24:48Z</updated>
     <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;nushell&lt;/strong&gt; &lt;code&gt;0.115.1+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install nushell&lt;/code&gt;.&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <id>https://github.com/latest-debs/pnpm-debian/releases/tag/v11.24.0%2B1</id>
-    <title>pnpm v11.24.0+1</title>
-    <link href="https://github.com/latest-debs/pnpm-debian/releases/tag/v11.24.0%2B1"/>
-    <updated>2026-08-24T21:52:39Z</updated>
-    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;pnpm&lt;/strong&gt; &lt;code&gt;v11.24.0+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install pnpm&lt;/code&gt;.&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <id>https://github.com/latest-debs/zed-debian/releases/tag/v1.16.2%2B1</id>
-    <title>zed v1.16.2+1</title>
-    <link href="https://github.com/latest-debs/zed-debian/releases/tag/v1.16.2%2B1"/>
-    <updated>2026-08-24T16:13:18Z</updated>
-    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;zed&lt;/strong&gt; &lt;code&gt;v1.16.2+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install zed&lt;/code&gt;.&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <id>https://github.com/latest-debs/vite-plus-debian/releases/tag/v0.3.0%2B1</id>
-    <title>vite-plus v0.3.0+1</title>
-    <link href="https://github.com/latest-debs/vite-plus-debian/releases/tag/v0.3.0%2B1"/>
-    <updated>2026-08-24T04:14:04Z</updated>
-    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;vite-plus&lt;/strong&gt; &lt;code&gt;v0.3.0+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install vite-plus&lt;/code&gt;.&lt;/p&gt;</content>
   </entry>
 </feed>
