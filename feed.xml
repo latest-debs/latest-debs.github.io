@@ -1,0 +1,430 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>latest-debs — new packages and releases</title>
+  <link href="https://latest-debs.github.io/"/>
+  <link rel="self" href="https://latest-debs.github.io/feed.xml"/>
+  <id>https://latest-debs.github.io/feed.xml</id>
+  <updated>2026-09-05T08:37:00Z</updated>
+  <author><name>latest-debs</name></author>
+  <subtitle>Latest dev tools, packaged for Debian — automatically. One entry per release published to the apt channel.</subtitle>
+  <entry>
+    <id>https://github.com/latest-debs/eza-debian/releases/tag/v0.23.5%2B3</id>
+    <title>eza v0.23.5+3</title>
+    <link href="https://github.com/latest-debs/eza-debian/releases/tag/v0.23.5%2B3"/>
+    <updated>2026-09-05T08:37:00Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;eza&lt;/strong&gt; &lt;code&gt;v0.23.5+3&lt;/code&gt;. Install with &lt;code&gt;sudo apt install eza&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>https://github.com/latest-debs/vicinae-debian/releases/tag/v0.28.1%2B1</id>
+    <title>vicinae v0.28.1+1</title>
+    <link href="https://github.com/latest-debs/vicinae-debian/releases/tag/v0.28.1%2B1"/>
+    <updated>2026-09-05T08:21:15Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;vicinae&lt;/strong&gt; &lt;code&gt;v0.28.1+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install vicinae&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>https://github.com/latest-debs/eza-debian/releases/tag/v0.23.5%2B2</id>
+    <title>eza v0.23.5+2</title>
+    <link href="https://github.com/latest-debs/eza-debian/releases/tag/v0.23.5%2B2"/>
+    <updated>2026-09-05T08:10:53Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;eza&lt;/strong&gt; &lt;code&gt;v0.23.5+2&lt;/code&gt;. Install with &lt;code&gt;sudo apt install eza&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>https://github.com/latest-debs/uv-debian/releases/tag/0.12.10%2B1</id>
+    <title>uv 0.12.10+1</title>
+    <link href="https://github.com/latest-debs/uv-debian/releases/tag/0.12.10%2B1"/>
+    <updated>2026-09-05T04:44:36Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;uv&lt;/strong&gt; &lt;code&gt;0.12.10+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install uv&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>https://github.com/latest-debs/trivy-debian/releases/tag/v0.74.0%2B2</id>
+    <title>trivy v0.74.0+2</title>
+    <link href="https://github.com/latest-debs/trivy-debian/releases/tag/v0.74.0%2B2"/>
+    <updated>2026-09-04T21:29:03Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;trivy&lt;/strong&gt; &lt;code&gt;v0.74.0+2&lt;/code&gt;. Install with &lt;code&gt;sudo apt install trivy&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>https://github.com/latest-debs/zed-debian/releases/tag/v1.18.1%2B1</id>
+    <title>zed v1.18.1+1</title>
+    <link href="https://github.com/latest-debs/zed-debian/releases/tag/v1.18.1%2B1"/>
+    <updated>2026-09-04T21:01:09Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;zed&lt;/strong&gt; &lt;code&gt;v1.18.1+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install zed&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>https://github.com/latest-debs/rclone-debian/releases/tag/v1.75.1%2B1</id>
+    <title>rclone v1.75.1+1</title>
+    <link href="https://github.com/latest-debs/rclone-debian/releases/tag/v1.75.1%2B1"/>
+    <updated>2026-09-04T20:55:39Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;rclone&lt;/strong&gt; &lt;code&gt;v1.75.1+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install rclone&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>https://github.com/latest-debs/uncloud-debian/releases/tag/v0.20.0%2B1</id>
+    <title>uncloud v0.20.0+1</title>
+    <link href="https://github.com/latest-debs/uncloud-debian/releases/tag/v0.20.0%2B1"/>
+    <updated>2026-09-04T16:33:40Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;uncloud&lt;/strong&gt; &lt;code&gt;v0.20.0+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install uncloud&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>https://github.com/latest-debs/herdr-debian/releases/tag/v0.8.2%2B1</id>
+    <title>herdr v0.8.2+1</title>
+    <link href="https://github.com/latest-debs/herdr-debian/releases/tag/v0.8.2%2B1"/>
+    <updated>2026-09-04T16:32:05Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;herdr&lt;/strong&gt; &lt;code&gt;v0.8.2+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install herdr&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>https://github.com/latest-debs/fish-debian/releases/tag/4.9.1%2B1</id>
+    <title>fish 4.9.1+1</title>
+    <link href="https://github.com/latest-debs/fish-debian/releases/tag/4.9.1%2B1"/>
+    <updated>2026-09-04T16:31:55Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;fish&lt;/strong&gt; &lt;code&gt;4.9.1+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install fish&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>https://github.com/latest-debs/workmux-debian/releases/tag/v0.1.254%2B1</id>
+    <title>workmux v0.1.254+1</title>
+    <link href="https://github.com/latest-debs/workmux-debian/releases/tag/v0.1.254%2B1"/>
+    <updated>2026-09-04T16:31:30Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;workmux&lt;/strong&gt; &lt;code&gt;v0.1.254+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install workmux&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>https://github.com/latest-debs/oh-my-posh-debian/releases/tag/v31.1.2%2B1</id>
+    <title>oh-my-posh v31.1.2+1</title>
+    <link href="https://github.com/latest-debs/oh-my-posh-debian/releases/tag/v31.1.2%2B1"/>
+    <updated>2026-09-04T16:31:24Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;oh-my-posh&lt;/strong&gt; &lt;code&gt;v31.1.2+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install oh-my-posh&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>https://github.com/latest-debs/dasel-debian/releases/tag/v3.11.2%2B1</id>
+    <title>dasel v3.11.2+1</title>
+    <link href="https://github.com/latest-debs/dasel-debian/releases/tag/v3.11.2%2B1"/>
+    <updated>2026-09-04T15:22:22Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;dasel&lt;/strong&gt; &lt;code&gt;v3.11.2+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install dasel&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>https://github.com/latest-debs/watchexec-debian/releases/tag/v2.7.1%2B1</id>
+    <title>watchexec v2.7.1+1</title>
+    <link href="https://github.com/latest-debs/watchexec-debian/releases/tag/v2.7.1%2B1"/>
+    <updated>2026-09-04T14:54:04Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;watchexec&lt;/strong&gt; &lt;code&gt;v2.7.1+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install watchexec&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>https://github.com/latest-debs/hexyl-debian/releases/tag/v0.17.0%2B1</id>
+    <title>hexyl v0.17.0+1</title>
+    <link href="https://github.com/latest-debs/hexyl-debian/releases/tag/v0.17.0%2B1"/>
+    <updated>2026-09-04T14:40:00Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;hexyl&lt;/strong&gt; &lt;code&gt;v0.17.0+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install hexyl&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>https://github.com/latest-debs/lf-debian/releases/tag/r42%2B1</id>
+    <title>lf r42+1</title>
+    <link href="https://github.com/latest-debs/lf-debian/releases/tag/r42%2B1"/>
+    <updated>2026-09-04T14:39:40Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;lf&lt;/strong&gt; &lt;code&gt;r42+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install lf&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>https://github.com/latest-debs/joshuto-debian/releases/tag/v0.9.9%2B1</id>
+    <title>joshuto v0.9.9+1</title>
+    <link href="https://github.com/latest-debs/joshuto-debian/releases/tag/v0.9.9%2B1"/>
+    <updated>2026-09-04T14:39:38Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;joshuto&lt;/strong&gt; &lt;code&gt;v0.9.9+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install joshuto&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>https://github.com/latest-debs/fastfetch-debian/releases/tag/2.68.1%2B1</id>
+    <title>fastfetch 2.68.1+1</title>
+    <link href="https://github.com/latest-debs/fastfetch-debian/releases/tag/2.68.1%2B1"/>
+    <updated>2026-09-04T14:36:07Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;fastfetch&lt;/strong&gt; &lt;code&gt;2.68.1+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install fastfetch&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>https://github.com/latest-debs/bun-debian/releases/tag/bun-v1.4.1%2B1</id>
+    <title>bun bun-v1.4.1+1</title>
+    <link href="https://github.com/latest-debs/bun-debian/releases/tag/bun-v1.4.1%2B1"/>
+    <updated>2026-09-04T11:33:26Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;bun&lt;/strong&gt; &lt;code&gt;bun-v1.4.1+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install bun&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>https://github.com/latest-debs/ruff-debian/releases/tag/0.16.6%2B1</id>
+    <title>ruff 0.16.6+1</title>
+    <link href="https://github.com/latest-debs/ruff-debian/releases/tag/0.16.6%2B1"/>
+    <updated>2026-09-03T21:12:56Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;ruff&lt;/strong&gt; &lt;code&gt;0.16.6+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install ruff&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>https://github.com/latest-debs/fish-debian/releases/tag/4.9.0%2B1</id>
+    <title>fish 4.9.0+1</title>
+    <link href="https://github.com/latest-debs/fish-debian/releases/tag/4.9.0%2B1"/>
+    <updated>2026-09-03T21:11:51Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;fish&lt;/strong&gt; &lt;code&gt;4.9.0+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install fish&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>https://github.com/latest-debs/gh-debian/releases/tag/v2.100.0%2B1</id>
+    <title>gh v2.100.0+1</title>
+    <link href="https://github.com/latest-debs/gh-debian/releases/tag/v2.100.0%2B1"/>
+    <updated>2026-09-03T16:36:50Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;gh&lt;/strong&gt; &lt;code&gt;v2.100.0+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install gh&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>https://github.com/latest-debs/jj-debian/releases/tag/v0.45.1%2B1</id>
+    <title>jj v0.45.1+1</title>
+    <link href="https://github.com/latest-debs/jj-debian/releases/tag/v0.45.1%2B1"/>
+    <updated>2026-09-03T16:35:59Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;jj&lt;/strong&gt; &lt;code&gt;v0.45.1+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install jj&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>https://github.com/latest-debs/jj-debian/releases/tag/v0.45.0%2B1</id>
+    <title>jj v0.45.0+1</title>
+    <link href="https://github.com/latest-debs/jj-debian/releases/tag/v0.45.0%2B1"/>
+    <updated>2026-09-03T11:28:01Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;jj&lt;/strong&gt; &lt;code&gt;v0.45.0+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install jj&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>https://github.com/latest-debs/zed-debian/releases/tag/v1.18.0%2B1</id>
+    <title>zed v1.18.0+1</title>
+    <link href="https://github.com/latest-debs/zed-debian/releases/tag/v1.18.0%2B1"/>
+    <updated>2026-09-02T21:20:31Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;zed&lt;/strong&gt; &lt;code&gt;v1.18.0+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install zed&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>https://github.com/latest-debs/mise-debian/releases/tag/v2026.9.1%2B1</id>
+    <title>mise v2026.9.1+1</title>
+    <link href="https://github.com/latest-debs/mise-debian/releases/tag/v2026.9.1%2B1"/>
+    <updated>2026-09-02T16:46:00Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;mise&lt;/strong&gt; &lt;code&gt;v2026.9.1+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install mise&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>https://github.com/latest-debs/uv-debian/releases/tag/0.12.9%2B1</id>
+    <title>uv 0.12.9+1</title>
+    <link href="https://github.com/latest-debs/uv-debian/releases/tag/0.12.9%2B1"/>
+    <updated>2026-09-01T23:29:05Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;uv&lt;/strong&gt; &lt;code&gt;0.12.9+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install uv&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>https://github.com/latest-debs/gh-debian/releases/tag/v2.99.0%2B1</id>
+    <title>gh v2.99.0+1</title>
+    <link href="https://github.com/latest-debs/gh-debian/releases/tag/v2.99.0%2B1"/>
+    <updated>2026-09-01T23:28:10Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;gh&lt;/strong&gt; &lt;code&gt;v2.99.0+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install gh&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>https://github.com/latest-debs/mise-debian/releases/tag/v2026.9.0%2B1</id>
+    <title>mise v2026.9.0+1</title>
+    <link href="https://github.com/latest-debs/mise-debian/releases/tag/v2026.9.0%2B1"/>
+    <updated>2026-09-01T14:17:04Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;mise&lt;/strong&gt; &lt;code&gt;v2026.9.0+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install mise&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>https://github.com/latest-debs/yazi-debian/releases/tag/v26.9.1%2B1</id>
+    <title>yazi v26.9.1+1</title>
+    <link href="https://github.com/latest-debs/yazi-debian/releases/tag/v26.9.1%2B1"/>
+    <updated>2026-09-01T14:14:50Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;yazi&lt;/strong&gt; &lt;code&gt;v26.9.1+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install yazi&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>https://github.com/latest-debs/uv-debian/releases/tag/0.12.8%2B1</id>
+    <title>uv 0.12.8+1</title>
+    <link href="https://github.com/latest-debs/uv-debian/releases/tag/0.12.8%2B1"/>
+    <updated>2026-09-01T00:46:30Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;uv&lt;/strong&gt; &lt;code&gt;0.12.8+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install uv&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>https://github.com/latest-debs/atuin-debian/releases/tag/v18.21.0%2B1</id>
+    <title>atuin v18.21.0+1</title>
+    <link href="https://github.com/latest-debs/atuin-debian/releases/tag/v18.21.0%2B1"/>
+    <updated>2026-09-01T00:43:37Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;atuin&lt;/strong&gt; &lt;code&gt;v18.21.0+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install atuin&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>https://github.com/latest-debs/mise-debian/releases/tag/v2026.8.16%2B1</id>
+    <title>mise v2026.8.16+1</title>
+    <link href="https://github.com/latest-debs/mise-debian/releases/tag/v2026.8.16%2B1"/>
+    <updated>2026-08-31T20:59:38Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;mise&lt;/strong&gt; &lt;code&gt;v2026.8.16+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install mise&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>https://github.com/latest-debs/mise-debian/releases/tag/v2026.8.15%2B1</id>
+    <title>mise v2026.8.15+1</title>
+    <link href="https://github.com/latest-debs/mise-debian/releases/tag/v2026.8.15%2B1"/>
+    <updated>2026-08-31T05:52:08Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;mise&lt;/strong&gt; &lt;code&gt;v2026.8.15+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install mise&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>https://github.com/latest-debs/pnpm-debian/releases/tag/v11.25.0%2B1</id>
+    <title>pnpm v11.25.0+1</title>
+    <link href="https://github.com/latest-debs/pnpm-debian/releases/tag/v11.25.0%2B1"/>
+    <updated>2026-08-29T16:52:26Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;pnpm&lt;/strong&gt; &lt;code&gt;v11.25.0+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install pnpm&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>https://github.com/latest-debs/zellij-debian/releases/tag/v0.45.1%2B1</id>
+    <title>zellij v0.45.1+1</title>
+    <link href="https://github.com/latest-debs/zellij-debian/releases/tag/v0.45.1%2B1"/>
+    <updated>2026-08-28T15:33:58Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;zellij&lt;/strong&gt; &lt;code&gt;v0.45.1+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install zellij&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>https://github.com/latest-debs/uv-debian/releases/tag/0.12.7%2B1</id>
+    <title>uv 0.12.7+1</title>
+    <link href="https://github.com/latest-debs/uv-debian/releases/tag/0.12.7%2B1"/>
+    <updated>2026-08-28T00:34:33Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;uv&lt;/strong&gt; &lt;code&gt;0.12.7+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install uv&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>https://github.com/latest-debs/deno-debian/releases/tag/v2.9.6%2B1</id>
+    <title>deno v2.9.6+1</title>
+    <link href="https://github.com/latest-debs/deno-debian/releases/tag/v2.9.6%2B1"/>
+    <updated>2026-08-28T00:33:26Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;deno&lt;/strong&gt; &lt;code&gt;v2.9.6+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install deno&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>https://github.com/latest-debs/ruff-debian/releases/tag/0.16.5%2B1</id>
+    <title>ruff 0.16.5+1</title>
+    <link href="https://github.com/latest-debs/ruff-debian/releases/tag/0.16.5%2B1"/>
+    <updated>2026-08-28T00:32:11Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;ruff&lt;/strong&gt; &lt;code&gt;0.16.5+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install ruff&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>https://github.com/latest-debs/bottom-debian/releases/tag/0.14.9%2B1</id>
+    <title>bottom 0.14.9+1</title>
+    <link href="https://github.com/latest-debs/bottom-debian/releases/tag/0.14.9%2B1"/>
+    <updated>2026-08-27T14:23:40Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;bottom&lt;/strong&gt; &lt;code&gt;0.14.9+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install bottom&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>https://github.com/latest-debs/atuin-debian/releases/tag/v18.20.1%2B1</id>
+    <title>atuin v18.20.1+1</title>
+    <link href="https://github.com/latest-debs/atuin-debian/releases/tag/v18.20.1%2B1"/>
+    <updated>2026-08-27T14:23:30Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;atuin&lt;/strong&gt; &lt;code&gt;v18.20.1+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install atuin&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>https://github.com/latest-debs/trivy-debian/releases/tag/v0.74.0%2B1</id>
+    <title>trivy v0.74.0+1</title>
+    <link href="https://github.com/latest-debs/trivy-debian/releases/tag/v0.74.0%2B1"/>
+    <updated>2026-08-26T19:09:16Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;trivy&lt;/strong&gt; &lt;code&gt;v0.74.0+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install trivy&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>https://github.com/latest-debs/zed-debian/releases/tag/v1.17.2%2B1</id>
+    <title>zed v1.17.2+1</title>
+    <link href="https://github.com/latest-debs/zed-debian/releases/tag/v1.17.2%2B1"/>
+    <updated>2026-08-26T16:54:15Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;zed&lt;/strong&gt; &lt;code&gt;v1.17.2+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install zed&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>https://github.com/latest-debs/fd-debian/releases/tag/v10.5.0%2B1</id>
+    <title>fd v10.5.0+1</title>
+    <link href="https://github.com/latest-debs/fd-debian/releases/tag/v10.5.0%2B1"/>
+    <updated>2026-08-26T10:05:23Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;fd&lt;/strong&gt; &lt;code&gt;v10.5.0+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install fd&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>https://github.com/latest-debs/helix-debian/releases/tag/25.07.1%2B1</id>
+    <title>helix 25.07.1+1</title>
+    <link href="https://github.com/latest-debs/helix-debian/releases/tag/25.07.1%2B1"/>
+    <updated>2026-08-26T08:17:28Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;helix&lt;/strong&gt; &lt;code&gt;25.07.1+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install helix&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>https://github.com/latest-debs/atuin-debian/releases/tag/v18.20.0%2B1</id>
+    <title>atuin v18.20.0+1</title>
+    <link href="https://github.com/latest-debs/atuin-debian/releases/tag/v18.20.0%2B1"/>
+    <updated>2026-08-26T07:17:13Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;atuin&lt;/strong&gt; &lt;code&gt;v18.20.0+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install atuin&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>https://github.com/latest-debs/fish-debian/releases/tag/4.8.1%2B1</id>
+    <title>fish 4.8.1+1</title>
+    <link href="https://github.com/latest-debs/fish-debian/releases/tag/4.8.1%2B1"/>
+    <updated>2026-08-26T05:49:41Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;fish&lt;/strong&gt; &lt;code&gt;4.8.1+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install fish&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>https://github.com/latest-debs/buf-debian/releases/tag/v1.72.0%2B1</id>
+    <title>buf v1.72.0+1</title>
+    <link href="https://github.com/latest-debs/buf-debian/releases/tag/v1.72.0%2B1"/>
+    <updated>2026-08-26T05:13:45Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;buf&lt;/strong&gt; &lt;code&gt;v1.72.0+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install buf&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>https://github.com/latest-debs/fastfetch-debian/releases/tag/2.67.1%2B1</id>
+    <title>fastfetch 2.67.1+1</title>
+    <link href="https://github.com/latest-debs/fastfetch-debian/releases/tag/2.67.1%2B1"/>
+    <updated>2026-08-26T05:05:26Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;fastfetch&lt;/strong&gt; &lt;code&gt;2.67.1+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install fastfetch&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>https://github.com/latest-debs/mise-debian/releases/tag/v2026.8.14%2B1</id>
+    <title>mise v2026.8.14+1</title>
+    <link href="https://github.com/latest-debs/mise-debian/releases/tag/v2026.8.14%2B1"/>
+    <updated>2026-08-26T04:58:33Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;mise&lt;/strong&gt; &lt;code&gt;v2026.8.14+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install mise&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>https://github.com/latest-debs/sd-debian/releases/tag/v1.1.0%2B1</id>
+    <title>sd v1.1.0+1</title>
+    <link href="https://github.com/latest-debs/sd-debian/releases/tag/v1.1.0%2B1"/>
+    <updated>2026-08-26T04:55:49Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;sd&lt;/strong&gt; &lt;code&gt;v1.1.0+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install sd&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>https://github.com/latest-debs/gh-debian/releases/tag/v2.98.0%2B1</id>
+    <title>gh v2.98.0+1</title>
+    <link href="https://github.com/latest-debs/gh-debian/releases/tag/v2.98.0%2B1"/>
+    <updated>2026-08-26T04:48:40Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;gh&lt;/strong&gt; &lt;code&gt;v2.98.0+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install gh&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>https://github.com/latest-debs/scc-debian/releases/tag/v4.0.0%2B1</id>
+    <title>scc v4.0.0+1</title>
+    <link href="https://github.com/latest-debs/scc-debian/releases/tag/v4.0.0%2B1"/>
+    <updated>2026-08-26T04:39:49Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;scc&lt;/strong&gt; &lt;code&gt;v4.0.0+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install scc&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>https://github.com/latest-debs/gum-debian/releases/tag/v2.0.0%2B1</id>
+    <title>gum v2.0.0+1</title>
+    <link href="https://github.com/latest-debs/gum-debian/releases/tag/v2.0.0%2B1"/>
+    <updated>2026-08-26T04:39:45Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;gum&lt;/strong&gt; &lt;code&gt;v2.0.0+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install gum&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>https://github.com/latest-debs/zed-debian/releases/tag/v1.16.3%2B1</id>
+    <title>zed v1.16.3+1</title>
+    <link href="https://github.com/latest-debs/zed-debian/releases/tag/v1.16.3%2B1"/>
+    <updated>2026-08-26T04:20:59Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;zed&lt;/strong&gt; &lt;code&gt;v1.16.3+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install zed&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>https://github.com/latest-debs/uv-debian/releases/tag/0.12.6%2B1</id>
+    <title>uv 0.12.6+1</title>
+    <link href="https://github.com/latest-debs/uv-debian/releases/tag/0.12.6%2B1"/>
+    <updated>2026-08-25T21:55:13Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;uv&lt;/strong&gt; &lt;code&gt;0.12.6+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install uv&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>https://github.com/latest-debs/nushell-debian/releases/tag/0.115.1%2B1</id>
+    <title>nushell 0.115.1+1</title>
+    <link href="https://github.com/latest-debs/nushell-debian/releases/tag/0.115.1%2B1"/>
+    <updated>2026-08-25T20:24:48Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;nushell&lt;/strong&gt; &lt;code&gt;0.115.1+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install nushell&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>https://github.com/latest-debs/pnpm-debian/releases/tag/v11.24.0%2B1</id>
+    <title>pnpm v11.24.0+1</title>
+    <link href="https://github.com/latest-debs/pnpm-debian/releases/tag/v11.24.0%2B1"/>
+    <updated>2026-08-24T21:52:39Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;pnpm&lt;/strong&gt; &lt;code&gt;v11.24.0+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install pnpm&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>https://github.com/latest-debs/zed-debian/releases/tag/v1.16.2%2B1</id>
+    <title>zed v1.16.2+1</title>
+    <link href="https://github.com/latest-debs/zed-debian/releases/tag/v1.16.2%2B1"/>
+    <updated>2026-08-24T16:13:18Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;zed&lt;/strong&gt; &lt;code&gt;v1.16.2+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install zed&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>https://github.com/latest-debs/vite-plus-debian/releases/tag/v0.3.0%2B1</id>
+    <title>vite-plus v0.3.0+1</title>
+    <link href="https://github.com/latest-debs/vite-plus-debian/releases/tag/v0.3.0%2B1"/>
+    <updated>2026-08-24T04:14:04Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;vite-plus&lt;/strong&gt; &lt;code&gt;v0.3.0+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install vite-plus&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
+</feed>

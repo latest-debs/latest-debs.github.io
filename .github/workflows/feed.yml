@@ -1,0 +1,39 @@
+name: Releases feed and static refresh
+
+on:
+  schedule:
+    - cron: '17 * * * *'   # hourly, offset from ci-status.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  feed:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Generate Atom feed of published releases
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 generate-feed.py
+
+      # Keeps the <noscript> crawler-visible package list in index.html in
+      # sync with apt-repo's tools.yaml; no-op unless a tool was added or
+      # removed since the last run.
+      - name: Refresh the noscript package list
+        run: python3 generate-noscript.py
+
+      - name: Commit if changed
+        run: |
+          set -euo pipefail
+          git config user.name "latest-debs bot"
+          git config user.email "latest-debs@users.noreply.github.com"
+          git add feed.xml index.html
+          if git diff --cached --quiet; then
+            echo "nothing changed"
+          else
+            git commit -m "chore: update feed.xml and noscript list ($(date -u +%Y-%m-%dT%H:%M:%SZ))"
+            git push
+          fi
