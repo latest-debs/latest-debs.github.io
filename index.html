@@ -670,14 +670,14 @@ sudo apt install &lt;package&gt;</code></pre>
       <label for="suite-filter" class="sr-only">Suite</label>
       <select id="suite-filter" class="filter-input" style="flex:0 0 180px;" onchange="switchSuite(this.value)" aria-label="Select suite to view">
         <option value="trixie">Debian Trixie (stable)</option>
-        <option value="noble">Ubuntu Noble (24.04 LTS, alias)</option>
+        <option value="noble">Ubuntu Noble (24.04 LTS, native or alias)</option>
         <option value="bookworm">Debian Bookworm (oldstable)</option>
         <option value="forky">Debian Forky (testing)</option>
         <option value="sid">Debian Sid (unstable)</option>
         <option value="bullseye">Debian Bullseye (oldoldstable)</option>
-        <option value="jammy">Ubuntu Jammy (22.04 LTS, alias)</option>
-        <option value="questing">Ubuntu Questing (25.10, alias)</option>
-        <option value="resolute">Ubuntu Resolute (26.04 LTS, alias)</option>
+        <option value="jammy">Ubuntu Jammy (22.04 LTS, native or alias)</option>
+        <option value="questing">Ubuntu Questing (25.10, native or alias)</option>
+        <option value="resolute">Ubuntu Resolute (26.04 LTS, native or alias)</option>
       </select>
     </div>
     <div class="table-wrap" style="max-height:60vh; overflow:auto;">
@@ -808,7 +808,7 @@ sudo apt install &lt;package&gt;</code></pre>
       </tbody>
     </table>
     </div>
-    <p class="tag" style="margin-top:.75rem">Debian dates per <a href="https://www.debian.org/releases/">debian.org/releases</a>; Ubuntu per <a href="https://endoflife.date/ubuntu">endoflife.date/ubuntu</a>. Every Ubuntu suite here is served as an alias of a Debian suite with older-or-equal glibc, not a separate build: <code>jammy</code> from <code>bullseye</code>; <code>noble</code>, <code>questing</code>, and <code>resolute</code> from <code>trixie</code> (<code>pool/&lt;debian-suite&gt;</code> copied to <code>pool/&lt;ubuntu-suite&gt;</code>, filenames rewritten). Bullseye LTS ends `2026-08-31` per policy. Questing's own security support already ended `2026-07-01` — it stays listed since Debian's `trixie` build it's aliased from is still current.</p>
+    <p class="tag" style="margin-top:.75rem">Debian dates per <a href="https://www.debian.org/releases/">debian.org/releases</a>; Ubuntu per <a href="https://endoflife.date/ubuntu">endoflife.date/ubuntu</a>. Every Ubuntu suite here is served as a native build where one exists; packages without a native Ubuntu build fall back to an alias of a Debian suite with older-or-equal glibc: <code>jammy</code> from <code>bullseye</code>; <code>noble</code>, <code>questing</code>, and <code>resolute</code> from <code>trixie</code> (that package's <code>pool/&lt;debian-suite&gt;</code> entry copied to <code>pool/&lt;ubuntu-suite&gt;</code>, keeping the source-suite version token). Bullseye LTS ends `2026-08-31` per policy. Questing's own security support already ended `2026-07-01` — it stays listed since Debian's `trixie` build it's aliased from is still current.</p>
 
     <h3 style="margin-top:1.75rem; font-size:1.1rem; color:#c9d1d9;">Architectures</h3>
     <div class="table-wrap">
