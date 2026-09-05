@@ -4,9 +4,16 @@
   <link href="https://latest-debs.github.io/"/>
   <link rel="self" href="https://latest-debs.github.io/feed.xml"/>
   <id>https://latest-debs.github.io/feed.xml</id>
-  <updated>2026-09-05T10:52:00Z</updated>
+  <updated>2026-09-05T15:25:01Z</updated>
   <author><name>latest-debs</name></author>
   <subtitle>Latest dev tools, packaged for Debian — automatically. One entry per release published to the apt channel.</subtitle>
+  <entry>
+    <id>https://github.com/latest-debs/fish-debian/releases/tag/4.9.2%2B1</id>
+    <title>fish 4.9.2+1</title>
+    <link href="https://github.com/latest-debs/fish-debian/releases/tag/4.9.2%2B1"/>
+    <updated>2026-09-05T15:25:01Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;fish&lt;/strong&gt; &lt;code&gt;4.9.2+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install fish&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
   <entry>
     <id>https://github.com/latest-debs/bun-debian/releases/tag/bun-v1.4.2%2B1</id>
     <title>bun bun-v1.4.2+1</title>
@@ -419,12 +426,5 @@
     <link href="https://github.com/latest-debs/uv-debian/releases/tag/0.12.6%2B1"/>
     <updated>2026-08-25T21:55:13Z</updated>
     <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;uv&lt;/strong&gt; &lt;code&gt;0.12.6+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install uv&lt;/code&gt;.&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <id>https://github.com/latest-debs/nushell-debian/releases/tag/0.115.1%2B1</id>
-    <title>nushell 0.115.1+1</title>
-    <link href="https://github.com/latest-debs/nushell-debian/releases/tag/0.115.1%2B1"/>
-    <updated>2026-08-25T20:24:48Z</updated>
-    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;nushell&lt;/strong&gt; &lt;code&gt;0.115.1+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install nushell&lt;/code&gt;.&lt;/p&gt;</content>
   </entry>
 </feed>
