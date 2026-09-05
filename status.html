@@ -66,6 +66,25 @@
     </p>
   </header>
 
+  <section id="coverage">
+    <h2>What each suite actually carries</h2>
+    <p class="status-line" id="coverage-status"><span class="dot dot-ok"></span> Loading…</p>
+    <p class="tag">
+      The catalogue total is not what every suite ships. A tool only lands in a suite when the
+      builder produced an asset for it, so the older suites carry a fraction of the newest ones —
+      quoting one number for all nine would overstate what you get. Counted straight from the
+      published <code>Packages</code> indexes on every rebuild, so this table cannot drift from the
+      archive.
+    </p>
+    <div class="table-wrap">
+      <table id="coverage-table" aria-label="Package coverage per suite and architecture">
+        <thead><tr id="coverage-head"><th>Suite</th><th>Distro</th><th>Packages</th></tr></thead>
+        <tbody id="coverage-body"><tr><td colspan="3">Loading…</td></tr></tbody>
+      </table>
+    </div>
+    <p class="meta" id="coverage-meta"></p>
+  </section>
+
   <section id="staleness">
     <h2>Upstream staleness</h2>
     <p class="status-line" id="staleness-status"><span class="dot dot-ok"></span> Loading…</p>
@@ -182,6 +201,50 @@
       if (sawNotFound && notFoundValue !== undefined) return notFoundValue;
       throw err;
     });
+  }
+
+  function loadCoverage() {
+    fetchRecord('dists/coverage.json')
+      .then((data) => {
+        const head = document.getElementById('coverage-head');
+        const body = document.getElementById('coverage-body');
+        const status = document.getElementById('coverage-status');
+        const suites = data.suites || [];
+        if (suites.length === 0) {
+          status.innerHTML = '<span class="dot dot-warn"></span> No suites published.';
+          body.innerHTML = '<tr><td colspan="3" class="empty">Nothing published.</td></tr>';
+          return;
+        }
+        // Arch columns are the union across suites, widest first, so the
+        // primary arches lead and the long tail trails off to the right.
+        const totals = {};
+        suites.forEach((s) => Object.entries(s.arches || {})
+          .forEach(([a, n]) => { totals[a] = (totals[a] || 0) + n; }));
+        const arches = Object.keys(totals).sort((a, b) => totals[b] - totals[a] || a.localeCompare(b));
+        head.innerHTML = '<th>Suite</th><th>Distro</th><th>Packages</th>'
+          + arches.map((a) => `<th><code>${escapeHtml(a)}</code></th>`).join('');
+
+        const full = suites.filter((s) => s.packages === data.catalogue).length;
+        const thin = suites.filter((s) => s.packages < data.catalogue * 0.5);
+        status.innerHTML = thin.length === 0
+          ? `<span class="dot dot-ok"></span> ${full} of ${suites.length} suites carry the full catalogue.`
+          : `<span class="dot dot-warn"></span> ${full} of ${suites.length} suites carry the full catalogue; `
+            + `${thin.map((s) => `<code>${escapeHtml(s.suite)}</code> (${s.packages})`).join(', ')} carr${thin.length === 1 ? 'ies' : 'y'} under half.`;
+
+        body.innerHTML = suites.map((s) => `
+            <tr>
+              <td><code>${escapeHtml(s.suite)}</code></td>
+              <td>${escapeHtml(s.distro)}</td>
+              <td>${s.packages} / ${data.catalogue}</td>
+              ${arches.map((a) => `<td>${(s.arches || {})[a] || '<span class="empty">—</span>'}</td>`).join('')}
+            </tr>`).join('');
+        document.getElementById('coverage-meta').textContent =
+          `${data.catalogue} tool(s) in the catalogue across ${suites.length} suite(s) · generated ${relativeAge(data.generated_at)}.`;
+      })
+      .catch(() => {
+        document.getElementById('coverage-status').innerHTML = '<span class="dot dot-warn"></span> Could not load the report.';
+        document.getElementById('coverage-body').innerHTML = '<tr><td colspan="3" class="empty">Unavailable right now.</td></tr>';
+      });
   }
 
   function loadStaleness() {
@@ -356,6 +419,7 @@
         }));
   }
 
+  loadCoverage();
   loadStaleness();
   loadParity();
   loadGraduated();
