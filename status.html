@@ -102,6 +102,19 @@
     <p class="meta" id="staleness-meta"></p>
   </section>
 
+  <section id="currency">
+    <h2>Currency</h2>
+    <p class="status-line" id="currency-status"><span class="dot dot-ok"></span> Loading…</p>
+    <p class="tag">
+      How current the catalogue is: median package age and median
+      upstream&nbsp;→&nbsp;apt lag, measured at every rebuild. Target:
+      <strong>median package age under 7 days</strong>; a handful of tools
+      with no upstream release since they were added can hold the median
+      longer through no fault of the pipeline.
+    </p>
+    <p class="meta" id="currency-meta"></p>
+  </section>
+
   <section id="ci">
     <h2>CI status</h2>
     <p class="status-line" id="ci-status"><span class="dot dot-ok"></span> Loading…</p>
@@ -275,6 +288,48 @@
       });
   }
 
+  // "4h" / "22m" / "12d" from freshness.json -> hours.
+  function ageToHours(label) {
+    const m = /^(\d+)([hd])$/.exec(String(label).trim());
+    if (!m) return null;
+    return m[2] === 'd' ? Number(m[1]) * 24 : m[2] === 'h' ? Number(m[1]) : null;
+  }
+
+  function loadCurrency() {
+    fetchRecord('dists/freshness.json')
+      .then((data) => {
+        const status = document.getElementById('currency-status');
+        const meta = document.getElementById('currency-meta');
+        const median = (data._meta && data._meta.message) || '';
+        const lag = (data._meta && data._meta.median_lag_label) || '';
+        const tools = Object.entries(data).filter(([k]) => k !== '_meta' && k !== 'schemaVersion');
+        // Badge messages look like "0.23.5 · 22m" / "· 4h" / "· 12d".
+        const ages = tools.map(([, b]) => {
+          const tail = b && b.message && String(b.message).split('·')[1];
+          if (!tail) return null;
+          const m = /^(\d+)m$/.exec(tail.trim());
+          return m ? Number(m[1]) / 60 : ageToHours(tail);
+        }).filter((h) => h !== null);
+        const fresh24 = ages.filter((h) => h < 24).length;
+        const old7 = ages.filter((h) => h >= 168).length;
+        // _meta.message looks like "61 tools · median 10d"; the median
+        // value is the last segment. The aim is under 7 days.
+        const medianDays = median
+          ? ageToHours(String(median).split('·').pop().replace('median ', '')) / 24
+          : null;
+        status.innerHTML = medianDays === null
+          ? '<span class="dot dot-warn"></span> Median age not published in this report.'
+          : medianDays < 7
+            ? `<span class="dot dot-ok"></span> Median package age ${medianDays < 1 ? medianDays.toFixed(1) : Math.round(medianDays)}d — within the 7-day target.`
+            : `<span class="dot dot-warn"></span> Median package age ${Math.round(medianDays)}d — above the 7-day target.`;
+        meta.textContent = `${fresh24} of ${ages.length} tool(s) under 24h old · ${old7} over 7d${lag ? ' · ' + lag : ''}.`;
+      })
+      .catch(() => {
+        document.getElementById('currency-status').innerHTML = '<span class="dot dot-warn"></span> Could not load the report.';
+        document.getElementById('currency-meta').textContent = 'Unavailable right now.';
+      });
+  }
+
   function loadParity() {
     fetchRecord('dists/parity.json')
       .then((data) => {
@@ -421,6 +476,7 @@
 
   loadCoverage();
   loadStaleness();
+  loadCurrency();
   loadParity();
   loadGraduated();
   loadCIStatus();
