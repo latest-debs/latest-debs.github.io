@@ -4,9 +4,23 @@
   <link href="https://latest-debs.github.io/"/>
   <link rel="self" href="https://latest-debs.github.io/feed.xml"/>
   <id>https://latest-debs.github.io/feed.xml</id>
-  <updated>2026-09-07T23:41:23Z</updated>
+  <updated>2026-09-08T17:27:16Z</updated>
   <author><name>latest-debs</name></author>
   <subtitle>Latest dev tools, packaged for Debian — automatically. One entry per release published to the apt channel.</subtitle>
+  <entry>
+    <id>https://github.com/latest-debs/lazygit-debian/releases/tag/v0.65.0%2B2</id>
+    <title>lazygit v0.65.0+2</title>
+    <link href="https://github.com/latest-debs/lazygit-debian/releases/tag/v0.65.0%2B2"/>
+    <updated>2026-09-08T17:27:16Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;lazygit&lt;/strong&gt; &lt;code&gt;v0.65.0+2&lt;/code&gt;. Install with &lt;code&gt;sudo apt install lazygit&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>https://github.com/latest-debs/vite-plus-debian/releases/tag/v0.3.1%2B2</id>
+    <title>vite-plus v0.3.1+2</title>
+    <link href="https://github.com/latest-debs/vite-plus-debian/releases/tag/v0.3.1%2B2"/>
+    <updated>2026-09-08T17:27:15Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;vite-plus&lt;/strong&gt; &lt;code&gt;v0.3.1+2&lt;/code&gt;. Install with &lt;code&gt;sudo apt install vite-plus&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
   <entry>
     <id>https://github.com/latest-debs/herdr-debian/releases/tag/v0.9.0%2B1</id>
     <title>herdr v0.9.0+1</title>
@@ -412,19 +426,5 @@
     <link href="https://github.com/latest-debs/buf-debian/releases/tag/v1.72.0%2B1"/>
     <updated>2026-08-26T05:13:45Z</updated>
     <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;buf&lt;/strong&gt; &lt;code&gt;v1.72.0+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install buf&lt;/code&gt;.&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <id>https://github.com/latest-debs/fastfetch-debian/releases/tag/2.67.1%2B1</id>
-    <title>fastfetch 2.67.1+1</title>
-    <link href="https://github.com/latest-debs/fastfetch-debian/releases/tag/2.67.1%2B1"/>
-    <updated>2026-08-26T05:05:26Z</updated>
-    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;fastfetch&lt;/strong&gt; &lt;code&gt;2.67.1+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install fastfetch&lt;/code&gt;.&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <id>https://github.com/latest-debs/mise-debian/releases/tag/v2026.8.14%2B1</id>
-    <title>mise v2026.8.14+1</title>
-    <link href="https://github.com/latest-debs/mise-debian/releases/tag/v2026.8.14%2B1"/>
-    <updated>2026-08-26T04:58:33Z</updated>
-    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;mise&lt;/strong&gt; &lt;code&gt;v2026.8.14+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install mise&lt;/code&gt;.&lt;/p&gt;</content>
   </entry>
 </feed>
