@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-08T17:07:35Z",
+  "generated_at": "2026-09-08T20:54:03Z",
   "repos": [
     {
       "name": "latest-debs.github.io",
@@ -8,28 +8,8 @@
       "conclusion": null,
       "status": "in_progress",
       "branch": "main",
-      "run_url": "https://github.com/latest-debs/latest-debs.github.io/actions/runs/34255188226",
-      "created_at": "2026-09-08T17:07:23Z"
-    },
-    {
-      "name": "apt-repo",
-      "url": "https://github.com/latest-debs/apt-repo",
-      "workflow": "pages-build-deployment",
-      "conclusion": "success",
-      "status": "completed",
-      "branch": "gh-pages",
-      "run_url": "https://github.com/latest-debs/apt-repo/actions/runs/34253223643",
-      "created_at": "2026-09-08T16:47:39Z"
-    },
-    {
-      "name": "eza-debian",
-      "url": "https://github.com/latest-debs/eza-debian",
-      "workflow": "Build eza for Debian",
-      "conclusion": "success",
-      "status": "completed",
-      "branch": "main",
-      "run_url": "https://github.com/latest-debs/eza-debian/actions/runs/34252941211",
-      "created_at": "2026-09-08T16:44:51Z"
+      "run_url": "https://github.com/latest-debs/latest-debs.github.io/actions/runs/34277458657",
+      "created_at": "2026-09-08T20:53:53Z"
     },
     {
       "name": "vicinae-debian",
@@ -555,21 +535,31 @@
       "name": "lazygit-debian",
       "url": "https://github.com/latest-debs/lazygit-debian",
       "workflow": "Build lazygit for Debian",
-      "conclusion": "failure",
+      "conclusion": "success",
       "status": "completed",
       "branch": "main",
-      "run_url": "https://github.com/latest-debs/lazygit-debian/actions/runs/34252596325",
-      "created_at": "2026-09-08T16:41:27Z"
+      "run_url": "https://github.com/latest-debs/lazygit-debian/actions/runs/34256746861",
+      "created_at": "2026-09-08T17:22:57Z"
+    },
+    {
+      "name": "eza-debian",
+      "url": "https://github.com/latest-debs/eza-debian",
+      "workflow": "Build eza for Debian",
+      "conclusion": "success",
+      "status": "completed",
+      "branch": "main",
+      "run_url": "https://github.com/latest-debs/eza-debian/actions/runs/34252941211",
+      "created_at": "2026-09-08T16:44:51Z"
     },
     {
       "name": "vite-plus-debian",
       "url": "https://github.com/latest-debs/vite-plus-debian",
       "workflow": "Build vite-plus for Debian",
-      "conclusion": "failure",
+      "conclusion": "success",
       "status": "completed",
       "branch": "main",
-      "run_url": "https://github.com/latest-debs/vite-plus-debian/actions/runs/34252893693",
-      "created_at": "2026-09-08T16:44:21Z"
+      "run_url": "https://github.com/latest-debs/vite-plus-debian/actions/runs/34256761242",
+      "created_at": "2026-09-08T17:23:05Z"
     },
     {
       "name": "uv-debian",
@@ -580,6 +570,16 @@
       "branch": "main",
       "run_url": "https://github.com/latest-debs/uv-debian/actions/runs/34252795877",
       "created_at": "2026-09-08T16:43:25Z"
+    },
+    {
+      "name": "apt-repo",
+      "url": "https://github.com/latest-debs/apt-repo",
+      "workflow": "CI",
+      "conclusion": "success",
+      "status": "completed",
+      "branch": "main",
+      "run_url": "https://github.com/latest-debs/apt-repo/actions/runs/34255482806",
+      "created_at": "2026-09-08T17:10:23Z"
     },
     {
       "name": ".github",
