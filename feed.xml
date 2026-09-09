@@ -4,9 +4,23 @@
   <link href="https://latest-debs.github.io/"/>
   <link rel="self" href="https://latest-debs.github.io/feed.xml"/>
   <id>https://latest-debs.github.io/feed.xml</id>
-  <updated>2026-09-09T11:38:02Z</updated>
+  <updated>2026-09-09T21:12:41Z</updated>
   <author><name>latest-debs</name></author>
   <subtitle>Latest dev tools, packaged for Debian — automatically. One entry per release published to the apt channel.</subtitle>
+  <entry>
+    <id>https://github.com/latest-debs/zed-debian/releases/tag/v1.19.2%2B1</id>
+    <title>zed v1.19.2+1</title>
+    <link href="https://github.com/latest-debs/zed-debian/releases/tag/v1.19.2%2B1"/>
+    <updated>2026-09-09T21:12:41Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;zed&lt;/strong&gt; &lt;code&gt;v1.19.2+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install zed&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>https://github.com/latest-debs/fresh-editor-debian/releases/tag/v0.5.1%2B1</id>
+    <title>fresh-editor v0.5.1+1</title>
+    <link href="https://github.com/latest-debs/fresh-editor-debian/releases/tag/v0.5.1%2B1"/>
+    <updated>2026-09-09T21:03:11Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;fresh-editor&lt;/strong&gt; &lt;code&gt;v0.5.1+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install fresh-editor&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
   <entry>
     <id>https://github.com/latest-debs/vhs-debian/releases/tag/v0.12.0%2B1</id>
     <title>vhs v0.12.0+1</title>
@@ -412,19 +426,5 @@
     <link href="https://github.com/latest-debs/uv-debian/releases/tag/0.12.7%2B1"/>
     <updated>2026-08-28T00:34:33Z</updated>
     <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;uv&lt;/strong&gt; &lt;code&gt;0.12.7+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install uv&lt;/code&gt;.&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <id>https://github.com/latest-debs/deno-debian/releases/tag/v2.9.6%2B1</id>
-    <title>deno v2.9.6+1</title>
-    <link href="https://github.com/latest-debs/deno-debian/releases/tag/v2.9.6%2B1"/>
-    <updated>2026-08-28T00:33:26Z</updated>
-    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;deno&lt;/strong&gt; &lt;code&gt;v2.9.6+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install deno&lt;/code&gt;.&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <id>https://github.com/latest-debs/ruff-debian/releases/tag/0.16.5%2B1</id>
-    <title>ruff 0.16.5+1</title>
-    <link href="https://github.com/latest-debs/ruff-debian/releases/tag/0.16.5%2B1"/>
-    <updated>2026-08-28T00:32:11Z</updated>
-    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;ruff&lt;/strong&gt; &lt;code&gt;0.16.5+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install ruff&lt;/code&gt;.&lt;/p&gt;</content>
   </entry>
 </feed>
