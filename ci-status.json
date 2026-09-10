@@ -1,16 +1,6 @@
 {
-  "generated_at": "2026-09-10T20:37:22Z",
+  "generated_at": "2026-09-10T23:00:00Z",
   "repos": [
-    {
-      "name": "quickshell-debian",
-      "url": "https://github.com/latest-debs/quickshell-debian",
-      "workflow": "Build quickshell for Debian",
-      "conclusion": null,
-      "status": "in_progress",
-      "branch": "main",
-      "run_url": "https://github.com/latest-debs/quickshell-debian/actions/runs/34527133570",
-      "created_at": "2026-09-10T20:33:52Z"
-    },
     {
       "name": "latest-debs.github.io",
       "url": "https://github.com/latest-debs/latest-debs.github.io",
@@ -18,8 +8,18 @@
       "conclusion": null,
       "status": "in_progress",
       "branch": "main",
-      "run_url": "https://github.com/latest-debs/latest-debs.github.io/actions/runs/34527450330",
-      "created_at": "2026-09-10T20:37:04Z"
+      "run_url": "https://github.com/latest-debs/latest-debs.github.io/actions/runs/34540098800",
+      "created_at": "2026-09-10T22:59:51Z"
+    },
+    {
+      "name": "quickshell-debian",
+      "url": "https://github.com/latest-debs/quickshell-debian",
+      "workflow": "Build quickshell for Debian",
+      "conclusion": "failure",
+      "status": "completed",
+      "branch": "main",
+      "run_url": "https://github.com/latest-debs/quickshell-debian/actions/runs/34530125948",
+      "created_at": "2026-09-10T21:04:47Z"
     },
     {
       "name": "vicinae-debian",
@@ -28,8 +28,8 @@
       "conclusion": "success",
       "status": "completed",
       "branch": "main",
-      "run_url": "https://github.com/latest-debs/vicinae-debian/actions/runs/34502612814",
-      "created_at": "2026-09-10T16:31:19Z"
+      "run_url": "https://github.com/latest-debs/vicinae-debian/actions/runs/34529422624",
+      "created_at": "2026-09-10T20:57:31Z"
     },
     {
       "name": "dasel-debian",
@@ -38,8 +38,8 @@
       "conclusion": "success",
       "status": "completed",
       "branch": "main",
-      "run_url": "https://github.com/latest-debs/dasel-debian/actions/runs/34502743272",
-      "created_at": "2026-09-10T16:32:36Z"
+      "run_url": "https://github.com/latest-debs/dasel-debian/actions/runs/34529626836",
+      "created_at": "2026-09-10T20:59:44Z"
     },
     {
       "name": "workmux-debian",
@@ -48,8 +48,8 @@
       "conclusion": "success",
       "status": "completed",
       "branch": "main",
-      "run_url": "https://github.com/latest-debs/workmux-debian/actions/runs/34502712355",
-      "created_at": "2026-09-10T16:32:18Z"
+      "run_url": "https://github.com/latest-debs/workmux-debian/actions/runs/34529485210",
+      "created_at": "2026-09-10T20:58:12Z"
     },
     {
       "name": "uncloud-debian",
@@ -58,8 +58,8 @@
       "conclusion": "success",
       "status": "completed",
       "branch": "main",
-      "run_url": "https://github.com/latest-debs/uncloud-debian/actions/runs/34502640869",
-      "created_at": "2026-09-10T16:31:35Z"
+      "run_url": "https://github.com/latest-debs/uncloud-debian/actions/runs/34529438349",
+      "created_at": "2026-09-10T20:57:42Z"
     },
     {
       "name": "oh-my-posh-debian",
@@ -68,8 +68,8 @@
       "conclusion": "success",
       "status": "completed",
       "branch": "main",
-      "run_url": "https://github.com/latest-debs/oh-my-posh-debian/actions/runs/34502447458",
-      "created_at": "2026-09-10T16:29:48Z"
+      "run_url": "https://github.com/latest-debs/oh-my-posh-debian/actions/runs/34529244963",
+      "created_at": "2026-09-10T20:55:36Z"
     },
     {
       "name": "herdr-debian",
@@ -78,8 +78,8 @@
       "conclusion": "success",
       "status": "completed",
       "branch": "main",
-      "run_url": "https://github.com/latest-debs/herdr-debian/actions/runs/34502835251",
-      "created_at": "2026-09-10T16:33:30Z"
+      "run_url": "https://github.com/latest-debs/herdr-debian/actions/runs/34529727628",
+      "created_at": "2026-09-10T21:00:44Z"
     },
     {
       "name": "watchexec-debian",
@@ -88,8 +88,8 @@
       "conclusion": "success",
       "status": "completed",
       "branch": "main",
-      "run_url": "https://github.com/latest-debs/watchexec-debian/actions/runs/34502660239",
-      "created_at": "2026-09-10T16:31:48Z"
+      "run_url": "https://github.com/latest-debs/watchexec-debian/actions/runs/34529494729",
+      "created_at": "2026-09-10T20:58:18Z"
     },
     {
       "name": "lf-debian",
@@ -98,8 +98,8 @@
       "conclusion": "success",
       "status": "completed",
       "branch": "main",
-      "run_url": "https://github.com/latest-debs/lf-debian/actions/runs/34502718093",
-      "created_at": "2026-09-10T16:32:21Z"
+      "run_url": "https://github.com/latest-debs/lf-debian/actions/runs/34529496868",
+      "created_at": "2026-09-10T20:58:19Z"
     },
     {
       "name": "joshuto-debian",
@@ -108,8 +108,8 @@
       "conclusion": "success",
       "status": "completed",
       "branch": "main",
-      "run_url": "https://github.com/latest-debs/joshuto-debian/actions/runs/34502670249",
-      "created_at": "2026-09-10T16:31:54Z"
+      "run_url": "https://github.com/latest-debs/joshuto-debian/actions/runs/34529493836",
+      "created_at": "2026-09-10T20:58:17Z"
     },
     {
       "name": "hexyl-debian",
@@ -118,8 +118,8 @@
       "conclusion": "success",
       "status": "completed",
       "branch": "main",
-      "run_url": "https://github.com/latest-debs/hexyl-debian/actions/runs/34502602812",
-      "created_at": "2026-09-10T16:31:13Z"
+      "run_url": "https://github.com/latest-debs/hexyl-debian/actions/runs/34529339908",
+      "created_at": "2026-09-10T20:56:37Z"
     },
     {
       "name": "fish-debian",
@@ -128,8 +128,8 @@
       "conclusion": "success",
       "status": "completed",
       "branch": "main",
-      "run_url": "https://github.com/latest-debs/fish-debian/actions/runs/34502710518",
-      "created_at": "2026-09-10T16:32:17Z"
+      "run_url": "https://github.com/latest-debs/fish-debian/actions/runs/34529503249",
+      "created_at": "2026-09-10T20:58:23Z"
     },
     {
       "name": "helix-debian",
@@ -138,8 +138,8 @@
       "conclusion": "success",
       "status": "completed",
       "branch": "main",
-      "run_url": "https://github.com/latest-debs/helix-debian/actions/runs/34502792435",
-      "created_at": "2026-09-10T16:33:06Z"
+      "run_url": "https://github.com/latest-debs/helix-debian/actions/runs/34529648251",
+      "created_at": "2026-09-10T20:59:58Z"
     },
     {
       "name": "trivy-debian",
@@ -148,8 +148,8 @@
       "conclusion": "success",
       "status": "completed",
       "branch": "main",
-      "run_url": "https://github.com/latest-debs/trivy-debian/actions/runs/34502640664",
-      "created_at": "2026-09-10T16:31:35Z"
+      "run_url": "https://github.com/latest-debs/trivy-debian/actions/runs/34529415408",
+      "created_at": "2026-09-10T20:57:27Z"
     },
     {
       "name": "scc-debian",
@@ -158,8 +158,8 @@
       "conclusion": "success",
       "status": "completed",
       "branch": "main",
-      "run_url": "https://github.com/latest-debs/scc-debian/actions/runs/34502708815",
-      "created_at": "2026-09-10T16:32:16Z"
+      "run_url": "https://github.com/latest-debs/scc-debian/actions/runs/34529472053",
+      "created_at": "2026-09-10T20:58:05Z"
     },
     {
       "name": "sd-debian",
@@ -168,8 +168,8 @@
       "conclusion": "success",
       "status": "completed",
       "branch": "main",
-      "run_url": "https://github.com/latest-debs/sd-debian/actions/runs/34502605466",
-      "created_at": "2026-09-10T16:31:15Z"
+      "run_url": "https://github.com/latest-debs/sd-debian/actions/runs/34529416762",
+      "created_at": "2026-09-10T20:57:28Z"
     },
     {
       "name": "buf-debian",
@@ -178,8 +178,8 @@
       "conclusion": "success",
       "status": "completed",
       "branch": "main",
-      "run_url": "https://github.com/latest-debs/buf-debian/actions/runs/34502700767",
-      "created_at": "2026-09-10T16:32:12Z"
+      "run_url": "https://github.com/latest-debs/buf-debian/actions/runs/34529473403",
+      "created_at": "2026-09-10T20:58:06Z"
     },
     {
       "name": "fastfetch-debian",
@@ -188,8 +188,8 @@
       "conclusion": "success",
       "status": "completed",
       "branch": "main",
-      "run_url": "https://github.com/latest-debs/fastfetch-debian/actions/runs/34502604876",
-      "created_at": "2026-09-10T16:31:15Z"
+      "run_url": "https://github.com/latest-debs/fastfetch-debian/actions/runs/34529336629",
+      "created_at": "2026-09-10T20:56:35Z"
     },
     {
       "name": "gum-debian",
@@ -198,8 +198,8 @@
       "conclusion": "success",
       "status": "completed",
       "branch": "main",
-      "run_url": "https://github.com/latest-debs/gum-debian/actions/runs/34502594421",
-      "created_at": "2026-09-10T16:31:09Z"
+      "run_url": "https://github.com/latest-debs/gum-debian/actions/runs/34529402592",
+      "created_at": "2026-09-10T20:57:19Z"
     },
     {
       "name": "mise-debian",
@@ -208,8 +208,8 @@
       "conclusion": "success",
       "status": "completed",
       "branch": "main",
-      "run_url": "https://github.com/latest-debs/mise-debian/actions/runs/34502534667",
-      "created_at": "2026-09-10T16:30:34Z"
+      "run_url": "https://github.com/latest-debs/mise-debian/actions/runs/34529328613",
+      "created_at": "2026-09-10T20:56:30Z"
     },
     {
       "name": "gh-debian",
@@ -218,8 +218,8 @@
       "conclusion": "success",
       "status": "completed",
       "branch": "main",
-      "run_url": "https://github.com/latest-debs/gh-debian/actions/runs/34502706792",
-      "created_at": "2026-09-10T16:32:15Z"
+      "run_url": "https://github.com/latest-debs/gh-debian/actions/runs/34529476107",
+      "created_at": "2026-09-10T20:58:07Z"
     },
     {
       "name": "neovim-debian",
@@ -228,8 +228,8 @@
       "conclusion": "success",
       "status": "completed",
       "branch": "main",
-      "run_url": "https://github.com/latest-debs/neovim-debian/actions/runs/34502538579",
-      "created_at": "2026-09-10T16:30:37Z"
+      "run_url": "https://github.com/latest-debs/neovim-debian/actions/runs/34529320513",
+      "created_at": "2026-09-10T20:56:25Z"
     },
     {
       "name": "zellij-debian",
@@ -238,8 +238,8 @@
       "conclusion": "success",
       "status": "completed",
       "branch": "main",
-      "run_url": "https://github.com/latest-debs/zellij-debian/actions/runs/34502655465",
-      "created_at": "2026-09-10T16:31:45Z"
+      "run_url": "https://github.com/latest-debs/zellij-debian/actions/runs/34529485995",
+      "created_at": "2026-09-10T20:58:13Z"
     },
     {
       "name": "yazi-debian",
@@ -248,8 +248,8 @@
       "conclusion": "success",
       "status": "completed",
       "branch": "main",
-      "run_url": "https://github.com/latest-debs/yazi-debian/actions/runs/34502399989",
-      "created_at": "2026-09-10T16:29:19Z"
+      "run_url": "https://github.com/latest-debs/yazi-debian/actions/runs/34529240755",
+      "created_at": "2026-09-10T20:55:34Z"
     },
     {
       "name": "vhs-debian",
@@ -258,8 +258,8 @@
       "conclusion": "success",
       "status": "completed",
       "branch": "main",
-      "run_url": "https://github.com/latest-debs/vhs-debian/actions/runs/34502700596",
-      "created_at": "2026-09-10T16:32:12Z"
+      "run_url": "https://github.com/latest-debs/vhs-debian/actions/runs/34529489643",
+      "created_at": "2026-09-10T20:58:15Z"
     },
     {
       "name": "difftastic-debian",
@@ -268,8 +268,8 @@
       "conclusion": "success",
       "status": "completed",
       "branch": "main",
-      "run_url": "https://github.com/latest-debs/difftastic-debian/actions/runs/34502273616",
-      "created_at": "2026-09-10T16:28:05Z"
+      "run_url": "https://github.com/latest-debs/difftastic-debian/actions/runs/34529156341",
+      "created_at": "2026-09-10T20:54:42Z"
     },
     {
       "name": "k6-debian",
@@ -278,8 +278,8 @@
       "conclusion": "success",
       "status": "completed",
       "branch": "main",
-      "run_url": "https://github.com/latest-debs/k6-debian/actions/runs/34502710564",
-      "created_at": "2026-09-10T16:32:17Z"
+      "run_url": "https://github.com/latest-debs/k6-debian/actions/runs/34529558133",
+      "created_at": "2026-09-10T20:58:59Z"
     },
     {
       "name": "rclone-debian",
@@ -288,8 +288,8 @@
       "conclusion": "success",
       "status": "completed",
       "branch": "main",
-      "run_url": "https://github.com/latest-debs/rclone-debian/actions/runs/34502598117",
-      "created_at": "2026-09-10T16:31:11Z"
+      "run_url": "https://github.com/latest-debs/rclone-debian/actions/runs/34529409936",
+      "created_at": "2026-09-10T20:57:23Z"
     },
     {
       "name": "zed-debian",
@@ -298,8 +298,8 @@
       "conclusion": "success",
       "status": "completed",
       "branch": "main",
-      "run_url": "https://github.com/latest-debs/zed-debian/actions/runs/34502297821",
-      "created_at": "2026-09-10T16:28:19Z"
+      "run_url": "https://github.com/latest-debs/zed-debian/actions/runs/34529161886",
+      "created_at": "2026-09-10T20:54:45Z"
     },
     {
       "name": "act-debian",
@@ -308,8 +308,8 @@
       "conclusion": "success",
       "status": "completed",
       "branch": "main",
-      "run_url": "https://github.com/latest-debs/act-debian/actions/runs/34502573391",
-      "created_at": "2026-09-10T16:30:58Z"
+      "run_url": "https://github.com/latest-debs/act-debian/actions/runs/34529330729",
+      "created_at": "2026-09-10T20:56:31Z"
     },
     {
       "name": "pnpm-debian",
@@ -318,8 +318,8 @@
       "conclusion": "success",
       "status": "completed",
       "branch": "main",
-      "run_url": "https://github.com/latest-debs/pnpm-debian/actions/runs/34502380174",
-      "created_at": "2026-09-10T16:29:07Z"
+      "run_url": "https://github.com/latest-debs/pnpm-debian/actions/runs/34529247986",
+      "created_at": "2026-09-10T20:55:38Z"
     },
     {
       "name": "superfile-debian",
@@ -328,8 +328,8 @@
       "conclusion": "success",
       "status": "completed",
       "branch": "main",
-      "run_url": "https://github.com/latest-debs/superfile-debian/actions/runs/34502708259",
-      "created_at": "2026-09-10T16:32:16Z"
+      "run_url": "https://github.com/latest-debs/superfile-debian/actions/runs/34529495042",
+      "created_at": "2026-09-10T20:58:18Z"
     },
     {
       "name": "dive-debian",
@@ -338,8 +338,8 @@
       "conclusion": "success",
       "status": "completed",
       "branch": "main",
-      "run_url": "https://github.com/latest-debs/dive-debian/actions/runs/34502471190",
-      "created_at": "2026-09-10T16:30:01Z"
+      "run_url": "https://github.com/latest-debs/dive-debian/actions/runs/34529235387",
+      "created_at": "2026-09-10T20:55:31Z"
     },
     {
       "name": "nushell-debian",
@@ -348,8 +348,8 @@
       "conclusion": "success",
       "status": "completed",
       "branch": "main",
-      "run_url": "https://github.com/latest-debs/nushell-debian/actions/runs/34502739869",
-      "created_at": "2026-09-10T16:32:34Z"
+      "run_url": "https://github.com/latest-debs/nushell-debian/actions/runs/34529635374",
+      "created_at": "2026-09-10T20:59:50Z"
     },
     {
       "name": "fresh-editor-debian",
@@ -358,8 +358,8 @@
       "conclusion": "success",
       "status": "completed",
       "branch": "main",
-      "run_url": "https://github.com/latest-debs/fresh-editor-debian/actions/runs/34502445763",
-      "created_at": "2026-09-10T16:29:47Z"
+      "run_url": "https://github.com/latest-debs/fresh-editor-debian/actions/runs/34529242673",
+      "created_at": "2026-09-10T20:55:35Z"
     },
     {
       "name": "gitui-debian",
@@ -368,8 +368,8 @@
       "conclusion": "success",
       "status": "completed",
       "branch": "main",
-      "run_url": "https://github.com/latest-debs/gitui-debian/actions/runs/34502591544",
-      "created_at": "2026-09-10T16:31:07Z"
+      "run_url": "https://github.com/latest-debs/gitui-debian/actions/runs/34529404464",
+      "created_at": "2026-09-10T20:57:20Z"
     },
     {
       "name": "jj-debian",
@@ -378,8 +378,8 @@
       "conclusion": "success",
       "status": "completed",
       "branch": "main",
-      "run_url": "https://github.com/latest-debs/jj-debian/actions/runs/34502538340",
-      "created_at": "2026-09-10T16:30:37Z"
+      "run_url": "https://github.com/latest-debs/jj-debian/actions/runs/34529332562",
+      "created_at": "2026-09-10T20:56:32Z"
     },
     {
       "name": "git-delta-debian",
@@ -388,8 +388,8 @@
       "conclusion": "success",
       "status": "completed",
       "branch": "main",
-      "run_url": "https://github.com/latest-debs/git-delta-debian/actions/runs/34502637829",
-      "created_at": "2026-09-10T16:31:33Z"
+      "run_url": "https://github.com/latest-debs/git-delta-debian/actions/runs/34529416132",
+      "created_at": "2026-09-10T20:57:27Z"
     },
     {
       "name": "zoxide-debian",
@@ -398,8 +398,8 @@
       "conclusion": "success",
       "status": "completed",
       "branch": "main",
-      "run_url": "https://github.com/latest-debs/zoxide-debian/actions/runs/34502597871",
-      "created_at": "2026-09-10T16:31:11Z"
+      "run_url": "https://github.com/latest-debs/zoxide-debian/actions/runs/34529404581",
+      "created_at": "2026-09-10T20:57:20Z"
     },
     {
       "name": "bat-debian",
@@ -408,8 +408,8 @@
       "conclusion": "success",
       "status": "completed",
       "branch": "main",
-      "run_url": "https://github.com/latest-debs/bat-debian/actions/runs/34502646562",
-      "created_at": "2026-09-10T16:31:39Z"
+      "run_url": "https://github.com/latest-debs/bat-debian/actions/runs/34529439985",
+      "created_at": "2026-09-10T20:57:44Z"
     },
     {
       "name": "bottom-debian",
@@ -418,8 +418,8 @@
       "conclusion": "success",
       "status": "completed",
       "branch": "main",
-      "run_url": "https://github.com/latest-debs/bottom-debian/actions/runs/34502623609",
-      "created_at": "2026-09-10T16:31:25Z"
+      "run_url": "https://github.com/latest-debs/bottom-debian/actions/runs/34529402232",
+      "created_at": "2026-09-10T20:57:19Z"
     },
     {
       "name": "procs-debian",
@@ -428,8 +428,8 @@
       "conclusion": "success",
       "status": "completed",
       "branch": "main",
-      "run_url": "https://github.com/latest-debs/procs-debian/actions/runs/34502319855",
-      "created_at": "2026-09-10T16:28:33Z"
+      "run_url": "https://github.com/latest-debs/procs-debian/actions/runs/34529168869",
+      "created_at": "2026-09-10T20:54:49Z"
     },
     {
       "name": "du-dust-debian",
@@ -438,8 +438,8 @@
       "conclusion": "success",
       "status": "completed",
       "branch": "main",
-      "run_url": "https://github.com/latest-debs/du-dust-debian/actions/runs/34502382039",
-      "created_at": "2026-09-10T16:29:08Z"
+      "run_url": "https://github.com/latest-debs/du-dust-debian/actions/runs/34529247602",
+      "created_at": "2026-09-10T20:55:38Z"
     },
     {
       "name": "yq-debian",
@@ -448,8 +448,8 @@
       "conclusion": "success",
       "status": "completed",
       "branch": "main",
-      "run_url": "https://github.com/latest-debs/yq-debian/actions/runs/34502599375",
-      "created_at": "2026-09-10T16:31:12Z"
+      "run_url": "https://github.com/latest-debs/yq-debian/actions/runs/34529418009",
+      "created_at": "2026-09-10T20:57:28Z"
     },
     {
       "name": "xh-debian",
@@ -458,8 +458,8 @@
       "conclusion": "success",
       "status": "completed",
       "branch": "main",
-      "run_url": "https://github.com/latest-debs/xh-debian/actions/runs/34502705287",
-      "created_at": "2026-09-10T16:32:14Z"
+      "run_url": "https://github.com/latest-debs/xh-debian/actions/runs/34529572480",
+      "created_at": "2026-09-10T20:59:08Z"
     },
     {
       "name": "atuin-debian",
@@ -468,8 +468,8 @@
       "conclusion": "success",
       "status": "completed",
       "branch": "main",
-      "run_url": "https://github.com/latest-debs/atuin-debian/actions/runs/34502635517",
-      "created_at": "2026-09-10T16:31:32Z"
+      "run_url": "https://github.com/latest-debs/atuin-debian/actions/runs/34529429712",
+      "created_at": "2026-09-10T20:57:36Z"
     },
     {
       "name": "k9s-debian",
@@ -478,8 +478,8 @@
       "conclusion": "success",
       "status": "completed",
       "branch": "main",
-      "run_url": "https://github.com/latest-debs/k9s-debian/actions/runs/34502722845",
-      "created_at": "2026-09-10T16:32:24Z"
+      "run_url": "https://github.com/latest-debs/k9s-debian/actions/runs/34529578134",
+      "created_at": "2026-09-10T20:59:11Z"
     },
     {
       "name": "hyperfine-debian",
@@ -488,8 +488,8 @@
       "conclusion": "success",
       "status": "completed",
       "branch": "main",
-      "run_url": "https://github.com/latest-debs/hyperfine-debian/actions/runs/34502662156",
-      "created_at": "2026-09-10T16:31:49Z"
+      "run_url": "https://github.com/latest-debs/hyperfine-debian/actions/runs/34529495178",
+      "created_at": "2026-09-10T20:58:18Z"
     },
     {
       "name": "just-debian",
@@ -498,8 +498,8 @@
       "conclusion": "success",
       "status": "completed",
       "branch": "main",
-      "run_url": "https://github.com/latest-debs/just-debian/actions/runs/34502771906",
-      "created_at": "2026-09-10T16:32:54Z"
+      "run_url": "https://github.com/latest-debs/just-debian/actions/runs/34529636074",
+      "created_at": "2026-09-10T20:59:50Z"
     },
     {
       "name": "starship-debian",
@@ -508,8 +508,8 @@
       "conclusion": "success",
       "status": "completed",
       "branch": "main",
-      "run_url": "https://github.com/latest-debs/starship-debian/actions/runs/34502716839",
-      "created_at": "2026-09-10T16:32:21Z"
+      "run_url": "https://github.com/latest-debs/starship-debian/actions/runs/34529551045",
+      "created_at": "2026-09-10T20:58:55Z"
     },
     {
       "name": "fzf-debian",
@@ -518,8 +518,8 @@
       "conclusion": "success",
       "status": "completed",
       "branch": "main",
-      "run_url": "https://github.com/latest-debs/fzf-debian/actions/runs/34502601208",
-      "created_at": "2026-09-10T16:31:13Z"
+      "run_url": "https://github.com/latest-debs/fzf-debian/actions/runs/34529415320",
+      "created_at": "2026-09-10T20:57:27Z"
     },
     {
       "name": "fd-debian",
@@ -528,8 +528,8 @@
       "conclusion": "success",
       "status": "completed",
       "branch": "main",
-      "run_url": "https://github.com/latest-debs/fd-debian/actions/runs/34502646500",
-      "created_at": "2026-09-10T16:31:39Z"
+      "run_url": "https://github.com/latest-debs/fd-debian/actions/runs/34529412097",
+      "created_at": "2026-09-10T20:57:25Z"
     },
     {
       "name": "ripgrep-debian",
@@ -538,8 +538,8 @@
       "conclusion": "success",
       "status": "completed",
       "branch": "main",
-      "run_url": "https://github.com/latest-debs/ripgrep-debian/actions/runs/34502737442",
-      "created_at": "2026-09-10T16:32:33Z"
+      "run_url": "https://github.com/latest-debs/ripgrep-debian/actions/runs/34529628066",
+      "created_at": "2026-09-10T20:59:45Z"
     },
     {
       "name": "lazydocker-debian",
@@ -548,8 +548,8 @@
       "conclusion": "success",
       "status": "completed",
       "branch": "main",
-      "run_url": "https://github.com/latest-debs/lazydocker-debian/actions/runs/34502706572",
-      "created_at": "2026-09-10T16:32:15Z"
+      "run_url": "https://github.com/latest-debs/lazydocker-debian/actions/runs/34529470235",
+      "created_at": "2026-09-10T20:58:04Z"
     },
     {
       "name": "duckdb-debian",
@@ -558,8 +558,8 @@
       "conclusion": "success",
       "status": "completed",
       "branch": "main",
-      "run_url": "https://github.com/latest-debs/duckdb-debian/actions/runs/34502699816",
-      "created_at": "2026-09-10T16:32:11Z"
+      "run_url": "https://github.com/latest-debs/duckdb-debian/actions/runs/34529481260",
+      "created_at": "2026-09-10T20:58:10Z"
     },
     {
       "name": "deno-debian",
@@ -568,8 +568,8 @@
       "conclusion": "success",
       "status": "completed",
       "branch": "main",
-      "run_url": "https://github.com/latest-debs/deno-debian/actions/runs/34502769331",
-      "created_at": "2026-09-10T16:32:52Z"
+      "run_url": "https://github.com/latest-debs/deno-debian/actions/runs/34529639070",
+      "created_at": "2026-09-10T20:59:52Z"
     },
     {
       "name": "bun-debian",
@@ -578,8 +578,8 @@
       "conclusion": "success",
       "status": "completed",
       "branch": "main",
-      "run_url": "https://github.com/latest-debs/bun-debian/actions/runs/34502655179",
-      "created_at": "2026-09-10T16:31:45Z"
+      "run_url": "https://github.com/latest-debs/bun-debian/actions/runs/34529493337",
+      "created_at": "2026-09-10T20:58:17Z"
     },
     {
       "name": "ruff-debian",
@@ -588,8 +588,8 @@
       "conclusion": "success",
       "status": "completed",
       "branch": "main",
-      "run_url": "https://github.com/latest-debs/ruff-debian/actions/runs/34502537278",
-      "created_at": "2026-09-10T16:30:36Z"
+      "run_url": "https://github.com/latest-debs/ruff-debian/actions/runs/34529325409",
+      "created_at": "2026-09-10T20:56:28Z"
     },
     {
       "name": "lazygit-debian",
@@ -598,8 +598,8 @@
       "conclusion": "success",
       "status": "completed",
       "branch": "main",
-      "run_url": "https://github.com/latest-debs/lazygit-debian/actions/runs/34502275809",
-      "created_at": "2026-09-10T16:28:07Z"
+      "run_url": "https://github.com/latest-debs/lazygit-debian/actions/runs/34529155130",
+      "created_at": "2026-09-10T20:54:41Z"
     },
     {
       "name": "eza-debian",
@@ -608,8 +608,8 @@
       "conclusion": "success",
       "status": "completed",
       "branch": "main",
-      "run_url": "https://github.com/latest-debs/eza-debian/actions/runs/34502744278",
-      "created_at": "2026-09-10T16:32:37Z"
+      "run_url": "https://github.com/latest-debs/eza-debian/actions/runs/34529631278",
+      "created_at": "2026-09-10T20:59:47Z"
     },
     {
       "name": "vite-plus-debian",
@@ -618,8 +618,8 @@
       "conclusion": "success",
       "status": "completed",
       "branch": "main",
-      "run_url": "https://github.com/latest-debs/vite-plus-debian/actions/runs/34502719303",
-      "created_at": "2026-09-10T16:32:22Z"
+      "run_url": "https://github.com/latest-debs/vite-plus-debian/actions/runs/34529572808",
+      "created_at": "2026-09-10T20:59:08Z"
     },
     {
       "name": "uv-debian",
@@ -628,18 +628,18 @@
       "conclusion": "success",
       "status": "completed",
       "branch": "main",
-      "run_url": "https://github.com/latest-debs/uv-debian/actions/runs/34502601465",
-      "created_at": "2026-09-10T16:31:13Z"
+      "run_url": "https://github.com/latest-debs/uv-debian/actions/runs/34529417151",
+      "created_at": "2026-09-10T20:57:28Z"
     },
     {
       "name": "apt-repo",
       "url": "https://github.com/latest-debs/apt-repo",
-      "workflow": "CI",
+      "workflow": "pages-build-deployment",
       "conclusion": "success",
       "status": "completed",
-      "branch": "main",
-      "run_url": "https://github.com/latest-debs/apt-repo/actions/runs/34508017009",
-      "created_at": "2026-09-10T17:24:24Z"
+      "branch": "gh-pages",
+      "run_url": "https://github.com/latest-debs/apt-repo/actions/runs/34530852217",
+      "created_at": "2026-09-10T21:12:19Z"
     },
     {
       "name": ".github",
