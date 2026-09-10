@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-10T17:34:32Z",
+  "generated_at": "2026-09-10T20:37:22Z",
   "repos": [
     {
       "name": "quickshell-debian",
@@ -8,8 +8,18 @@
       "conclusion": null,
       "status": "in_progress",
       "branch": "main",
-      "run_url": "https://github.com/latest-debs/quickshell-debian/actions/runs/34508627376",
-      "created_at": "2026-09-10T17:30:26Z"
+      "run_url": "https://github.com/latest-debs/quickshell-debian/actions/runs/34527133570",
+      "created_at": "2026-09-10T20:33:52Z"
+    },
+    {
+      "name": "latest-debs.github.io",
+      "url": "https://github.com/latest-debs/latest-debs.github.io",
+      "workflow": "CI status",
+      "conclusion": null,
+      "status": "in_progress",
+      "branch": "main",
+      "run_url": "https://github.com/latest-debs/latest-debs.github.io/actions/runs/34527450330",
+      "created_at": "2026-09-10T20:37:04Z"
     },
     {
       "name": "vicinae-debian",
@@ -630,16 +640,6 @@
       "branch": "main",
       "run_url": "https://github.com/latest-debs/apt-repo/actions/runs/34508017009",
       "created_at": "2026-09-10T17:24:24Z"
-    },
-    {
-      "name": "latest-debs.github.io",
-      "url": "https://github.com/latest-debs/latest-debs.github.io",
-      "workflow": "CI status",
-      "conclusion": null,
-      "status": "in_progress",
-      "branch": "main",
-      "run_url": "https://github.com/latest-debs/latest-debs.github.io/actions/runs/34509029040",
-      "created_at": "2026-09-10T17:34:23Z"
     },
     {
       "name": ".github",
