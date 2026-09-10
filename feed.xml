@@ -4,9 +4,16 @@
   <link href="https://latest-debs.github.io/"/>
   <link rel="self" href="https://latest-debs.github.io/feed.xml"/>
   <id>https://latest-debs.github.io/feed.xml</id>
-  <updated>2026-09-09T23:29:17Z</updated>
+  <updated>2026-09-10T04:59:05Z</updated>
   <author><name>latest-debs</name></author>
   <subtitle>Latest dev tools, packaged for Debian — automatically. One entry per release published to the apt channel.</subtitle>
+  <entry>
+    <id>https://github.com/latest-debs/mise-debian/releases/tag/v2026.9.4%2B1</id>
+    <title>mise v2026.9.4+1</title>
+    <link href="https://github.com/latest-debs/mise-debian/releases/tag/v2026.9.4%2B1"/>
+    <updated>2026-09-10T04:59:05Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;mise&lt;/strong&gt; &lt;code&gt;v2026.9.4+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install mise&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
   <entry>
     <id>https://github.com/latest-debs/uv-debian/releases/tag/0.12.12%2B1</id>
     <title>uv 0.12.12+1</title>
@@ -419,12 +426,5 @@
     <link href="https://github.com/latest-debs/mise-debian/releases/tag/v2026.8.15%2B1"/>
     <updated>2026-08-31T05:52:08Z</updated>
     <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;mise&lt;/strong&gt; &lt;code&gt;v2026.8.15+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install mise&lt;/code&gt;.&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <id>https://github.com/latest-debs/pnpm-debian/releases/tag/v11.25.0%2B1</id>
-    <title>pnpm v11.25.0+1</title>
-    <link href="https://github.com/latest-debs/pnpm-debian/releases/tag/v11.25.0%2B1"/>
-    <updated>2026-08-29T16:52:26Z</updated>
-    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;pnpm&lt;/strong&gt; &lt;code&gt;v11.25.0+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install pnpm&lt;/code&gt;.&lt;/p&gt;</content>
   </entry>
 </feed>
