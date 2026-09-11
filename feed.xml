@@ -4,9 +4,30 @@
   <link href="https://latest-debs.github.io/"/>
   <link rel="self" href="https://latest-debs.github.io/feed.xml"/>
   <id>https://latest-debs.github.io/feed.xml</id>
-  <updated>2026-09-11T04:56:01Z</updated>
+  <updated>2026-09-11T11:36:43Z</updated>
   <author><name>latest-debs</name></author>
   <subtitle>Latest dev tools, packaged for Debian — automatically. One entry per release published to the apt channel.</subtitle>
+  <entry>
+    <id>https://github.com/latest-debs/workmux-debian/releases/tag/v0.1.260%2B1</id>
+    <title>workmux v0.1.260+1</title>
+    <link href="https://github.com/latest-debs/workmux-debian/releases/tag/v0.1.260%2B1"/>
+    <updated>2026-09-11T11:36:43Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;workmux&lt;/strong&gt; &lt;code&gt;v0.1.260+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install workmux&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>https://github.com/latest-debs/gum-debian/releases/tag/v2.0.1%2B1</id>
+    <title>gum v2.0.1+1</title>
+    <link href="https://github.com/latest-debs/gum-debian/releases/tag/v2.0.1%2B1"/>
+    <updated>2026-09-11T11:35:51Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;gum&lt;/strong&gt; &lt;code&gt;v2.0.1+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install gum&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>https://github.com/latest-debs/quickshell-debian/releases/tag/v0.3.1%2B2</id>
+    <title>quickshell v0.3.1+2</title>
+    <link href="https://github.com/latest-debs/quickshell-debian/releases/tag/v0.3.1%2B2"/>
+    <updated>2026-09-11T09:57:26Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;quickshell&lt;/strong&gt; &lt;code&gt;v0.3.1+2&lt;/code&gt;. Install with &lt;code&gt;sudo apt install quickshell&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
   <entry>
     <id>https://github.com/latest-debs/mise-debian/releases/tag/v2026.9.5%2B1</id>
     <title>mise v2026.9.5+1</title>
@@ -405,26 +426,5 @@
     <link href="https://github.com/latest-debs/uv-debian/releases/tag/0.12.9%2B1"/>
     <updated>2026-09-01T23:29:05Z</updated>
     <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;uv&lt;/strong&gt; &lt;code&gt;0.12.9+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install uv&lt;/code&gt;.&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <id>https://github.com/latest-debs/gh-debian/releases/tag/v2.99.0%2B1</id>
-    <title>gh v2.99.0+1</title>
-    <link href="https://github.com/latest-debs/gh-debian/releases/tag/v2.99.0%2B1"/>
-    <updated>2026-09-01T23:28:10Z</updated>
-    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;gh&lt;/strong&gt; &lt;code&gt;v2.99.0+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install gh&lt;/code&gt;.&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <id>https://github.com/latest-debs/mise-debian/releases/tag/v2026.9.0%2B1</id>
-    <title>mise v2026.9.0+1</title>
-    <link href="https://github.com/latest-debs/mise-debian/releases/tag/v2026.9.0%2B1"/>
-    <updated>2026-09-01T14:17:04Z</updated>
-    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;mise&lt;/strong&gt; &lt;code&gt;v2026.9.0+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install mise&lt;/code&gt;.&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <id>https://github.com/latest-debs/yazi-debian/releases/tag/v26.9.1%2B1</id>
-    <title>yazi v26.9.1+1</title>
-    <link href="https://github.com/latest-debs/yazi-debian/releases/tag/v26.9.1%2B1"/>
-    <updated>2026-09-01T14:14:50Z</updated>
-    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;yazi&lt;/strong&gt; &lt;code&gt;v26.9.1+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install yazi&lt;/code&gt;.&lt;/p&gt;</content>
   </entry>
 </feed>
