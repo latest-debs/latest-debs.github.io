@@ -4,9 +4,23 @@
   <link href="https://latest-debs.github.io/"/>
   <link rel="self" href="https://latest-debs.github.io/feed.xml"/>
   <id>https://latest-debs.github.io/feed.xml</id>
-  <updated>2026-09-11T16:38:01Z</updated>
+  <updated>2026-09-12T11:02:27Z</updated>
   <author><name>latest-debs</name></author>
   <subtitle>Latest dev tools, packaged for Debian — automatically. One entry per release published to the apt channel.</subtitle>
+  <entry>
+    <id>https://github.com/latest-debs/fzf-debian/releases/tag/v0.74.4%2B1</id>
+    <title>fzf v0.74.4+1</title>
+    <link href="https://github.com/latest-debs/fzf-debian/releases/tag/v0.74.4%2B1"/>
+    <updated>2026-09-12T11:02:27Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;fzf&lt;/strong&gt; &lt;code&gt;v0.74.4+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install fzf&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>https://github.com/latest-debs/workmux-debian/releases/tag/v0.1.261%2B1</id>
+    <title>workmux v0.1.261+1</title>
+    <link href="https://github.com/latest-debs/workmux-debian/releases/tag/v0.1.261%2B1"/>
+    <updated>2026-09-12T11:01:39Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;workmux&lt;/strong&gt; &lt;code&gt;v0.1.261+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install workmux&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
   <entry>
     <id>https://github.com/latest-debs/pnpm-debian/releases/tag/v12.4.1%2B1</id>
     <title>pnpm v12.4.1+1</title>
@@ -412,19 +426,5 @@
     <link href="https://github.com/latest-debs/jj-debian/releases/tag/v0.45.0%2B1"/>
     <updated>2026-09-03T11:28:01Z</updated>
     <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;jj&lt;/strong&gt; &lt;code&gt;v0.45.0+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install jj&lt;/code&gt;.&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <id>https://github.com/latest-debs/zed-debian/releases/tag/v1.18.0%2B1</id>
-    <title>zed v1.18.0+1</title>
-    <link href="https://github.com/latest-debs/zed-debian/releases/tag/v1.18.0%2B1"/>
-    <updated>2026-09-02T21:20:31Z</updated>
-    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;zed&lt;/strong&gt; &lt;code&gt;v1.18.0+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install zed&lt;/code&gt;.&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <id>https://github.com/latest-debs/mise-debian/releases/tag/v2026.9.1%2B1</id>
-    <title>mise v2026.9.1+1</title>
-    <link href="https://github.com/latest-debs/mise-debian/releases/tag/v2026.9.1%2B1"/>
-    <updated>2026-09-02T16:46:00Z</updated>
-    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;mise&lt;/strong&gt; &lt;code&gt;v2026.9.1+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install mise&lt;/code&gt;.&lt;/p&gt;</content>
   </entry>
 </feed>
