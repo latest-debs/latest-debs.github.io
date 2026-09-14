@@ -4,9 +4,30 @@
   <link href="https://latest-debs.github.io/"/>
   <link rel="self" href="https://latest-debs.github.io/feed.xml"/>
   <id>https://latest-debs.github.io/feed.xml</id>
-  <updated>2026-09-14T05:11:50Z</updated>
+  <updated>2026-09-14T19:58:07Z</updated>
   <author><name>latest-debs</name></author>
   <subtitle>Latest dev tools, packaged for Debian — automatically. One entry per release published to the apt channel.</subtitle>
+  <entry>
+    <id>https://github.com/latest-debs/mise-debian/releases/tag/v2026.9.8%2B1</id>
+    <title>mise v2026.9.8+1</title>
+    <link href="https://github.com/latest-debs/mise-debian/releases/tag/v2026.9.8%2B1"/>
+    <updated>2026-09-14T19:58:07Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;mise&lt;/strong&gt; &lt;code&gt;v2026.9.8+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install mise&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>https://github.com/latest-debs/vicinae-debian/releases/tag/v0.28.2%2B1</id>
+    <title>vicinae v0.28.2+1</title>
+    <link href="https://github.com/latest-debs/vicinae-debian/releases/tag/v0.28.2%2B1"/>
+    <updated>2026-09-14T19:57:59Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;vicinae&lt;/strong&gt; &lt;code&gt;v0.28.2+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install vicinae&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>https://github.com/latest-debs/vite-plus-debian/releases/tag/v0.3.2%2B1</id>
+    <title>vite-plus v0.3.2+1</title>
+    <link href="https://github.com/latest-debs/vite-plus-debian/releases/tag/v0.3.2%2B1"/>
+    <updated>2026-09-14T19:56:21Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;vite-plus&lt;/strong&gt; &lt;code&gt;v0.3.2+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install vite-plus&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
   <entry>
     <id>https://github.com/latest-debs/mise-debian/releases/tag/v2026.9.7%2B1</id>
     <title>mise v2026.9.7+1</title>
@@ -405,26 +426,5 @@
     <link href="https://github.com/latest-debs/lf-debian/releases/tag/r42%2B1"/>
     <updated>2026-09-04T14:39:40Z</updated>
     <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;lf&lt;/strong&gt; &lt;code&gt;r42+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install lf&lt;/code&gt;.&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <id>https://github.com/latest-debs/joshuto-debian/releases/tag/v0.9.9%2B1</id>
-    <title>joshuto v0.9.9+1</title>
-    <link href="https://github.com/latest-debs/joshuto-debian/releases/tag/v0.9.9%2B1"/>
-    <updated>2026-09-04T14:39:38Z</updated>
-    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;joshuto&lt;/strong&gt; &lt;code&gt;v0.9.9+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install joshuto&lt;/code&gt;.&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <id>https://github.com/latest-debs/fastfetch-debian/releases/tag/2.68.1%2B1</id>
-    <title>fastfetch 2.68.1+1</title>
-    <link href="https://github.com/latest-debs/fastfetch-debian/releases/tag/2.68.1%2B1"/>
-    <updated>2026-09-04T14:36:07Z</updated>
-    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;fastfetch&lt;/strong&gt; &lt;code&gt;2.68.1+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install fastfetch&lt;/code&gt;.&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <id>https://github.com/latest-debs/bun-debian/releases/tag/bun-v1.4.1%2B1</id>
-    <title>bun bun-v1.4.1+1</title>
-    <link href="https://github.com/latest-debs/bun-debian/releases/tag/bun-v1.4.1%2B1"/>
-    <updated>2026-09-04T11:33:26Z</updated>
-    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;bun&lt;/strong&gt; &lt;code&gt;bun-v1.4.1+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install bun&lt;/code&gt;.&lt;/p&gt;</content>
   </entry>
 </feed>
