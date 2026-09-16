@@ -4,9 +4,23 @@
   <link href="https://latest-debs.github.io/"/>
   <link rel="self" href="https://latest-debs.github.io/feed.xml"/>
   <id>https://latest-debs.github.io/feed.xml</id>
-  <updated>2026-09-16T11:54:06Z</updated>
+  <updated>2026-09-16T17:15:28Z</updated>
   <author><name>latest-debs</name></author>
   <subtitle>Latest dev tools, packaged for Debian — automatically. One entry per release published to the apt channel.</subtitle>
+  <entry>
+    <id>https://github.com/latest-debs/zed-debian/releases/tag/v1.20.1%2B1</id>
+    <title>zed v1.20.1+1</title>
+    <link href="https://github.com/latest-debs/zed-debian/releases/tag/v1.20.1%2B1"/>
+    <updated>2026-09-16T17:15:28Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;zed&lt;/strong&gt; &lt;code&gt;v1.20.1+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install zed&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>https://github.com/latest-debs/ruff-debian/releases/tag/0.16.8%2B1</id>
+    <title>ruff 0.16.8+1</title>
+    <link href="https://github.com/latest-debs/ruff-debian/releases/tag/0.16.8%2B1"/>
+    <updated>2026-09-16T17:14:12Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;ruff&lt;/strong&gt; &lt;code&gt;0.16.8+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install ruff&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
   <entry>
     <id>https://github.com/latest-debs/workmux-debian/releases/tag/v0.1.263%2B1</id>
     <title>workmux v0.1.263+1</title>
@@ -412,19 +426,5 @@
     <link href="https://github.com/latest-debs/rclone-debian/releases/tag/v1.75.1%2B1"/>
     <updated>2026-09-04T20:55:39Z</updated>
     <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;rclone&lt;/strong&gt; &lt;code&gt;v1.75.1+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install rclone&lt;/code&gt;.&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <id>https://github.com/latest-debs/uncloud-debian/releases/tag/v0.20.0%2B1</id>
-    <title>uncloud v0.20.0+1</title>
-    <link href="https://github.com/latest-debs/uncloud-debian/releases/tag/v0.20.0%2B1"/>
-    <updated>2026-09-04T16:33:40Z</updated>
-    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;uncloud&lt;/strong&gt; &lt;code&gt;v0.20.0+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install uncloud&lt;/code&gt;.&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <id>https://github.com/latest-debs/herdr-debian/releases/tag/v0.8.2%2B1</id>
-    <title>herdr v0.8.2+1</title>
-    <link href="https://github.com/latest-debs/herdr-debian/releases/tag/v0.8.2%2B1"/>
-    <updated>2026-09-04T16:32:05Z</updated>
-    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;herdr&lt;/strong&gt; &lt;code&gt;v0.8.2+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install herdr&lt;/code&gt;.&lt;/p&gt;</content>
   </entry>
 </feed>
