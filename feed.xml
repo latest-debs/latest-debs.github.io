@@ -4,9 +4,16 @@
   <link href="https://latest-debs.github.io/"/>
   <link rel="self" href="https://latest-debs.github.io/feed.xml"/>
   <id>https://latest-debs.github.io/feed.xml</id>
-  <updated>2026-09-16T21:33:02Z</updated>
+  <updated>2026-09-16T23:45:38Z</updated>
   <author><name>latest-debs</name></author>
   <subtitle>Latest dev tools, packaged for Debian — automatically. One entry per release published to the apt channel.</subtitle>
+  <entry>
+    <id>https://github.com/latest-debs/du-dust-debian/releases/tag/v1.2.6%2B1</id>
+    <title>du-dust v1.2.6+1</title>
+    <link href="https://github.com/latest-debs/du-dust-debian/releases/tag/v1.2.6%2B1"/>
+    <updated>2026-09-16T23:45:38Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;du-dust&lt;/strong&gt; &lt;code&gt;v1.2.6+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install du-dust&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
   <entry>
     <id>https://github.com/latest-debs/herdr-debian/releases/tag/v0.9.1%2B1</id>
     <title>herdr v0.9.1+1</title>
@@ -419,12 +426,5 @@
     <link href="https://github.com/latest-debs/uv-debian/releases/tag/0.12.10%2B1"/>
     <updated>2026-09-05T04:44:36Z</updated>
     <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;uv&lt;/strong&gt; &lt;code&gt;0.12.10+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install uv&lt;/code&gt;.&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <id>https://github.com/latest-debs/trivy-debian/releases/tag/v0.74.0%2B2</id>
-    <title>trivy v0.74.0+2</title>
-    <link href="https://github.com/latest-debs/trivy-debian/releases/tag/v0.74.0%2B2"/>
-    <updated>2026-09-04T21:29:03Z</updated>
-    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;trivy&lt;/strong&gt; &lt;code&gt;v0.74.0+2&lt;/code&gt;. Install with &lt;code&gt;sudo apt install trivy&lt;/code&gt;.&lt;/p&gt;</content>
   </entry>
 </feed>
