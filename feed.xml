@@ -4,9 +4,37 @@
   <link href="https://latest-debs.github.io/"/>
   <link rel="self" href="https://latest-debs.github.io/feed.xml"/>
   <id>https://latest-debs.github.io/feed.xml</id>
-  <updated>2026-09-17T12:00:11Z</updated>
+  <updated>2026-09-18T05:03:24Z</updated>
   <author><name>latest-debs</name></author>
   <subtitle>Latest dev tools, packaged for Debian — automatically. One entry per release published to the apt channel.</subtitle>
+  <entry>
+    <id>https://github.com/latest-debs/uv-debian/releases/tag/0.12.16%2B1</id>
+    <title>uv 0.12.16+1</title>
+    <link href="https://github.com/latest-debs/uv-debian/releases/tag/0.12.16%2B1"/>
+    <updated>2026-09-18T05:03:24Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;uv&lt;/strong&gt; &lt;code&gt;0.12.16+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install uv&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>https://github.com/latest-debs/mise-debian/releases/tag/v2026.9.11%2B1</id>
+    <title>mise v2026.9.11+1</title>
+    <link href="https://github.com/latest-debs/mise-debian/releases/tag/v2026.9.11%2B1"/>
+    <updated>2026-09-18T04:59:02Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;mise&lt;/strong&gt; &lt;code&gt;v2026.9.11+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install mise&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>https://github.com/latest-debs/vite-plus-debian/releases/tag/v0.3.3%2B1</id>
+    <title>vite-plus v0.3.3+1</title>
+    <link href="https://github.com/latest-debs/vite-plus-debian/releases/tag/v0.3.3%2B1"/>
+    <updated>2026-09-18T04:58:52Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;vite-plus&lt;/strong&gt; &lt;code&gt;v0.3.3+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install vite-plus&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>https://github.com/latest-debs/vicinae-debian/releases/tag/v0.29.0%2B1</id>
+    <title>vicinae v0.29.0+1</title>
+    <link href="https://github.com/latest-debs/vicinae-debian/releases/tag/v0.29.0%2B1"/>
+    <updated>2026-09-18T04:57:26Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;vicinae&lt;/strong&gt; &lt;code&gt;v0.29.0+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install vicinae&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
   <entry>
     <id>https://github.com/latest-debs/deno-debian/releases/tag/v2.9.7%2B1</id>
     <title>deno v2.9.7+1</title>
@@ -398,33 +426,5 @@
     <link href="https://github.com/latest-debs/bun-debian/releases/tag/bun-v1.4.2%2B1"/>
     <updated>2026-09-05T10:52:00Z</updated>
     <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;bun&lt;/strong&gt; &lt;code&gt;bun-v1.4.2+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install bun&lt;/code&gt;.&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <id>https://github.com/latest-debs/workmux-debian/releases/tag/v0.1.255%2B1</id>
-    <title>workmux v0.1.255+1</title>
-    <link href="https://github.com/latest-debs/workmux-debian/releases/tag/v0.1.255%2B1"/>
-    <updated>2026-09-05T10:49:06Z</updated>
-    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;workmux&lt;/strong&gt; &lt;code&gt;v0.1.255+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install workmux&lt;/code&gt;.&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <id>https://github.com/latest-debs/oh-my-posh-debian/releases/tag/v31.1.3%2B1</id>
-    <title>oh-my-posh v31.1.3+1</title>
-    <link href="https://github.com/latest-debs/oh-my-posh-debian/releases/tag/v31.1.3%2B1"/>
-    <updated>2026-09-05T10:46:45Z</updated>
-    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;oh-my-posh&lt;/strong&gt; &lt;code&gt;v31.1.3+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install oh-my-posh&lt;/code&gt;.&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <id>https://github.com/latest-debs/eza-debian/releases/tag/v0.23.5%2B3</id>
-    <title>eza v0.23.5+3</title>
-    <link href="https://github.com/latest-debs/eza-debian/releases/tag/v0.23.5%2B3"/>
-    <updated>2026-09-05T08:37:00Z</updated>
-    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;eza&lt;/strong&gt; &lt;code&gt;v0.23.5+3&lt;/code&gt;. Install with &lt;code&gt;sudo apt install eza&lt;/code&gt;.&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <id>https://github.com/latest-debs/vicinae-debian/releases/tag/v0.28.1%2B1</id>
-    <title>vicinae v0.28.1+1</title>
-    <link href="https://github.com/latest-debs/vicinae-debian/releases/tag/v0.28.1%2B1"/>
-    <updated>2026-09-05T08:21:15Z</updated>
-    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;vicinae&lt;/strong&gt; &lt;code&gt;v0.28.1+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install vicinae&lt;/code&gt;.&lt;/p&gt;</content>
   </entry>
 </feed>
