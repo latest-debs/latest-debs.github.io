@@ -4,9 +4,16 @@
   <link href="https://latest-debs.github.io/"/>
   <link rel="self" href="https://latest-debs.github.io/feed.xml"/>
   <id>https://latest-debs.github.io/feed.xml</id>
-  <updated>2026-09-22T17:09:07Z</updated>
+  <updated>2026-09-22T21:33:24Z</updated>
   <author><name>latest-debs</name></author>
   <subtitle>Latest dev tools, packaged for Debian — automatically. One entry per release published to the apt channel.</subtitle>
+  <entry>
+    <id>https://github.com/latest-debs/workmux-debian/releases/tag/v0.1.266%2B1</id>
+    <title>workmux v0.1.266+1</title>
+    <link href="https://github.com/latest-debs/workmux-debian/releases/tag/v0.1.266%2B1"/>
+    <updated>2026-09-22T21:33:24Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;workmux&lt;/strong&gt; &lt;code&gt;v0.1.266+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install workmux&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
   <entry>
     <id>https://github.com/latest-debs/vite-plus-debian/releases/tag/v1.0.0-rc.0%2B1</id>
     <title>vite-plus v1.0.0-rc.0+1</title>
@@ -419,12 +426,5 @@
     <link href="https://github.com/latest-debs/pnpm-debian/releases/tag/v12.3.4%2B1"/>
     <updated>2026-09-08T21:17:44Z</updated>
     <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;pnpm&lt;/strong&gt; &lt;code&gt;v12.3.4+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install pnpm&lt;/code&gt;.&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <id>https://github.com/latest-debs/lazygit-debian/releases/tag/v0.65.0%2B2</id>
-    <title>lazygit v0.65.0+2</title>
-    <link href="https://github.com/latest-debs/lazygit-debian/releases/tag/v0.65.0%2B2"/>
-    <updated>2026-09-08T17:27:16Z</updated>
-    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;lazygit&lt;/strong&gt; &lt;code&gt;v0.65.0+2&lt;/code&gt;. Install with &lt;code&gt;sudo apt install lazygit&lt;/code&gt;.&lt;/p&gt;</content>
   </entry>
 </feed>
