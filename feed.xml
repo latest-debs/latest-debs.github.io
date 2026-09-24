@@ -4,9 +4,30 @@
   <link href="https://latest-debs.github.io/"/>
   <link rel="self" href="https://latest-debs.github.io/feed.xml"/>
   <id>https://latest-debs.github.io/feed.xml</id>
-  <updated>2026-09-23T17:20:06Z</updated>
+  <updated>2026-09-24T12:02:08Z</updated>
   <author><name>latest-debs</name></author>
   <subtitle>Latest dev tools, packaged for Debian — automatically. One entry per release published to the apt channel.</subtitle>
+  <entry>
+    <id>https://github.com/latest-debs/vhs-debian/releases/tag/v0.12.1%2B1</id>
+    <title>vhs v0.12.1+1</title>
+    <link href="https://github.com/latest-debs/vhs-debian/releases/tag/v0.12.1%2B1"/>
+    <updated>2026-09-24T12:02:08Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;vhs&lt;/strong&gt; &lt;code&gt;v0.12.1+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install vhs&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>https://github.com/latest-debs/gum-debian/releases/tag/v2.0.2%2B1</id>
+    <title>gum v2.0.2+1</title>
+    <link href="https://github.com/latest-debs/gum-debian/releases/tag/v2.0.2%2B1"/>
+    <updated>2026-09-24T12:00:28Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;gum&lt;/strong&gt; &lt;code&gt;v2.0.2+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install gum&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>https://github.com/latest-debs/pnpm-debian/releases/tag/v12.6.0%2B1</id>
+    <title>pnpm v12.6.0+1</title>
+    <link href="https://github.com/latest-debs/pnpm-debian/releases/tag/v12.6.0%2B1"/>
+    <updated>2026-09-24T11:58:52Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;pnpm&lt;/strong&gt; &lt;code&gt;v12.6.0+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install pnpm&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
   <entry>
     <id>https://github.com/latest-debs/zed-debian/releases/tag/v1.21.0%2B1</id>
     <title>zed v1.21.0+1</title>
@@ -405,26 +426,5 @@
     <link href="https://github.com/latest-debs/mise-debian/releases/tag/v2026.9.3%2B1"/>
     <updated>2026-09-08T21:20:38Z</updated>
     <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;mise&lt;/strong&gt; &lt;code&gt;v2026.9.3+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install mise&lt;/code&gt;.&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <id>https://github.com/latest-debs/fish-debian/releases/tag/4.9.3%2B1</id>
-    <title>fish 4.9.3+1</title>
-    <link href="https://github.com/latest-debs/fish-debian/releases/tag/4.9.3%2B1"/>
-    <updated>2026-09-08T21:20:21Z</updated>
-    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;fish&lt;/strong&gt; &lt;code&gt;4.9.3+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install fish&lt;/code&gt;.&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <id>https://github.com/latest-debs/workmux-debian/releases/tag/v0.1.259%2B1</id>
-    <title>workmux v0.1.259+1</title>
-    <link href="https://github.com/latest-debs/workmux-debian/releases/tag/v0.1.259%2B1"/>
-    <updated>2026-09-08T21:19:37Z</updated>
-    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;workmux&lt;/strong&gt; &lt;code&gt;v0.1.259+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install workmux&lt;/code&gt;.&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <id>https://github.com/latest-debs/scc-debian/releases/tag/v4.1.0%2B1</id>
-    <title>scc v4.1.0+1</title>
-    <link href="https://github.com/latest-debs/scc-debian/releases/tag/v4.1.0%2B1"/>
-    <updated>2026-09-08T21:18:47Z</updated>
-    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;scc&lt;/strong&gt; &lt;code&gt;v4.1.0+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install scc&lt;/code&gt;.&lt;/p&gt;</content>
   </entry>
 </feed>
