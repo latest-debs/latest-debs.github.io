@@ -4,9 +4,23 @@
   <link href="https://latest-debs.github.io/"/>
   <link rel="self" href="https://latest-debs.github.io/feed.xml"/>
   <id>https://latest-debs.github.io/feed.xml</id>
-  <updated>2026-09-25T21:48:09Z</updated>
+  <updated>2026-09-26T11:39:14Z</updated>
   <author><name>latest-debs</name></author>
   <subtitle>Latest dev tools, packaged for Debian — automatically. One entry per release published to the apt channel.</subtitle>
+  <entry>
+    <id>https://github.com/latest-debs/vite-plus-debian/releases/tag/v1.0.0-rc.1%2B1</id>
+    <title>vite-plus v1.0.0-rc.1+1</title>
+    <link href="https://github.com/latest-debs/vite-plus-debian/releases/tag/v1.0.0-rc.1%2B1"/>
+    <updated>2026-09-26T11:39:14Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;vite-plus&lt;/strong&gt; &lt;code&gt;v1.0.0-rc.1+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install vite-plus&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>https://github.com/latest-debs/workmux-debian/releases/tag/v0.1.268%2B1</id>
+    <title>workmux v0.1.268+1</title>
+    <link href="https://github.com/latest-debs/workmux-debian/releases/tag/v0.1.268%2B1"/>
+    <updated>2026-09-26T11:38:51Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;workmux&lt;/strong&gt; &lt;code&gt;v0.1.268+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install workmux&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
   <entry>
     <id>https://github.com/latest-debs/mise-debian/releases/tag/v2026.9.14%2B1</id>
     <title>mise v2026.9.14+1</title>
@@ -412,19 +426,5 @@
     <link href="https://github.com/latest-debs/uv-debian/releases/tag/0.12.12%2B1"/>
     <updated>2026-09-09T23:29:17Z</updated>
     <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;uv&lt;/strong&gt; &lt;code&gt;0.12.12+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install uv&lt;/code&gt;.&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <id>https://github.com/latest-debs/atuin-debian/releases/tag/v18.22.0%2B1</id>
-    <title>atuin v18.22.0+1</title>
-    <link href="https://github.com/latest-debs/atuin-debian/releases/tag/v18.22.0%2B1"/>
-    <updated>2026-09-09T23:25:15Z</updated>
-    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;atuin&lt;/strong&gt; &lt;code&gt;v18.22.0+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install atuin&lt;/code&gt;.&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <id>https://github.com/latest-debs/zed-debian/releases/tag/v1.19.2%2B1</id>
-    <title>zed v1.19.2+1</title>
-    <link href="https://github.com/latest-debs/zed-debian/releases/tag/v1.19.2%2B1"/>
-    <updated>2026-09-09T21:12:41Z</updated>
-    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;zed&lt;/strong&gt; &lt;code&gt;v1.19.2+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install zed&lt;/code&gt;.&lt;/p&gt;</content>
   </entry>
 </feed>
