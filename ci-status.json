@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-27T21:54:48Z",
+  "generated_at": "2026-09-28T00:25:09Z",
   "repos": [
     {
       "name": "latest-debs.github.io",
@@ -8,8 +8,8 @@
       "conclusion": null,
       "status": "in_progress",
       "branch": "main",
-      "run_url": "https://github.com/latest-debs/latest-debs.github.io/actions/runs/36353421329",
-      "created_at": "2026-09-27T21:54:41Z"
+      "run_url": "https://github.com/latest-debs/latest-debs.github.io/actions/runs/36362141609",
+      "created_at": "2026-09-28T00:25:00Z"
     },
     {
       "name": "quickshell-debian",
