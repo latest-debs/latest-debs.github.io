@@ -4,9 +4,37 @@
   <link href="https://latest-debs.github.io/"/>
   <link rel="self" href="https://latest-debs.github.io/feed.xml"/>
   <id>https://latest-debs.github.io/feed.xml</id>
-  <updated>2026-09-27T12:19:06Z</updated>
+  <updated>2026-09-28T14:17:11Z</updated>
   <author><name>latest-debs</name></author>
   <subtitle>Latest dev tools, packaged for Debian — automatically. One entry per release published to the apt channel.</subtitle>
+  <entry>
+    <id>https://github.com/latest-debs/duckdb-debian/releases/tag/v1.5.6%2B1</id>
+    <title>duckdb v1.5.6+1</title>
+    <link href="https://github.com/latest-debs/duckdb-debian/releases/tag/v1.5.6%2B1"/>
+    <updated>2026-09-28T14:17:11Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;duckdb&lt;/strong&gt; &lt;code&gt;v1.5.6+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install duckdb&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>https://github.com/latest-debs/mise-debian/releases/tag/v2026.9.16%2B1</id>
+    <title>mise v2026.9.16+1</title>
+    <link href="https://github.com/latest-debs/mise-debian/releases/tag/v2026.9.16%2B1"/>
+    <updated>2026-09-28T14:17:05Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;mise&lt;/strong&gt; &lt;code&gt;v2026.9.16+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install mise&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>https://github.com/latest-debs/oh-my-posh-debian/releases/tag/v31.4.0%2B1</id>
+    <title>oh-my-posh v31.4.0+1</title>
+    <link href="https://github.com/latest-debs/oh-my-posh-debian/releases/tag/v31.4.0%2B1"/>
+    <updated>2026-09-28T14:11:31Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;oh-my-posh&lt;/strong&gt; &lt;code&gt;v31.4.0+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install oh-my-posh&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>https://github.com/latest-debs/fresh-editor-debian/releases/tag/v0.5.2%2B1</id>
+    <title>fresh-editor v0.5.2+1</title>
+    <link href="https://github.com/latest-debs/fresh-editor-debian/releases/tag/v0.5.2%2B1"/>
+    <updated>2026-09-28T14:11:13Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;fresh-editor&lt;/strong&gt; &lt;code&gt;v0.5.2+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install fresh-editor&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
   <entry>
     <id>https://github.com/latest-debs/mise-debian/releases/tag/v2026.9.15%2B1</id>
     <title>mise v2026.9.15+1</title>
@@ -351,13 +379,6 @@
     <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;lazygit&lt;/strong&gt; &lt;code&gt;v0.65.1+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install lazygit&lt;/code&gt;.&lt;/p&gt;</content>
   </entry>
   <entry>
-    <id>https://github.com/latest-debs/mise-debian/releases/tag/v2026.9.6%2B1</id>
-    <title>mise v2026.9.6+1</title>
-    <link href="https://github.com/latest-debs/mise-debian/releases/tag/v2026.9.6%2B1"/>
-    <updated>2026-09-13T05:04:08Z</updated>
-    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;mise&lt;/strong&gt; &lt;code&gt;v2026.9.6+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install mise&lt;/code&gt;.&lt;/p&gt;</content>
-  </entry>
-  <entry>
     <id>https://github.com/latest-debs/fzf-debian/releases/tag/v0.74.4%2B1</id>
     <title>fzf v0.74.4+1</title>
     <link href="https://github.com/latest-debs/fzf-debian/releases/tag/v0.74.4%2B1"/>
@@ -405,26 +426,5 @@
     <link href="https://github.com/latest-debs/uv-debian/releases/tag/0.12.13%2B1"/>
     <updated>2026-09-10T21:06:25Z</updated>
     <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;uv&lt;/strong&gt; &lt;code&gt;0.12.13+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install uv&lt;/code&gt;.&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <id>https://github.com/latest-debs/ruff-debian/releases/tag/0.16.7%2B1</id>
-    <title>ruff 0.16.7+1</title>
-    <link href="https://github.com/latest-debs/ruff-debian/releases/tag/0.16.7%2B1"/>
-    <updated>2026-09-10T21:04:17Z</updated>
-    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;ruff&lt;/strong&gt; &lt;code&gt;0.16.7+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install ruff&lt;/code&gt;.&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <id>https://github.com/latest-debs/quickshell-debian/releases/tag/v0.3.1%2B1</id>
-    <title>quickshell v0.3.1+1</title>
-    <link href="https://github.com/latest-debs/quickshell-debian/releases/tag/v0.3.1%2B1"/>
-    <updated>2026-09-10T14:35:09Z</updated>
-    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;quickshell&lt;/strong&gt; &lt;code&gt;v0.3.1+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install quickshell&lt;/code&gt;.&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <id>https://github.com/latest-debs/uv-debian/releases/tag/0.12.12%2B1</id>
-    <title>uv 0.12.12+1</title>
-    <link href="https://github.com/latest-debs/uv-debian/releases/tag/0.12.12%2B1"/>
-    <updated>2026-09-09T23:29:17Z</updated>
-    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;uv&lt;/strong&gt; &lt;code&gt;0.12.12+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install uv&lt;/code&gt;.&lt;/p&gt;</content>
   </entry>
 </feed>
