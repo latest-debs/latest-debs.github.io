@@ -4,9 +4,30 @@
   <link href="https://latest-debs.github.io/"/>
   <link rel="self" href="https://latest-debs.github.io/feed.xml"/>
   <id>https://latest-debs.github.io/feed.xml</id>
-  <updated>2026-09-28T14:17:11Z</updated>
+  <updated>2026-09-29T01:13:04Z</updated>
   <author><name>latest-debs</name></author>
   <subtitle>Latest dev tools, packaged for Debian — automatically. One entry per release published to the apt channel.</subtitle>
+  <entry>
+    <id>https://github.com/latest-debs/uv-debian/releases/tag/0.12.20%2B1</id>
+    <title>uv 0.12.20+1</title>
+    <link href="https://github.com/latest-debs/uv-debian/releases/tag/0.12.20%2B1"/>
+    <updated>2026-09-29T01:13:04Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;uv&lt;/strong&gt; &lt;code&gt;0.12.20+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install uv&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>https://github.com/latest-debs/nushell-debian/releases/tag/0.116.0%2B1</id>
+    <title>nushell 0.116.0+1</title>
+    <link href="https://github.com/latest-debs/nushell-debian/releases/tag/0.116.0%2B1"/>
+    <updated>2026-09-28T22:15:07Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;nushell&lt;/strong&gt; &lt;code&gt;0.116.0+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install nushell&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>https://github.com/latest-debs/buf-debian/releases/tag/v1.73.0%2B1</id>
+    <title>buf v1.73.0+1</title>
+    <link href="https://github.com/latest-debs/buf-debian/releases/tag/v1.73.0%2B1"/>
+    <updated>2026-09-28T22:05:30Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;buf&lt;/strong&gt; &lt;code&gt;v1.73.0+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install buf&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
   <entry>
     <id>https://github.com/latest-debs/duckdb-debian/releases/tag/v1.5.6%2B1</id>
     <title>duckdb v1.5.6+1</title>
@@ -405,26 +426,5 @@
     <link href="https://github.com/latest-debs/workmux-debian/releases/tag/v0.1.260%2B1"/>
     <updated>2026-09-11T11:36:43Z</updated>
     <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;workmux&lt;/strong&gt; &lt;code&gt;v0.1.260+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install workmux&lt;/code&gt;.&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <id>https://github.com/latest-debs/gum-debian/releases/tag/v2.0.1%2B1</id>
-    <title>gum v2.0.1+1</title>
-    <link href="https://github.com/latest-debs/gum-debian/releases/tag/v2.0.1%2B1"/>
-    <updated>2026-09-11T11:35:51Z</updated>
-    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;gum&lt;/strong&gt; &lt;code&gt;v2.0.1+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install gum&lt;/code&gt;.&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <id>https://github.com/latest-debs/quickshell-debian/releases/tag/v0.3.1%2B2</id>
-    <title>quickshell v0.3.1+2</title>
-    <link href="https://github.com/latest-debs/quickshell-debian/releases/tag/v0.3.1%2B2"/>
-    <updated>2026-09-11T09:57:26Z</updated>
-    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;quickshell&lt;/strong&gt; &lt;code&gt;v0.3.1+2&lt;/code&gt;. Install with &lt;code&gt;sudo apt install quickshell&lt;/code&gt;.&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <id>https://github.com/latest-debs/uv-debian/releases/tag/0.12.13%2B1</id>
-    <title>uv 0.12.13+1</title>
-    <link href="https://github.com/latest-debs/uv-debian/releases/tag/0.12.13%2B1"/>
-    <updated>2026-09-10T21:06:25Z</updated>
-    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;uv&lt;/strong&gt; &lt;code&gt;0.12.13+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install uv&lt;/code&gt;.&lt;/p&gt;</content>
   </entry>
 </feed>
