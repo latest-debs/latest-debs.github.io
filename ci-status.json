@@ -1,6 +1,16 @@
 {
-  "generated_at": "2026-09-29T01:36:33Z",
+  "generated_at": "2026-09-29T08:06:27Z",
   "repos": [
+    {
+      "name": "latest-debs.github.io",
+      "url": "https://github.com/latest-debs/latest-debs.github.io",
+      "workflow": "CI status",
+      "conclusion": null,
+      "status": "in_progress",
+      "branch": "main",
+      "run_url": "https://github.com/latest-debs/latest-debs.github.io/actions/runs/36540633683",
+      "created_at": "2026-09-29T08:06:16Z"
+    },
     {
       "name": "nushell-debian",
       "url": "https://github.com/latest-debs/nushell-debian",
@@ -28,18 +38,8 @@
       "conclusion": "success",
       "status": "completed",
       "branch": "gh-pages",
-      "run_url": "https://github.com/latest-debs/apt-repo/actions/runs/36498263757",
-      "created_at": "2026-09-28T23:29:23Z"
-    },
-    {
-      "name": "latest-debs.github.io",
-      "url": "https://github.com/latest-debs/latest-debs.github.io",
-      "workflow": "CI status",
-      "conclusion": null,
-      "status": "in_progress",
-      "branch": "main",
-      "run_url": "https://github.com/latest-debs/latest-debs.github.io/actions/runs/36508699927",
-      "created_at": "2026-09-29T01:36:25Z"
+      "run_url": "https://github.com/latest-debs/apt-repo/actions/runs/36528023166",
+      "created_at": "2026-09-29T05:49:51Z"
     },
     {
       "name": "quickshell-debian",
