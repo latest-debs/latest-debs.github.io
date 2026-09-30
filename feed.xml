@@ -4,9 +4,16 @@
   <link href="https://latest-debs.github.io/"/>
   <link rel="self" href="https://latest-debs.github.io/feed.xml"/>
   <id>https://latest-debs.github.io/feed.xml</id>
-  <updated>2026-09-29T22:32:34Z</updated>
+  <updated>2026-09-30T12:50:45Z</updated>
   <author><name>latest-debs</name></author>
   <subtitle>Latest dev tools, packaged for Debian — automatically. One entry per release published to the apt channel.</subtitle>
+  <entry>
+    <id>https://github.com/latest-debs/gh-debian/releases/tag/v2.102.0%2B1</id>
+    <title>gh v2.102.0+1</title>
+    <link href="https://github.com/latest-debs/gh-debian/releases/tag/v2.102.0%2B1"/>
+    <updated>2026-09-30T12:50:45Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;gh&lt;/strong&gt; &lt;code&gt;v2.102.0+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install gh&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
   <entry>
     <id>https://github.com/latest-debs/uv-debian/releases/tag/0.12.21%2B1</id>
     <title>uv 0.12.21+1</title>
@@ -419,12 +426,5 @@
     <link href="https://github.com/latest-debs/workmux-debian/releases/tag/v0.1.262%2B1"/>
     <updated>2026-09-13T12:09:05Z</updated>
     <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;workmux&lt;/strong&gt; &lt;code&gt;v0.1.262+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install workmux&lt;/code&gt;.&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <id>https://github.com/latest-debs/lazygit-debian/releases/tag/v0.65.1%2B1</id>
-    <title>lazygit v0.65.1+1</title>
-    <link href="https://github.com/latest-debs/lazygit-debian/releases/tag/v0.65.1%2B1"/>
-    <updated>2026-09-13T12:02:10Z</updated>
-    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;lazygit&lt;/strong&gt; &lt;code&gt;v0.65.1+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install lazygit&lt;/code&gt;.&lt;/p&gt;</content>
   </entry>
 </feed>
