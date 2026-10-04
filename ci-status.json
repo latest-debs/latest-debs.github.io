@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-03T23:36:44Z",
+  "generated_at": "2026-10-04T05:04:37Z",
   "repos": [
     {
       "name": "latest-debs.github.io",
@@ -8,8 +8,8 @@
       "conclusion": null,
       "status": "in_progress",
       "branch": "main",
-      "run_url": "https://github.com/latest-debs/latest-debs.github.io/actions/runs/37162321515",
-      "created_at": "2026-10-03T23:36:32Z"
+      "run_url": "https://github.com/latest-debs/latest-debs.github.io/actions/runs/37178829134",
+      "created_at": "2026-10-04T05:04:28Z"
     },
     {
       "name": "nushell-debian",
@@ -288,8 +288,8 @@
       "conclusion": "success",
       "status": "completed",
       "branch": "main",
-      "run_url": "https://github.com/latest-debs/difftastic-debian/actions/runs/37154852496",
-      "created_at": "2026-10-03T21:22:06Z"
+      "run_url": "https://github.com/latest-debs/difftastic-debian/actions/runs/37163233388",
+      "created_at": "2026-10-03T23:54:13Z"
     },
     {
       "name": "k6-debian",
@@ -318,8 +318,8 @@
       "conclusion": "success",
       "status": "completed",
       "branch": "main",
-      "run_url": "https://github.com/latest-debs/zed-debian/actions/runs/37154869775",
-      "created_at": "2026-10-03T21:22:22Z"
+      "run_url": "https://github.com/latest-debs/zed-debian/actions/runs/37163244352",
+      "created_at": "2026-10-03T23:54:27Z"
     },
     {
       "name": "act-debian",
@@ -438,8 +438,8 @@
       "conclusion": "success",
       "status": "completed",
       "branch": "main",
-      "run_url": "https://github.com/latest-debs/procs-debian/actions/runs/37154887328",
-      "created_at": "2026-10-03T21:22:40Z"
+      "run_url": "https://github.com/latest-debs/procs-debian/actions/runs/37163266399",
+      "created_at": "2026-10-03T23:54:54Z"
     },
     {
       "name": "du-dust-debian",
@@ -608,8 +608,8 @@
       "conclusion": "success",
       "status": "completed",
       "branch": "main",
-      "run_url": "https://github.com/latest-debs/lazygit-debian/actions/runs/37154851956",
-      "created_at": "2026-10-03T21:22:06Z"
+      "run_url": "https://github.com/latest-debs/lazygit-debian/actions/runs/37163233271",
+      "created_at": "2026-10-03T23:54:13Z"
     },
     {
       "name": "eza-debian",
