@@ -4,9 +4,16 @@
   <link href="https://latest-debs.github.io/"/>
   <link rel="self" href="https://latest-debs.github.io/feed.xml"/>
   <id>https://latest-debs.github.io/feed.xml</id>
-  <updated>2026-10-05T15:03:34Z</updated>
+  <updated>2026-10-05T22:07:25Z</updated>
   <author><name>latest-debs</name></author>
   <subtitle>Latest dev tools, packaged for Debian — automatically. One entry per release published to the apt channel.</subtitle>
+  <entry>
+    <id>https://github.com/latest-debs/lazygit-debian/releases/tag/v0.66.0%2B1</id>
+    <title>lazygit v0.66.0+1</title>
+    <link href="https://github.com/latest-debs/lazygit-debian/releases/tag/v0.66.0%2B1"/>
+    <updated>2026-10-05T22:07:25Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;lazygit&lt;/strong&gt; &lt;code&gt;v0.66.0+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install lazygit&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
   <entry>
     <id>https://github.com/latest-debs/mise-debian/releases/tag/v2026.10.3%2B1</id>
     <title>mise v2026.10.3+1</title>
@@ -419,12 +426,5 @@
     <link href="https://github.com/latest-debs/vite-plus-debian/releases/tag/v0.3.3%2B1"/>
     <updated>2026-09-18T04:58:52Z</updated>
     <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;vite-plus&lt;/strong&gt; &lt;code&gt;v0.3.3+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install vite-plus&lt;/code&gt;.&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <id>https://github.com/latest-debs/vicinae-debian/releases/tag/v0.29.0%2B1</id>
-    <title>vicinae v0.29.0+1</title>
-    <link href="https://github.com/latest-debs/vicinae-debian/releases/tag/v0.29.0%2B1"/>
-    <updated>2026-09-18T04:57:26Z</updated>
-    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;vicinae&lt;/strong&gt; &lt;code&gt;v0.29.0+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install vicinae&lt;/code&gt;.&lt;/p&gt;</content>
   </entry>
 </feed>
