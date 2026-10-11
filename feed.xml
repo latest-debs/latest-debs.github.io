@@ -4,9 +4,23 @@
   <link href="https://latest-debs.github.io/"/>
   <link rel="self" href="https://latest-debs.github.io/feed.xml"/>
   <id>https://latest-debs.github.io/feed.xml</id>
-  <updated>2026-10-11T08:52:00Z</updated>
+  <updated>2026-10-11T13:11:53Z</updated>
   <author><name>latest-debs</name></author>
   <subtitle>Latest dev tools, packaged for Debian — automatically. One entry per release published to the apt channel.</subtitle>
+  <entry>
+    <id>https://github.com/latest-debs/mise-debian/releases/tag/v2026.10.8%2B1</id>
+    <title>mise v2026.10.8+1</title>
+    <link href="https://github.com/latest-debs/mise-debian/releases/tag/v2026.10.8%2B1"/>
+    <updated>2026-10-11T13:11:53Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;mise&lt;/strong&gt; &lt;code&gt;v2026.10.8+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install mise&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>https://github.com/latest-debs/lazygit-debian/releases/tag/v0.66.1%2B1</id>
+    <title>lazygit v0.66.1+1</title>
+    <link href="https://github.com/latest-debs/lazygit-debian/releases/tag/v0.66.1%2B1"/>
+    <updated>2026-10-11T13:02:21Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;lazygit&lt;/strong&gt; &lt;code&gt;v0.66.1+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install lazygit&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
   <entry>
     <id>https://github.com/latest-debs/yq-debian/releases/tag/v4.54.1%2B5</id>
     <title>yq v4.54.1+5</title>
@@ -358,13 +372,6 @@
     <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;herdr&lt;/strong&gt; &lt;code&gt;v0.9.3+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install herdr&lt;/code&gt;.&lt;/p&gt;</content>
   </entry>
   <entry>
-    <id>https://github.com/latest-debs/mise-debian/releases/tag/v2026.9.17%2B1</id>
-    <title>mise v2026.9.17+1</title>
-    <link href="https://github.com/latest-debs/mise-debian/releases/tag/v2026.9.17%2B1"/>
-    <updated>2026-09-29T18:16:11Z</updated>
-    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;mise&lt;/strong&gt; &lt;code&gt;v2026.9.17+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install mise&lt;/code&gt;.&lt;/p&gt;</content>
-  </entry>
-  <entry>
     <id>https://github.com/latest-debs/herdr-debian/releases/tag/v0.9.2%2B1</id>
     <title>herdr v0.9.2+1</title>
     <link href="https://github.com/latest-debs/herdr-debian/releases/tag/v0.9.2%2B1"/>
@@ -419,12 +426,5 @@
     <link href="https://github.com/latest-debs/fresh-editor-debian/releases/tag/v0.5.2%2B1"/>
     <updated>2026-09-28T14:11:13Z</updated>
     <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;fresh-editor&lt;/strong&gt; &lt;code&gt;v0.5.2+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install fresh-editor&lt;/code&gt;.&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <id>https://github.com/latest-debs/vite-plus-debian/releases/tag/v1.0.0-rc.1%2B1</id>
-    <title>vite-plus v1.0.0-rc.1+1</title>
-    <link href="https://github.com/latest-debs/vite-plus-debian/releases/tag/v1.0.0-rc.1%2B1"/>
-    <updated>2026-09-26T11:39:14Z</updated>
-    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;vite-plus&lt;/strong&gt; &lt;code&gt;v1.0.0-rc.1+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install vite-plus&lt;/code&gt;.&lt;/p&gt;</content>
   </entry>
 </feed>
