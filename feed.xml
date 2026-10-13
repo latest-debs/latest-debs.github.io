@@ -4,9 +4,30 @@
   <link href="https://latest-debs.github.io/"/>
   <link rel="self" href="https://latest-debs.github.io/feed.xml"/>
   <id>https://latest-debs.github.io/feed.xml</id>
-  <updated>2026-10-12T11:05:29Z</updated>
+  <updated>2026-10-12T21:29:01Z</updated>
   <author><name>latest-debs</name></author>
   <subtitle>Latest dev tools, packaged for Debian — automatically. One entry per release published to the apt channel.</subtitle>
+  <entry>
+    <id>https://github.com/latest-debs/zed-debian/releases/tag/v1.23.3%2B1</id>
+    <title>zed v1.23.3+1</title>
+    <link href="https://github.com/latest-debs/zed-debian/releases/tag/v1.23.3%2B1"/>
+    <updated>2026-10-12T21:29:01Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;zed&lt;/strong&gt; &lt;code&gt;v1.23.3+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install zed&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>https://github.com/latest-debs/workmux-debian/releases/tag/v0.1.275%2B1</id>
+    <title>workmux v0.1.275+1</title>
+    <link href="https://github.com/latest-debs/workmux-debian/releases/tag/v0.1.275%2B1"/>
+    <updated>2026-10-12T21:23:34Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;workmux&lt;/strong&gt; &lt;code&gt;v0.1.275+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install workmux&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>https://github.com/latest-debs/fresh-editor-debian/releases/tag/v0.5.3%2B1</id>
+    <title>fresh-editor v0.5.3+1</title>
+    <link href="https://github.com/latest-debs/fresh-editor-debian/releases/tag/v0.5.3%2B1"/>
+    <updated>2026-10-12T21:22:26Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;fresh-editor&lt;/strong&gt; &lt;code&gt;v0.5.3+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install fresh-editor&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
   <entry>
     <id>https://github.com/latest-debs/oh-my-posh-debian/releases/tag/v31.8.0%2B1</id>
     <title>oh-my-posh v31.8.0+1</title>
@@ -405,26 +426,5 @@
     <link href="https://github.com/latest-debs/uv-debian/releases/tag/0.12.20%2B1"/>
     <updated>2026-09-29T01:13:04Z</updated>
     <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;uv&lt;/strong&gt; &lt;code&gt;0.12.20+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install uv&lt;/code&gt;.&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <id>https://github.com/latest-debs/nushell-debian/releases/tag/0.116.0%2B1</id>
-    <title>nushell 0.116.0+1</title>
-    <link href="https://github.com/latest-debs/nushell-debian/releases/tag/0.116.0%2B1"/>
-    <updated>2026-09-28T22:15:07Z</updated>
-    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;nushell&lt;/strong&gt; &lt;code&gt;0.116.0+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install nushell&lt;/code&gt;.&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <id>https://github.com/latest-debs/buf-debian/releases/tag/v1.73.0%2B1</id>
-    <title>buf v1.73.0+1</title>
-    <link href="https://github.com/latest-debs/buf-debian/releases/tag/v1.73.0%2B1"/>
-    <updated>2026-09-28T22:05:30Z</updated>
-    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;buf&lt;/strong&gt; &lt;code&gt;v1.73.0+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install buf&lt;/code&gt;.&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <id>https://github.com/latest-debs/duckdb-debian/releases/tag/v1.5.6%2B1</id>
-    <title>duckdb v1.5.6+1</title>
-    <link href="https://github.com/latest-debs/duckdb-debian/releases/tag/v1.5.6%2B1"/>
-    <updated>2026-09-28T14:17:11Z</updated>
-    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;duckdb&lt;/strong&gt; &lt;code&gt;v1.5.6+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install duckdb&lt;/code&gt;.&lt;/p&gt;</content>
   </entry>
 </feed>
