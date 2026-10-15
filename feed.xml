@@ -29,6 +29,13 @@
     <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;zed&lt;/strong&gt; &lt;code&gt;v1.24.2+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install zed&lt;/code&gt;.&lt;/p&gt;</content>
   </entry>
   <entry>
+    <id>https://github.com/latest-debs/vite-plus-debian/releases/tag/v1.2.0%2B1</id>
+    <title>vite-plus v1.2.0+1</title>
+    <link href="https://github.com/latest-debs/vite-plus-debian/releases/tag/v1.2.0%2B1"/>
+    <updated>2026-10-14T14:38:36Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;vite-plus&lt;/strong&gt; &lt;code&gt;v1.2.0+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install vite-plus&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
     <id>https://github.com/latest-debs/trivy-debian/releases/tag/v0.76.0%2B1</id>
     <title>trivy v0.76.0+1</title>
     <link href="https://github.com/latest-debs/trivy-debian/releases/tag/v0.76.0%2B1"/>
@@ -419,12 +426,5 @@
     <link href="https://github.com/latest-debs/ruff-debian/releases/tag/0.16.10%2B1"/>
     <updated>2026-10-01T18:35:28Z</updated>
     <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;ruff&lt;/strong&gt; &lt;code&gt;0.16.10+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install ruff&lt;/code&gt;.&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <id>https://github.com/latest-debs/zed-debian/releases/tag/v1.22.0%2B1</id>
-    <title>zed v1.22.0+1</title>
-    <link href="https://github.com/latest-debs/zed-debian/releases/tag/v1.22.0%2B1"/>
-    <updated>2026-09-30T20:16:21Z</updated>
-    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;zed&lt;/strong&gt; &lt;code&gt;v1.22.0+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install zed&lt;/code&gt;.&lt;/p&gt;</content>
   </entry>
 </feed>
