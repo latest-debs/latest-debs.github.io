@@ -4,9 +4,23 @@
   <link href="https://latest-debs.github.io/"/>
   <link rel="self" href="https://latest-debs.github.io/feed.xml"/>
   <id>https://latest-debs.github.io/feed.xml</id>
-  <updated>2026-10-20T00:36:25Z</updated>
+  <updated>2026-10-20T08:51:16Z</updated>
   <author><name>latest-debs</name></author>
   <subtitle>Latest dev tools, packaged for Debian — automatically. One entry per release published to the apt channel.</subtitle>
+  <entry>
+    <id>https://github.com/latest-debs/uv-debian/releases/tag/0.13.3%2B1</id>
+    <title>uv 0.13.3+1</title>
+    <link href="https://github.com/latest-debs/uv-debian/releases/tag/0.13.3%2B1"/>
+    <updated>2026-10-20T08:51:16Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;uv&lt;/strong&gt; &lt;code&gt;0.13.3+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install uv&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>https://github.com/latest-debs/oh-my-posh-debian/releases/tag/v31.9.0%2B1</id>
+    <title>oh-my-posh v31.9.0+1</title>
+    <link href="https://github.com/latest-debs/oh-my-posh-debian/releases/tag/v31.9.0%2B1"/>
+    <updated>2026-10-20T08:44:26Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;oh-my-posh&lt;/strong&gt; &lt;code&gt;v31.9.0+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install oh-my-posh&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
   <entry>
     <id>https://github.com/latest-debs/uv-debian/releases/tag/0.13.2%2B1</id>
     <title>uv 0.13.2+1</title>
@@ -412,19 +426,5 @@
     <link href="https://github.com/latest-debs/lazygit-debian/releases/tag/v0.66.0%2B1"/>
     <updated>2026-10-05T22:07:25Z</updated>
     <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;lazygit&lt;/strong&gt; &lt;code&gt;v0.66.0+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install lazygit&lt;/code&gt;.&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <id>https://github.com/latest-debs/hyperfine-debian/releases/tag/v1.21.0%2B1</id>
-    <title>hyperfine v1.21.0+1</title>
-    <link href="https://github.com/latest-debs/hyperfine-debian/releases/tag/v1.21.0%2B1"/>
-    <updated>2026-10-05T15:02:20Z</updated>
-    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;hyperfine&lt;/strong&gt; &lt;code&gt;v1.21.0+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install hyperfine&lt;/code&gt;.&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <id>https://github.com/latest-debs/git-delta-debian/releases/tag/0.20.1%2B1</id>
-    <title>git-delta 0.20.1+1</title>
-    <link href="https://github.com/latest-debs/git-delta-debian/releases/tag/0.20.1%2B1"/>
-    <updated>2026-10-05T00:04:05Z</updated>
-    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;git-delta&lt;/strong&gt; &lt;code&gt;0.20.1+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install git-delta&lt;/code&gt;.&lt;/p&gt;</content>
   </entry>
 </feed>
