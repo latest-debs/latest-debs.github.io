@@ -4,9 +4,23 @@
   <link href="https://latest-debs.github.io/"/>
   <link rel="self" href="https://latest-debs.github.io/feed.xml"/>
   <id>https://latest-debs.github.io/feed.xml</id>
-  <updated>2026-10-20T14:32:14Z</updated>
+  <updated>2026-10-20T19:31:58Z</updated>
   <author><name>latest-debs</name></author>
   <subtitle>Latest dev tools, packaged for Debian — automatically. One entry per release published to the apt channel.</subtitle>
+  <entry>
+    <id>https://github.com/latest-debs/uv-debian/releases/tag/0.13.4%2B1</id>
+    <title>uv 0.13.4+1</title>
+    <link href="https://github.com/latest-debs/uv-debian/releases/tag/0.13.4%2B1"/>
+    <updated>2026-10-20T19:31:58Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;uv&lt;/strong&gt; &lt;code&gt;0.13.4+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install uv&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>https://github.com/latest-debs/fresh-editor-debian/releases/tag/v0.5.4%2B1</id>
+    <title>fresh-editor v0.5.4+1</title>
+    <link href="https://github.com/latest-debs/fresh-editor-debian/releases/tag/v0.5.4%2B1"/>
+    <updated>2026-10-20T19:24:16Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;fresh-editor&lt;/strong&gt; &lt;code&gt;v0.5.4+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install fresh-editor&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
   <entry>
     <id>https://github.com/latest-debs/zed-debian/releases/tag/v1.24.4%2B1</id>
     <title>zed v1.24.4+1</title>
@@ -412,19 +426,5 @@
     <link href="https://github.com/latest-debs/pnpm-debian/releases/tag/v12.10.1%2B1"/>
     <updated>2026-10-07T20:43:38Z</updated>
     <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;pnpm&lt;/strong&gt; &lt;code&gt;v12.10.1+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install pnpm&lt;/code&gt;.&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <id>https://github.com/latest-debs/vite-plus-debian/releases/tag/v1.1.0%2B1</id>
-    <title>vite-plus v1.1.0+1</title>
-    <link href="https://github.com/latest-debs/vite-plus-debian/releases/tag/v1.1.0%2B1"/>
-    <updated>2026-10-07T06:16:14Z</updated>
-    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;vite-plus&lt;/strong&gt; &lt;code&gt;v1.1.0+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install vite-plus&lt;/code&gt;.&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <id>https://github.com/latest-debs/watchexec-debian/releases/tag/v2.8.0%2B1</id>
-    <title>watchexec v2.8.0+1</title>
-    <link href="https://github.com/latest-debs/watchexec-debian/releases/tag/v2.8.0%2B1"/>
-    <updated>2026-10-06T22:48:09Z</updated>
-    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;watchexec&lt;/strong&gt; &lt;code&gt;v2.8.0+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install watchexec&lt;/code&gt;.&lt;/p&gt;</content>
   </entry>
 </feed>
