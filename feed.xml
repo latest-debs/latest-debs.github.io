@@ -4,9 +4,23 @@
   <link href="https://latest-debs.github.io/"/>
   <link rel="self" href="https://latest-debs.github.io/feed.xml"/>
   <id>https://latest-debs.github.io/feed.xml</id>
-  <updated>2026-10-21T12:13:58Z</updated>
+  <updated>2026-10-21T17:31:31Z</updated>
   <author><name>latest-debs</name></author>
   <subtitle>Latest dev tools, packaged for Debian — automatically. One entry per release published to the apt channel.</subtitle>
+  <entry>
+    <id>https://github.com/latest-debs/deno-debian/releases/tag/v2.9.8%2B1</id>
+    <title>deno v2.9.8+1</title>
+    <link href="https://github.com/latest-debs/deno-debian/releases/tag/v2.9.8%2B1"/>
+    <updated>2026-10-21T17:31:31Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;deno&lt;/strong&gt; &lt;code&gt;v2.9.8+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install deno&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>https://github.com/latest-debs/gh-debian/releases/tag/v2.103.0%2B1</id>
+    <title>gh v2.103.0+1</title>
+    <link href="https://github.com/latest-debs/gh-debian/releases/tag/v2.103.0%2B1"/>
+    <updated>2026-10-21T17:27:00Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;gh&lt;/strong&gt; &lt;code&gt;v2.103.0+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install gh&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
   <entry>
     <id>https://github.com/latest-debs/trivy-debian/releases/tag/v0.76.1%2B1</id>
     <title>trivy v0.76.1+1</title>
@@ -412,19 +426,5 @@
     <link href="https://github.com/latest-debs/uv-debian/releases/tag/0.12.24%2B1"/>
     <updated>2026-10-09T01:25:26Z</updated>
     <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;uv&lt;/strong&gt; &lt;code&gt;0.12.24+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install uv&lt;/code&gt;.&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <id>https://github.com/latest-debs/oh-my-posh-debian/releases/tag/v31.6.0%2B1</id>
-    <title>oh-my-posh v31.6.0+1</title>
-    <link href="https://github.com/latest-debs/oh-my-posh-debian/releases/tag/v31.6.0%2B1"/>
-    <updated>2026-10-08T18:57:49Z</updated>
-    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;oh-my-posh&lt;/strong&gt; &lt;code&gt;v31.6.0+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install oh-my-posh&lt;/code&gt;.&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <id>https://github.com/latest-debs/hyperfine-debian/releases/tag/v2.0.0%2B1</id>
-    <title>hyperfine v2.0.0+1</title>
-    <link href="https://github.com/latest-debs/hyperfine-debian/releases/tag/v2.0.0%2B1"/>
-    <updated>2026-10-08T01:09:00Z</updated>
-    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;hyperfine&lt;/strong&gt; &lt;code&gt;v2.0.0+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install hyperfine&lt;/code&gt;.&lt;/p&gt;</content>
   </entry>
 </feed>
