@@ -4,9 +4,23 @@
   <link href="https://latest-debs.github.io/"/>
   <link rel="self" href="https://latest-debs.github.io/feed.xml"/>
   <id>https://latest-debs.github.io/feed.xml</id>
-  <updated>2026-10-21T05:08:09Z</updated>
+  <updated>2026-10-21T12:13:58Z</updated>
   <author><name>latest-debs</name></author>
   <subtitle>Latest dev tools, packaged for Debian — automatically. One entry per release published to the apt channel.</subtitle>
+  <entry>
+    <id>https://github.com/latest-debs/trivy-debian/releases/tag/v0.76.1%2B1</id>
+    <title>trivy v0.76.1+1</title>
+    <link href="https://github.com/latest-debs/trivy-debian/releases/tag/v0.76.1%2B1"/>
+    <updated>2026-10-21T12:13:58Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;trivy&lt;/strong&gt; &lt;code&gt;v0.76.1+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install trivy&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>https://github.com/latest-debs/xh-debian/releases/tag/v0.26.3%2B1</id>
+    <title>xh v0.26.3+1</title>
+    <link href="https://github.com/latest-debs/xh-debian/releases/tag/v0.26.3%2B1"/>
+    <updated>2026-10-21T12:08:05Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;xh&lt;/strong&gt; &lt;code&gt;v0.26.3+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install xh&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
   <entry>
     <id>https://github.com/latest-debs/mise-debian/releases/tag/v2026.10.17%2B1</id>
     <title>mise v2026.10.17+1</title>
@@ -412,19 +426,5 @@
     <link href="https://github.com/latest-debs/hyperfine-debian/releases/tag/v2.0.0%2B1"/>
     <updated>2026-10-08T01:09:00Z</updated>
     <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;hyperfine&lt;/strong&gt; &lt;code&gt;v2.0.0+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install hyperfine&lt;/code&gt;.&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <id>https://github.com/latest-debs/jj-debian/releases/tag/v0.46.0%2B1</id>
-    <title>jj v0.46.0+1</title>
-    <link href="https://github.com/latest-debs/jj-debian/releases/tag/v0.46.0%2B1"/>
-    <updated>2026-10-08T01:06:52Z</updated>
-    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;jj&lt;/strong&gt; &lt;code&gt;v0.46.0+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install jj&lt;/code&gt;.&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <id>https://github.com/latest-debs/zed-debian/releases/tag/v1.23.2%2B1</id>
-    <title>zed v1.23.2+1</title>
-    <link href="https://github.com/latest-debs/zed-debian/releases/tag/v1.23.2%2B1"/>
-    <updated>2026-10-07T20:50:34Z</updated>
-    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;zed&lt;/strong&gt; &lt;code&gt;v1.23.2+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install zed&lt;/code&gt;.&lt;/p&gt;</content>
   </entry>
 </feed>
