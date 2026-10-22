@@ -4,9 +4,23 @@
   <link href="https://latest-debs.github.io/"/>
   <link rel="self" href="https://latest-debs.github.io/feed.xml"/>
   <id>https://latest-debs.github.io/feed.xml</id>
-  <updated>2026-10-21T21:55:57Z</updated>
+  <updated>2026-10-22T05:15:08Z</updated>
   <author><name>latest-debs</name></author>
   <subtitle>Latest dev tools, packaged for Debian — automatically. One entry per release published to the apt channel.</subtitle>
+  <entry>
+    <id>https://github.com/latest-debs/buf-debian/releases/tag/v1.75.0%2B1</id>
+    <title>buf v1.75.0+1</title>
+    <link href="https://github.com/latest-debs/buf-debian/releases/tag/v1.75.0%2B1"/>
+    <updated>2026-10-22T05:15:08Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;buf&lt;/strong&gt; &lt;code&gt;v1.75.0+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install buf&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>https://github.com/latest-debs/uv-debian/releases/tag/0.13.5%2B1</id>
+    <title>uv 0.13.5+1</title>
+    <link href="https://github.com/latest-debs/uv-debian/releases/tag/0.13.5%2B1"/>
+    <updated>2026-10-22T05:11:50Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;uv&lt;/strong&gt; &lt;code&gt;0.13.5+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install uv&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
   <entry>
     <id>https://github.com/latest-debs/zed-debian/releases/tag/v1.25.2%2B1</id>
     <title>zed v1.25.2+1</title>
@@ -412,19 +426,5 @@
     <link href="https://github.com/latest-debs/workmux-debian/releases/tag/v0.1.272%2B1"/>
     <updated>2026-10-10T01:04:29Z</updated>
     <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;workmux&lt;/strong&gt; &lt;code&gt;v0.1.272+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install workmux&lt;/code&gt;.&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <id>https://github.com/latest-debs/rclone-debian/releases/tag/v1.75.2%2B1</id>
-    <title>rclone v1.75.2+1</title>
-    <link href="https://github.com/latest-debs/rclone-debian/releases/tag/v1.75.2%2B1"/>
-    <updated>2026-10-09T18:29:51Z</updated>
-    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;rclone&lt;/strong&gt; &lt;code&gt;v1.75.2+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install rclone&lt;/code&gt;.&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <id>https://github.com/latest-debs/neovim-debian/releases/tag/v0.12.6%2B1</id>
-    <title>neovim v0.12.6+1</title>
-    <link href="https://github.com/latest-debs/neovim-debian/releases/tag/v0.12.6%2B1"/>
-    <updated>2026-10-09T18:28:29Z</updated>
-    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;neovim&lt;/strong&gt; &lt;code&gt;v0.12.6+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install neovim&lt;/code&gt;.&lt;/p&gt;</content>
   </entry>
 </feed>
