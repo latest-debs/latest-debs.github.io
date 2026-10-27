@@ -4,9 +4,23 @@
   <link href="https://latest-debs.github.io/"/>
   <link rel="self" href="https://latest-debs.github.io/feed.xml"/>
   <id>https://latest-debs.github.io/feed.xml</id>
-  <updated>2026-10-27T00:43:39Z</updated>
+  <updated>2026-10-27T09:19:37Z</updated>
   <author><name>latest-debs</name></author>
   <subtitle>Latest dev tools, packaged for Debian — automatically. One entry per release published to the apt channel.</subtitle>
+  <entry>
+    <id>https://github.com/latest-debs/uv-debian/releases/tag/0.13.6%2B1</id>
+    <title>uv 0.13.6+1</title>
+    <link href="https://github.com/latest-debs/uv-debian/releases/tag/0.13.6%2B1"/>
+    <updated>2026-10-27T09:19:37Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;uv&lt;/strong&gt; &lt;code&gt;0.13.6+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install uv&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>https://github.com/latest-debs/ruff-debian/releases/tag/0.17.3%2B1</id>
+    <title>ruff 0.17.3+1</title>
+    <link href="https://github.com/latest-debs/ruff-debian/releases/tag/0.17.3%2B1"/>
+    <updated>2026-10-27T09:17:22Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;ruff&lt;/strong&gt; &lt;code&gt;0.17.3+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install ruff&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
   <entry>
     <id>https://github.com/latest-debs/mise-debian/releases/tag/v2026.10.20%2B1</id>
     <title>mise v2026.10.20+1</title>
@@ -412,19 +426,5 @@
     <link href="https://github.com/latest-debs/oh-my-posh-debian/releases/tag/v31.8.0%2B1"/>
     <updated>2026-10-12T11:05:29Z</updated>
     <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;oh-my-posh&lt;/strong&gt; &lt;code&gt;v31.8.0+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install oh-my-posh&lt;/code&gt;.&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <id>https://github.com/latest-debs/workmux-debian/releases/tag/v0.1.273%2B1</id>
-    <title>workmux v0.1.273+1</title>
-    <link href="https://github.com/latest-debs/workmux-debian/releases/tag/v0.1.273%2B1"/>
-    <updated>2026-10-11T19:40:07Z</updated>
-    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;workmux&lt;/strong&gt; &lt;code&gt;v0.1.273+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install workmux&lt;/code&gt;.&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <id>https://github.com/latest-debs/lazygit-debian/releases/tag/v0.66.1%2B1</id>
-    <title>lazygit v0.66.1+1</title>
-    <link href="https://github.com/latest-debs/lazygit-debian/releases/tag/v0.66.1%2B1"/>
-    <updated>2026-10-11T13:02:21Z</updated>
-    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;lazygit&lt;/strong&gt; &lt;code&gt;v0.66.1+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install lazygit&lt;/code&gt;.&lt;/p&gt;</content>
   </entry>
 </feed>
