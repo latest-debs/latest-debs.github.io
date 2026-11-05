@@ -4,9 +4,23 @@
   <link href="https://latest-debs.github.io/"/>
   <link rel="self" href="https://latest-debs.github.io/feed.xml"/>
   <id>https://latest-debs.github.io/feed.xml</id>
-  <updated>2026-11-04T19:58:16Z</updated>
+  <updated>2026-11-04T23:56:16Z</updated>
   <author><name>latest-debs</name></author>
   <subtitle>Latest dev tools, packaged for Debian — automatically. One entry per release published to the apt channel.</subtitle>
+  <entry>
+    <id>https://github.com/latest-debs/mise-debian/releases/tag/v2026.11.1%2B1</id>
+    <title>mise v2026.11.1+1</title>
+    <link href="https://github.com/latest-debs/mise-debian/releases/tag/v2026.11.1%2B1"/>
+    <updated>2026-11-04T23:56:16Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;mise&lt;/strong&gt; &lt;code&gt;v2026.11.1+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install mise&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <id>https://github.com/latest-debs/jj-debian/releases/tag/v0.47.0%2B1</id>
+    <title>jj v0.47.0+1</title>
+    <link href="https://github.com/latest-debs/jj-debian/releases/tag/v0.47.0%2B1"/>
+    <updated>2026-11-04T23:49:21Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;jj&lt;/strong&gt; &lt;code&gt;v0.47.0+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install jj&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
   <entry>
     <id>https://github.com/latest-debs/atuin-debian/releases/tag/v18.24.5%2B1</id>
     <title>atuin v18.24.5+1</title>
@@ -351,13 +365,6 @@
     <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;xh&lt;/strong&gt; &lt;code&gt;v0.26.3+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install xh&lt;/code&gt;.&lt;/p&gt;</content>
   </entry>
   <entry>
-    <id>https://github.com/latest-debs/mise-debian/releases/tag/v2026.10.17%2B1</id>
-    <title>mise v2026.10.17+1</title>
-    <link href="https://github.com/latest-debs/mise-debian/releases/tag/v2026.10.17%2B1"/>
-    <updated>2026-10-21T05:08:09Z</updated>
-    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;mise&lt;/strong&gt; &lt;code&gt;v2026.10.17+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install mise&lt;/code&gt;.&lt;/p&gt;</content>
-  </entry>
-  <entry>
     <id>https://github.com/latest-debs/gh-debian/releases/tag/v2.102.1%2B1</id>
     <title>gh v2.102.1+1</title>
     <link href="https://github.com/latest-debs/gh-debian/releases/tag/v2.102.1%2B1"/>
@@ -419,12 +426,5 @@
     <link href="https://github.com/latest-debs/vicinae-debian/releases/tag/v0.29.2%2B1"/>
     <updated>2026-10-20T00:31:38Z</updated>
     <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;vicinae&lt;/strong&gt; &lt;code&gt;v0.29.2+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install vicinae&lt;/code&gt;.&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <id>https://github.com/latest-debs/zed-debian/releases/tag/v1.24.3%2B1</id>
-    <title>zed v1.24.3+1</title>
-    <link href="https://github.com/latest-debs/zed-debian/releases/tag/v1.24.3%2B1"/>
-    <updated>2026-10-19T13:39:18Z</updated>
-    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;zed&lt;/strong&gt; &lt;code&gt;v1.24.3+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install zed&lt;/code&gt;.&lt;/p&gt;</content>
   </entry>
 </feed>
