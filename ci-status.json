@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-19T02:59:18Z",
+  "generated_at": "2026-11-19T11:27:48Z",
   "repos": [
     {
       "name": "latest-debs.github.io",
@@ -8,8 +8,8 @@
       "conclusion": null,
       "status": "in_progress",
       "branch": "main",
-      "run_url": "https://github.com/latest-debs/latest-debs.github.io/actions/runs/44448192968",
-      "created_at": "2026-11-19T02:59:11Z"
+      "run_url": "https://github.com/latest-debs/latest-debs.github.io/actions/runs/44515017230",
+      "created_at": "2026-11-19T11:27:40Z"
     },
     {
       "name": "apt-repo",
@@ -18,8 +18,8 @@
       "conclusion": "success",
       "status": "completed",
       "branch": "gh-pages",
-      "run_url": "https://github.com/latest-debs/apt-repo/actions/runs/44394333710",
-      "created_at": "2026-11-18T20:45:22Z"
+      "run_url": "https://github.com/latest-debs/apt-repo/actions/runs/44480321426",
+      "created_at": "2026-11-19T07:31:52Z"
     },
     {
       "name": "quickshell-debian",
@@ -614,12 +614,12 @@
     {
       "name": "eza-debian",
       "url": "https://github.com/latest-debs/eza-debian",
-      "workflow": "Build eza for Debian",
-      "conclusion": "success",
-      "status": "completed",
-      "branch": "main",
-      "run_url": "https://github.com/latest-debs/eza-debian/actions/runs/42775948903",
-      "created_at": "2026-11-10T07:32:05Z"
+      "workflow": null,
+      "conclusion": null,
+      "status": null,
+      "branch": null,
+      "run_url": null,
+      "created_at": null
     },
     {
       "name": "vite-plus-debian",
