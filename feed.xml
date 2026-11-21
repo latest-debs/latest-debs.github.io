@@ -4,9 +4,16 @@
   <link href="https://latest-debs.github.io/"/>
   <link rel="self" href="https://latest-debs.github.io/feed.xml"/>
   <id>https://latest-debs.github.io/feed.xml</id>
-  <updated>2026-11-20T20:41:56Z</updated>
+  <updated>2026-11-21T02:36:34Z</updated>
   <author><name>latest-debs</name></author>
   <subtitle>Latest dev tools, packaged for Debian — automatically. One entry per release published to the apt channel.</subtitle>
+  <entry>
+    <id>https://github.com/latest-debs/atuin-debian/releases/tag/v18.25.1%2B1</id>
+    <title>atuin v18.25.1+1</title>
+    <link href="https://github.com/latest-debs/atuin-debian/releases/tag/v18.25.1%2B1"/>
+    <updated>2026-11-21T02:36:34Z</updated>
+    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;atuin&lt;/strong&gt; &lt;code&gt;v18.25.1+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install atuin&lt;/code&gt;.&lt;/p&gt;</content>
+  </entry>
   <entry>
     <id>https://github.com/latest-debs/mise-debian/releases/tag/v2026.11.11%2B1</id>
     <title>mise v2026.11.11+1</title>
@@ -419,12 +426,5 @@
     <link href="https://github.com/latest-debs/atuin-debian/releases/tag/v18.24.5%2B1"/>
     <updated>2026-11-04T19:58:16Z</updated>
     <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;atuin&lt;/strong&gt; &lt;code&gt;v18.24.5+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install atuin&lt;/code&gt;.&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <id>https://github.com/latest-debs/zed-debian/releases/tag/v1.27.0%2B1</id>
-    <title>zed v1.27.0+1</title>
-    <link href="https://github.com/latest-debs/zed-debian/releases/tag/v1.27.0%2B1"/>
-    <updated>2026-11-04T17:29:18Z</updated>
-    <content type="html">&lt;p&gt;latest-debs published &lt;strong&gt;zed&lt;/strong&gt; &lt;code&gt;v1.27.0+1&lt;/code&gt;. Install with &lt;code&gt;sudo apt install zed&lt;/code&gt;.&lt;/p&gt;</content>
   </entry>
 </feed>
