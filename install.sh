@@ -6,8 +6,18 @@
 # The ONLY privileged actions this script performs are:
 #   1. installing the repository's GPG key into /etc/apt/keyrings/
 #   2. writing one apt sources file into /etc/apt/sources.list.d/
-# Both are plain, human-readable config — review them (and this script)
+#   3. writing one apt preferences file into /etc/apt/preferences.d/
+#
+# These are plain, human-readable config files — review them (and this script)
 # before running. Nothing else is executed, downloaded, or modified.
+#
+# Compatibility:
+# * Debian and Ubuntu
+# * Downstream releases from Debian and Ubuntu:
+#   - LinuxMint (Ubuntu)
+#   - LMDE (Debian)
+#   - Devuan (Debian)
+#   - Distros downstream from Devuan which is downstream from Debian
 #
 # Usage:
 #   install.sh              add the repo for the detected Debian/Ubuntu suite
@@ -20,6 +30,8 @@ REPO_URL="https://latest-debs.ranjithraj.workers.dev/"
 KEY_URL="https://latest-debs.github.io/apt-repo/latest-debs.asc"
 KEYRING="/etc/apt/keyrings/latest-debs.gpg"
 SOURCES="/etc/apt/sources.list.d/latest-debs.sources"
+SOURCES_LIST="/etc/apt/sources.list.d/latest-debs.list"
+PREFS="/etc/apt/preferences.d/latest-debs.pref"
 SUPPORTED="bookworm trixie forky sid jammy noble questing resolute"
 
 msg()  { printf '\033[1;32m==>\033[0m %s\n' "$*"; }
@@ -32,7 +44,7 @@ run() { if [ -n "$SUDO" ]; then "$SUDO" "$@"; else "$@"; fi; }
 
 case "${1:-}" in
   --uninstall)
-    run rm -f "$KEYRING" "$SOURCES"
+    run rm -f "$KEYRING" "$SOURCES" "$SOURCES_LIST" "$PREFS"
     run apt-get update -qq || true
     msg "latest-debs repository removed."
     exit 0
@@ -40,9 +52,20 @@ case "${1:-}" in
   --status)
     if [ -f "$SOURCES" ]; then
       echo "--- $SOURCES ---"; cat "$SOURCES"
+      echo "--- $KEYRING ---"
       command -v gpg >/dev/null && gpg --show-keys "$KEYRING" 2>/dev/null | sed -n '2p'
+      if [ -f "$PREFS" ]; then
+        echo "--- $PREFS ---"; cat "$PREFS"
+      fi
+    elif [ -f "$SOURCES_LIST" ]; then
+      echo "--- $SOURCES_LIST ---"; cat "$SOURCES_LIST"
+      echo "--- $KEYRING ---"
+      command -v gpg >/dev/null && gpg --show-keys "$KEYRING" 2>/dev/null | sed -n '2p'
+      if [ -f "$PREFS" ]; then
+        echo "--- $PREFS ---"; cat "$PREFS"
+      fi
     else
-      echo "not installed"
+      echo "latest-debs repository is not installed"
     fi
     exit 0
     ;;
@@ -57,7 +80,24 @@ case "${ID:-}" in debian|ubuntu) ;; *)
   case "${ID_LIKE:-}" in *debian*|*ubuntu*) ;; *) die "unsupported distro '${ID:-?}' - Debian and Ubuntu only";; esac ;;
 esac
 
-CODENAME="${VERSION_CODENAME:-}"
+# Map distro codenames downstream from Debian or Ubuntu
+if [ -n "$UBUNTU_CODENAME" ]; then
+  # Get name from LinuxMint (based on Ubuntu)
+  CODENAME="$UBUNTU_CODENAME"
+elif [ -n "$DEBIAN_CODENAME" ]; then
+  # Get name from LinuxMint LMDE (based on Debian)
+  CODENAME="$DEBIAN_CODENAME"
+else
+  # Codename from Debian or Ubuntu, etc.
+  CODENAME="${VERSION_CODENAME:-}"
+  # Map Devuan codename to Debian codename
+  case "$CODENAME" in
+    freia) CODENAME="forky" ;;
+    excalibur) CODENAME="trixie" ;;
+    daedalus) CODENAME="bookworm" ;;
+  esac
+fi
+
 [ -n "$CODENAME" ] || CODENAME="$(lsb_release -cs 2>/dev/null || true)"
 [ -n "$CODENAME" ] || die "could not detect the release codename"
 
@@ -66,6 +106,8 @@ for s in $SUPPORTED; do [ "$s" = "$CODENAME" ] && suite_ok=1; done
 if [ -z "$suite_ok" ]; then
   die "suite '$CODENAME' is not served yet. Supported: $SUPPORTED"
 fi
+
+msg "Using CODENAME=$CODENAME"
 
 # --- Prerequisites ------------------------------------------------------------
 if ! command -v curl >/dev/null || ! command -v gpg >/dev/null; then
@@ -90,6 +132,14 @@ URIs: $REPO_URL
 Suites: $CODENAME
 Components: main
 Signed-By: $KEYRING
+Enabled: yes
+EOF
+
+msg "writing $PREFS ($CODENAME)"
+run tee "$PREFS" > /dev/null <<EOF
+Package: *
+Pin: origin latest-debs.ranjithraj.workers.dev
+Pin-Priority: 940
 EOF
 
 msg "updating apt indexes"
@@ -97,9 +147,15 @@ run apt-get update -qq
 
 cat <<EOF
 
-Done. Try it:
+Done. 
 
-  sudo apt install uv eza lazygit
+Check "eza" package priorities to ensure latest-debs packages would be installed:
+
+  apt-cache policy eza
+
+Check "eza" package install dependencies without actually installing:
+
+  sudo apt install --dry-run eza
 
 Full catalog: https://latest-debs.github.io/
 EOF
