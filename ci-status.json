@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-26T04:46:00Z",
+  "generated_at": "2026-11-26T14:49:25Z",
   "repos": [
     {
       "name": "latest-debs.github.io",
@@ -8,8 +8,8 @@
       "conclusion": null,
       "status": "in_progress",
       "branch": "main",
-      "run_url": "https://github.com/latest-debs/latest-debs.github.io/actions/runs/45757258634",
-      "created_at": "2026-11-26T04:45:51Z"
+      "run_url": "https://github.com/latest-debs/latest-debs.github.io/actions/runs/45842835457",
+      "created_at": "2026-11-26T14:49:17Z"
     },
     {
       "name": "apt-repo",
@@ -18,8 +18,8 @@
       "conclusion": "success",
       "status": "completed",
       "branch": "gh-pages",
-      "run_url": "https://github.com/latest-debs/apt-repo/actions/runs/45708654162",
-      "created_at": "2026-11-25T21:55:01Z"
+      "run_url": "https://github.com/latest-debs/apt-repo/actions/runs/45783006399",
+      "created_at": "2026-11-26T08:25:16Z"
     },
     {
       "name": "quickshell-debian",
